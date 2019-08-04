@@ -12,6 +12,14 @@ If you want to work on the slides, follow these steps to set it up on your machi
 4. Install the dependencies: `npm install`
 5. Start the development server: `npm start`. This will open http://localhost:8000 in your browser and you can navigate to the slides you want to edit there.
 
+## PDF generation
+
+You can generate PDFs from the HTML slides by running decktape, for example:
+
+```bash
+`npm bin`/decktape automatic http://rubymonstas.ch/slides.rubymonstas.ch/slides/00-welcome/ 00-welcome.pdf
+```
+
 ## Slide guidelines
 
 In order to end up with consistent and easily understandable, useful slides, here are some guidelines.
