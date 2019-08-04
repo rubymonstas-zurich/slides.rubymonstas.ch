@@ -1,6 +1,6 @@
 # slides.rubymonstas.ch
 
-This is the repository for the new slides for [Rubymonstas Zürich](https://rubymonstas.ch). These are HTML slides, based on https://revealjs.com/.
+This is the repository for the new slides for [Ruby Monstas Zürich](https://rubymonstas.ch). These are HTML slides, based on https://revealjs.com/.
 
 ## Setup
 
