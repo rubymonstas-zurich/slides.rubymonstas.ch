@@ -52,6 +52,10 @@ h1.align-left {
   text-align: left;
 }
 
+b {
+  color: $rubymonstasRed;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------

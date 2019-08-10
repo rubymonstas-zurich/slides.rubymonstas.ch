@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM Session 1 - Setting up</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Ruby Monstas 
+            <!-- TODO: Figure out how to get logo in here -->
+            <!-- <img class="rubymonstas-logo" src="../images/logo-cropped-small.png"> -->
+          </h1>
+          <hr>
+          <p class='subtitle'>
+            Session 1: Setting up
+          </p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Your toolbox</h2>
+          <p>
+            The terminal
+          </p>
+          <img class="fragment fade-in" src="images/terminal.png" style="max-height: 300px">
+          <p class="fragment fade-in">
+            Comes pre-installed on all operating systems!
+          </p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Your toolbox</h2>
+            <p>
+              Visual Studio Code
+            </p>
+            <img class="fragment fade-in" src="images/vscode.png" style="max-height: 400px">
+            <aside class="notes">
+            </aside>
+          </section>
+          <section>
+            <a href="https://code.visualstudio.com/">code.visualstudio.com</a>
+            <p>Don't worry, it's free and open source!</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Your toolbox</h2>
+            <p>
+              Finally, <b>Ruby</b>!
+            </p>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section>
+            <h2>For macOS</h2>
+            <p>Congratulations! There is nothing to be done. Ruby comes pre-installed!</p>
+          </section>
+          <section>
+            <h2>For Windows</h2>
+            <p><a href="https://rubyinstaller.org/">rubyinstaller.org</a></p>
+          </section>
+          <section>
+            <img src="images/ruby-installer-1.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-2.png" style="max-height: 500px">
+          </section>
+        </section>
+
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

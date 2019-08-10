@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM Session 1 - Ruby: First steps</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Ruby Monstas 
+            <!-- TODO: Figure out how to get logo in here -->
+            <!-- <img class="rubymonstas-logo" src="../images/logo-cropped-small.png"> -->
+          </h1>
+          <hr>
+          <p class='subtitle'>
+            Session 1: Ruby: First steps
+          </p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>What programming language should I learn?</h2>
+          <p class="fragment fade-in">
+            Ask 10 Programmers, get 15 answers
+          </p>
+          <p class="fragment fade-in">
+            More important than what language is that you try it
+          </p>
+          <p class="fragment fade-in">
+            Programming might not be for you, so just try one language and decide
+          </p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Why Ruby?</h2>
+            <blockquote>
+              "I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of Ruby language." 
+              <br> 
+              <small><em>Yukihiro Matsumoto ("Matz") - Ruby creator</em></small>
+            </blockquote>
+          </section>
+
+          <section>
+            <h2>Why Ruby?</h2>
+            <p class="fragment fade-in">
+              The coaches know it well
+            </p>
+            <p class="fragment fade-in">
+              Easier to learn than other languages
+            </p>
+            <p class="fragment fade-in">
+              Active, open and friendly community: "Matz is nice and so we are nice" (MINASWAN)
+            </p>
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Hello world!</h2>
+            <a href="https://repl.it">repl.it</a>
+          </section>
+
+          <section>
+            <img src="images/repl.it-1.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/repl.it-2.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/repl.it-3.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/repl.it-4.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/repl.it-5.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/repl.it-6.png" style="max-height: 500px">
+          </section>
+          <section>
+            <h2>Congratulations!</h2>
+            <p>
+              Your very first <b>error message</b>!
+            </p>
+          </section>
+          <section>
+            <h2>Hello world!</h2>
+            <pre><code class="hljs ruby">puts "Hello world!"</code></pre>
+          </section>
+          <section>
+            <img src="images/repl.it-7.png" style="max-height: 500px">
+          </section>
+          <section>
+            <h2>Congratulations!</h2>
+            <p>
+              Your very first <b>Ruby program</b>!
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
