@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - 12
+- 12
 script:
-  - npm start &
-  - sleep 2 # give previous command a bit of time to start
-  - "`npm bin`/decktape automatic http://localhost:8000/slides/00-welcome/ 00-welcome.pdf"
+- npm start &
+- sleep 2
+- "`npm bin`/decktape automatic http://localhost:8000/slides/00-welcome/ 00-welcome.pdf"
+deploy:
+  provider: releases
+  api_key:
+    secure: DpaUe4gIw+q2/ZKSGfrWVEKcYBv3/wwTDJsUa3nrwD48x2QIVaffUoqsrE5lrsdemyYKM9k0CTEFImdjgGUAAce4lCr2gp+ZY6DE3csu9lEp659b+jTTYhSpEbArVVxzJLsBk+/6xDYoX+hGDkwCwE+xT7U5/1fIn5RMc9ZK94cYjtewvrN3lV1eZ7xnQTgSngskTDdSwhq6iefN6wWTn5w21jMFX+Y0KOt+YtpYeWCInHJoV8RdjuB77FZ/k9k4UyGCFxm1iXmmp0tmsl6Wrdz+GbLJXRQlKT6AM+tCr3sS/op8wNMUCXRJNti+lg/nMJrG1hRxYwplqpHbGz93nXgiqiUHClfMY9g/aGzQsIKEh30dkKA5oTEaBIT0y1QvoNaZqCDYFat9GRymqq6zh51nhz4wUtcHs5zyyMV5WnDVdSx4vx2VqBfYN1/O19SuMSGM1xIDBeHg7VTup7uK9fCXkKuXkfYoamNLlhA5jc/10S+1arqlvhhUJ6hriGd9NBsMJZv1YvMtknINDA7w0ZCJMnxsB6ukwiK12+DtpFgHeSxJDI/Ie4F2ZUzXqTMX+L8YzY+HfF2ZaQtEg9Bm7hEo3iHbgcZLpayuOINeVPnOnpzVXtHubPb5NeZF+tQzSbKMF6CxGuP9zQzP+fQObMp3lSWoehydbCw+k5NA4l4=
+  file: 00-welcome.pdf
+  on:
+    repo: rubymonstas-zurich/slides.rubymonstas.ch
+    branch: travis
