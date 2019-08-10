@@ -37,3 +37,6 @@ On the other hand, we want to use metaphors when describing programming concepts
 ### Usage Scope
 
 We've noticed that our participants like to use the slides to look up information while doing the exercises. Make sure your slides fit that use case. Make them easily searchable by not only using images but also text that describes them. 
+
+Add a link to the relevant chapter of [Ruby for beginners](http://ruby-for-beginners.rubymonstas.org/) at the end of the slideset.
+
