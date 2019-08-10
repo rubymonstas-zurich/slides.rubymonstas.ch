@@ -3,4 +3,5 @@ node_js:
   - 12
 script:
   - npm start &
+  - sleep 2 # give previous command a bit of time to start
   - "`npm bin`/decktape automatic http://localhost:8000/slides/00-welcome/ 00-welcome.pdf"
