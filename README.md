@@ -14,11 +14,13 @@ If you want to work on the slides, follow these steps to set it up on your machi
 
 ## PDF generation
 
-You can generate PDFs from the HTML slides by running decktape, for example:
+You can generate PDFs from the HTML slides locally by running decktape, like this:
 
 ```bash
-`npm bin`/decktape automatic http://rubymonstas.ch/slides.rubymonstas.ch/slides/00-welcome/ 00-welcome.pdf
+./generate-pdfs.sh
 ```
+
+Note that the development server has to run too: `npm start`
 
 PDF generation should also happen automagically through [Travis CI](https://travis-ci.org/rubymonstas-zurich/slides.rubymonstas.ch). The generated slides are uploaded as releases to GitHub.
 
