@@ -4,7 +4,7 @@ node_js:
 script:
 - npm start &
 - sleep 2
-- "`npm bin`/decktape automatic http://localhost:8000/slides/00-welcome/ 00-welcome.pdf"
+- ./generate-pdfs.sh
 deploy:
   provider: releases
   api_key:
