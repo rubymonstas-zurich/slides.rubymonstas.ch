@@ -20,6 +20,8 @@ You can generate PDFs from the HTML slides by running decktape, for example:
 `npm bin`/decktape automatic http://rubymonstas.ch/slides.rubymonstas.ch/slides/00-welcome/ 00-welcome.pdf
 ```
 
+PDF generation should also happen automagically through [Travis CI](https://travis-ci.org/rubymonstas-zurich/slides.rubymonstas.ch). The generated slides are uploaded as releases to GitHub.
+
 ## Slide guidelines
 
 In order to end up with consistent and easily understandable, useful slides, here are some guidelines.
