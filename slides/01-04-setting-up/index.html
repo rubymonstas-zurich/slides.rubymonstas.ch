@@ -26,27 +26,48 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>Ruby Monstas 
-            <!-- TODO: Figure out how to get logo in here -->
-            <!-- <img class="rubymonstas-logo" src="../images/logo-cropped-small.png"> -->
-          </h1>
-          <hr>
-          <p class='subtitle'>
-            Session 1: Setting up
-          </p>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Session 1: Setting up
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
           <aside class="notes">
           </aside>
         </section>
 
         <section>
-          <h2>Your toolbox</h2>
-          <p>
-            The terminal
-          </p>
-          <img class="fragment fade-in" src="images/terminal.png" style="max-height: 300px">
-          <p class="fragment fade-in">
-            Comes pre-installed on all operating systems!
-          </p>
+          <section>
+            <h2>Your toolbox</h2>
+            <p>
+              The command line
+            </p>
+            <img class="fragment fade-in" src="images/terminal.png" style="max-height: 300px">
+            <p class="fragment fade-in">
+              Comes pre-installed on all operating systems!
+            </p>
+          </section>
+          <section>
+            <table>
+              <thead>
+                <tr><th>Operating System</th><th>Command line program</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Windows</td><td>Powershell</td></tr>
+                <tr><td>macOS</td><td>Terminal</td></tr>
+                <tr><td>Linux</td><td>Terminal Emulator</td></tr>
+              </tbody>
+            </table>
+            <p class="fragment fade-in">
+              Set up a desktop shortcut for your command line now!
+            </p>
+          </section>
           <aside class="notes">
           </aside>
         </section>
@@ -59,11 +80,15 @@
             </p>
             <img class="fragment fade-in" src="images/vscode.png" style="max-height: 400px">
             <aside class="notes">
+              If you already have a different editor, such as Atom or Sublime text, you can use that one.
             </aside>
           </section>
           <section>
             <a href="https://code.visualstudio.com/">code.visualstudio.com</a>
             <p>Don't worry, it's free and open source!</p>
+            <p class="fragment fade-in">
+              Set up a desktop shortcut for Visual Studio Code now!
+            </p>
           </section>
         </section>
 
@@ -81,6 +106,11 @@
             <p>Congratulations! There is nothing to be done. Ruby comes pre-installed!</p>
           </section>
           <section>
+            <h2>For Linux</h2>
+            <p>You probably know how to install packages on your distribution.</p>
+            <p>For example on Ubuntu, run in the command line: <pre><code class="hljs bash">sudo apt install ruby-full</code></pre></p>
+          </section>
+          <section>
             <h2>For Windows</h2>
             <p><a href="https://rubyinstaller.org/">rubyinstaller.org</a></p>
           </section>
@@ -90,6 +120,40 @@
           <section>
             <img src="images/ruby-installer-2.png" style="max-height: 500px">
           </section>
+          <section>
+            <img src="images/ruby-installer-3.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-4.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-5.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-6.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-7.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-8.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-installer-9.png" style="max-height: 500px">
+          </section>
+        </section>
+
+        <section>
+          <h2>Your toolbox</h2>
+          <p>
+            Check that your Ruby installation works:
+          </p>
+          <ol>
+            <li>Open your command line (Terminal, Powershell or similar)</li>
+            <li>Type in the window: <pre><code class="hljs bash">ruby --version</code></pre></li>
+            <li>Push the Enter key</li>
+          </ol>
+          <p>You should see something similar to this: <pre>ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18]</pre></p>
         </section>
 
         <section>

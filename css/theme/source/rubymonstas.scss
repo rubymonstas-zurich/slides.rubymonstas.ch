@@ -56,6 +56,28 @@ b {
   color: $rubymonstasRed;
 }
 
+.flex-container{
+  display: flex;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.flex-column {
+  flex: 1;
+}
+
+.flex-column-200px {
+  flex: 0 0 200px;
+}
+
+
+img.no-border {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
