@@ -56,6 +56,42 @@ b {
   color: $rubymonstasRed;
 }
 
+.flex-container{
+  display: flex;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.flex-column {
+  flex: 1;
+}
+
+.flex-column-200px {
+  flex: 0 0 200px;
+}
+
+img.no-border {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+pre.pre-inline {
+  display: inline !important;
+  font-size: 0.9em !important;
+  margin: auto 10px !important;
+}
+
+kbd {
+  font-family: monospace;
+  color: white;
+  background-color: #212529;
+  border-radius: .5rem;
+  padding: .2rem .4rem;
+  font-size: 0.9em;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
