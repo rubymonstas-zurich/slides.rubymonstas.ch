@@ -1,4 +1,4 @@
-# slides.rubymonstas.ch ![Travis-CI status](https://travis-ci.org/rubymonstas-zurich/slides.rubymonstas.ch.svg?branch=master)
+# slides.rubymonstas.ch ![Travis-CI status](https://img.shields.io/travis/rubymonstas-zurich/slides.rubymonstas.ch)
 
 This is the repository for the new slides for [Ruby Monstas Zürich](https://rubymonstas.ch). These are HTML slides, based on https://revealjs.com/.
 
