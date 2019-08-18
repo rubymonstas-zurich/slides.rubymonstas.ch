@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM Session 2 - puts and gets</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the session topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Session 2: puts and gets
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>puts</h2>
+            <p class="fragment fade-in">You've seen that before:</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">puts "Hello world"</code></pre>
+            <div class="fragment fade-in">But we can use <pre class="pre-inline">puts</pre> with any expression:</div>
+            <pre class="fragment fade-in"><code class="hljs ruby">puts a_number</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">puts 12.0 / 4</code></pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>puts</h2>
+            <pre class="fragment fade-in"><code class="hljs ruby">puts 12.0 / 4</code></pre>
+            <p class="fragment fade-in">What does Ruby do?</p>
+            <ol>
+              <li class="fragment fade-in">Evaluates the expression (<pre class="pre-inline">12.0 / 4</pre>)</li>
+              <li class="fragment fade-in">Passes the result (the float <pre class="pre-inline">3.0</pre>) to the method <pre class="pre-inline">puts</pre></li>
+              <li class="fragment fade-in"><pre class="pre-inline">puts</pre> converts the float to a the string <pre class="pre-inline">"3.0"</pre> by calling <pre class="pre-inline">to_s</pre> on it</li>
+              <li class="fragment fade-in">Outputs <pre class="pre-inline">3.0</pre> on the command line</li>
+            </ol>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>gets</h2>
+            <p class="fragment fade-in"><pre class="pre-inline">gets</pre> allows the user to interact with your program</p>
+            <div class="fragment fade-in">It's the <b>"opposite"</b> of <pre class="pre-inline">puts</pre></div>
+            
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <p>Save this code in a file called <pre class="pre-inline">gets.rb</pre>:</p>
+            <pre><code class="hljs ruby">puts "Hi! What's your name?"
+name = gets
+puts "Aha! Your name is: " + name</code></pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <p>In the command line, execute the code by running <pre class="pre-inline">ruby gets.rb</pre></p>
+            <pre class="fragment fade-in">$ ruby gets.rb
+Hi! What's your name?
+<b>Ferdinand</b>
+Aha! Your name is: Ferdinand
+
+</pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <pre><code class="hljs ruby">puts "Hi! What's your name?"
+name = gets
+puts "Aha! Your name is: " + name</code></pre>
+            <div class="fragment fade-in">As soon as <pre class="pre-inline">gets</pre> is executed, the Ruby program stops</div>
+            <p class="fragment fade-in">It only continues when the user types <kbd>Enter</kbd></p>
+            <div class="fragment fade-in"><b>All</b> the characters the user entered, are stored in the variable <pre class="pre-inline">name</pre> as a <b>string</b></div>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <pre><code class="hljs ruby">puts "Hi! What's your name?"
+name = gets
+puts "Aha! Your name is: " + name</code></pre>
+          <div class="fragment fade-in"><b>Note</b>: This means, that the string includes the newline character which results from typing <kbd>Enter</kbd></div>
+            <div class="fragment fade-in">Therefore, in the example, the resulting string is <pre class="pre-inline">"Ferdinand\n"</pre></div>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <div>Change <pre class="pre-inline">gets.rb</pre> like this:</div>
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Here's double that number: " + (2 * number)
+</code></pre>
+            <p>And run the code!</p>
+            <b><pre class="fragment fade-in">gets.rb:3:in `*': String can't be coerced into Integer (TypeError)</pre></b>
+            <div class="fragment fade-in"><pre class="pre-inline">number</pre> contains a string, because <pre class="pre-inline">gets</pre> <b>always</b> returns a string!</div>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <div>We can fix it by using <pre class="pre-inline">to_i</pre> to convert from string to integer:</div>
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Here's double that number: " + (2 * number.to_i)
+</code></pre>
+            <p>Run the code!</p>
+            <b><pre class="fragment fade-in">gets.rb:3:in `+': no implicit conversion of Integer into String (TypeError)</pre></b>
+            <div class="fragment fade-in">Ruby doesn't allow us to add a number to a string</div>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>gets</h2>
+            <div>We can fix it by using <pre class="pre-inline">to_s</pre> to convert from integer to string:</div>
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Here's double that number: " + (2 * number.to_i).to_s
+</code></pre>
+            <p>Run the code!</p>
+            <pre class="fragment fade-in">$ ruby gets.rb
+Hi! Please enter a number:
+<b>43</b>
+Here's double that number: 86
+</pre>
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <!-- Last slide the question for questions ;P And also, links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
