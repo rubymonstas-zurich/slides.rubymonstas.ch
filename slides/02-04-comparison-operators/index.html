@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM Session 2 - Comparison Operators</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the session topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Session 2: Comparison Operators
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Comparison Operators</h2>
+            <p class="fragment fade-in">Comparison operators are used to <b>compare</b> two things, typically <b>numbers</b> (integers or floats)</p>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Comparison Operators</h2>
+            <p class="fragment fade-in">Try these in IRB!</p>
+            <pre class="fragment fade-in">5 == 4</pre>
+            <pre class="fragment fade-in">=> false</pre>
+            <pre class="fragment fade-in">5 != 4</pre>
+            <pre class="fragment fade-in">=> true</pre>
+            <pre class="fragment fade-in">1 < 2</pre>
+            <pre class="fragment fade-in">=> true</pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Comparison Operators</h2>
+            <p class="fragment fade-in">Try these in IRB!</p>
+            <pre class="fragment fade-in">1 > 2</pre>
+            <pre class="fragment fade-in">=> false</pre>
+            <pre class="fragment fade-in">7.1 <= 7.2</pre>
+            <pre class="fragment fade-in">=> true</pre>
+            <pre class="fragment fade-in">7.1 >= 7.2</pre>
+            <pre class="fragment fade-in">=> false</pre>
+          </section>
+
+          <section>
+            <h2>Syntax</h2>
+            <div class="fragment fade-in">Syntax: <pre class="pre-inline">expression1 operator expression2</pre></div>
+            <p class="fragment fade-in"><b>Note</b>: Expressions can of course contain variables and method calls, as we have seen before</p>
+            <div class="fragment fade-in"><b>Note</b>: They are like a <b>yes/no question</b>, therefore they always return either <b><pre class="pre-inline">true</pre></b> or <b><pre class="pre-inline">false</pre></b></div>
+          </section>
+
+          <section>
+            <h2>Overview</h2>
+            <table>
+              <tbody>
+                <tr><td><pre class="pre-inline">==</pre></td><td>Are the left and right side <b>equal</b>?</td></tr>
+                <tr><td><pre class="pre-inline">!=</pre></td><td>Are the left and right side <b>not equal</b>?</td></tr>
+                <tr><td><pre class="pre-inline">&lt;</pre></td><td>Is the left side <b>smaller than</b> the right side?</td></tr>
+                <tr><td><pre class="pre-inline">&gt;</pre></td><td>Is the left side <b>bigger than</b> the right side?</td></tr>
+                <tr><td><pre class="pre-inline">&lt;=</pre></td><td>Is the left side <b>smaller than or equal</b> to the right side?</td></tr>
+                <tr><td><pre class="pre-inline">&gt;=</pre></td><td>Is the left side <b>bigger than or equal</b> to the right side?</td></tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+
+        <!-- Last slide the question for questions ;P And also, links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
