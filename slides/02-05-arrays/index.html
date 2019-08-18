@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM Session 2 - Arrays</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the session topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Session 2: Arrays
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Arrays</h2>
+            <p class="fragment fade-in">
+              Arrays are <b>lists</b> of things
+            </p>
+            <p class="fragment fade-in">
+              They are the most important <b>"collection type"</b> in Ruby
+            </p>
+            <p class="fragment fade-in">
+              They allow you to store many things in one variable
+            </p>
+          </section>
+
+          <section>
+            <h2>Examples</h2>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits = ["Banana", "Apple", "Water melon"]</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">monthly_expenses = [342.75, 108.20, 241.00, 632.15, 499.55]</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">fibonacci_numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</code></pre>
+            <p class="fragment fade-in">
+              <b>Note</b>: Each element in the array has the <b>same type</b>
+            </p>
+            <p class="fragment fade-in">
+              <b>Note</b>: Elements are in a <b>defined order</b>
+            </p>
+            <p class="fragment fade-in">
+              <b>Note</b>: Arrays can have 0 up to however many entries you want
+            </p>
+          </section>
+
+          <section>
+            <h2>Syntax</h2>
+            <p>
+              <div class="fragment fade-in">Syntax: <pre class="pre-inline">[item1, item2, ...]</pre></div>
+            </p>
+            <p>
+              <div class="fragment fade-in">Empty array: <pre class="pre-inline">[]</pre></div>
+            </p>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Length</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits = ["Banana", "Apple", "Water melon"]
+my_favourite_fruits.length</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> 3</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">[].length</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> 0</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Accessing items</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits = ["Banana", "Apple", "Water melon"]
+my_favourite_fruits[1]</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> "Apple"</code></pre>
+            <div class="fragment fade-in">
+              Syntax: <pre class="pre-inline">array[index]</pre>
+            </div>
+            <div class="fragment fade-in">
+              <b>Note</b>: Each element in the array has a so-called <b>index</b> an <b>integer</b> denoting the <b>position</b> of the element in the array
+            </div>
+            <p class="fragment fade-in">
+              <b>Note</b>: Indices always start at <b>0</b>, so the element with index <b>1</b> is the <b>second</b> element
+            </p>
+          </section>
+
+          <section>
+            <h2>Accessing items</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits = ["Banana", "Apple", "Water melon"]
+my_favourite_fruits[3]</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> nil</code></pre>
+            <div class="fragment fade-in">
+              <b>Note</b>: If we try to access items beyond the length of the array, we get <pre class="pre-inline">nil</pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Accessing items</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits = ["Banana", "Apple", "Water melon"]
+my_favourite_fruits.first</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> "Banana"</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits.last</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> "Water melon"</code></pre>
+            <div class="fragment fade-in">
+              <b>Note</b>: <pre class="pre-inline">.first</pre> and <pre class="pre-inline">.last</pre> are more convenient than <pre class="pre-inline">[0]</pre> and <pre class="pre-inline">[2]</pre>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Appending</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits << "Orange"</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> ["Banana", "Apple", "Water melon", "Orange"]</code></pre>
+            <p class="fragment fade-in">
+              <b>Note</b>: We can use the <b>"shovel operator"</b> to add elements to the end of an array
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Changing items</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits[2] = "Mango"</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> ["Banana", "Apple", "Mango", "Orange"]</code></pre>
+            <div class="fragment fade-in">Syntax: <pre class="pre-inline">array[index] = new_item</pre></div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Deleting items</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits.delete("Mango")</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> ["Banana", "Apple", "Orange"]</code></pre>
+          </section>
+
+          <section>
+            <h2>Deleting items</h2>
+            <p>Try this in IRB!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits.delete_at(2)</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_favourite_fruits</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">=> ["Banana", "Apple"]</code></pre>
+          </section>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/built_in_classes/arrays.html">Ruby For Beginners: Arrays</a></small>
+          </p>
+          <p>
+            <small><a href="https://ruby-doc.org/core/Array.html">Ruby-doc: Array</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
