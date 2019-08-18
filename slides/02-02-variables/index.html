@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM Session 2 - Variables</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the session topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Session 2: Variables
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+          <p class="fragment fade-in">IRB: As soon as you hit Enter and the Ruby command has finished executing, the result is <b>forgotten</b></p>
+          <p class="fragment fade-in">We should be able to use the result of one line in the next</p>
+          <p class="fragment fade-in">Enter <b>variables</b>!</p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>The drawer metaphor</h2>
+          <img class="no-border" src="images/drawer-metaphor.jpg" style="max-height: 250px">
+          <p class="fragment fade-in">
+            You can think of variables like drawers in an apothecary
+          </p>
+          <p class="fragment fade-in">
+            The drawers each have a <b>label</b> on them and they contain a specific <b>thing</b> at any time (or nothing)
+          </p>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Assigning a variable</h2>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_string = "Hello world"</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">a_number = 5 + 2</code></pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>The drawer metaphor: Assignment</h2>
+            <img class="no-border" src="images/drawer-metaphor-assignment-1.svg" style="max-height: 450px">
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <img class="no-border" src="images/drawer-metaphor-assignment-2.svg" style="max-height: 450px">
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <img class="no-border" src="images/drawer-metaphor-assignment-3.svg" style="max-height: 450px">
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <img class="no-border" src="images/drawer-metaphor-assignment-4.svg" style="max-height: 450px">
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Syntax</h2>
+            <pre><code class="hljs ruby">my_string = "Hello world"</code></pre>
+            <pre><code class="hljs ruby">a_number = 5 + 2</code></pre>
+            <div class="fragment fade-in">
+              <b>Note</b>: <pre class="pre-inline">=</pre> is called the <b>assignment operator</b>
+            </div>
+            <div class="fragment fade-in">
+              <b>Note</b>: <pre class="pre-inline">=</pre> differs from how it's used in mathematics
+            </div>
+            <div class="fragment fade-in">
+              <b>Note</b>: We're <b>defining</b> the variable and <b>initializing</b> it with a value
+            </div>
+            <div class="fragment fade-in">
+              <b>Note</b>: Syntax is <pre class="pre-inline">variable_name = expression</pre>
+            </div>
+          </section>
+
+          <section>
+            <h2>Example expressions</h2>
+            <pre class="fragment fade-in"><code class="hljs ruby">5</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">"Hello world"</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">a_number.odd?</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">my_string.include?("Hello")</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">8 * 6</code></pre>
+            <pre class="fragment fade-in"><code class="hljs ruby">(a_number / 5.0) + 42</code></pre>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Expressions</h2>
+            <p class="fragment fade-in">An <b>expression</b> is any piece of Ruby code that <b>returns</b> a value</p>
+            <p class="fragment fade-in">Any expression can be assigned to a variable!</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">b_number = (a_number / 5.0) + 42</code></pre>
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Reassignment</h2>
+            <p class="fragment fade-in">You can give existing variables a new value by <b>reassigning</b></p>
+            <pre class="fragment fade-in"><code class="hljs ruby">a_number = 5 + 2
+a_number = 42</code></pre>
+            <p class="fragment fade-in"><b>Note</b>: Note syntax is the same as for assignment</p>
+            <p class="fragment fade-in"><b>Note</b>: The old value of the variable is <b>lost</b> by doing this</p>
+          </section>
+
+          <section>
+            <h2>Reassignment</h2>
+            <p class="fragment fade-in">You can also use the variable in an expression when reassigning it</p>
+            <pre class="fragment fade-in"><code class="hljs ruby">a_number = 5 + 2
+a_number = a_number + 3</code></pre>
+            <p class="fragment fade-in"><b>Note</b>: Here's where it definitely stops making sense mathematically ;-)</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Variable types</h2>
+          <p class="fragment fade-in">A variable always has a specific type</p>
+          <p class="fragment fade-in">For example <b>String</b> or <b>Integer</b></p>
+          <p class="fragment fade-in">Whenever Ruby executes a method on a variable, it first checks the type!</b></p>
+          <pre class="fragment fade-in"><code class="hljs ruby">a_number = 5 + 2
+a_number.length</code></pre>
+          <b><pre class="fragment fade-in">NoMethodError (undefined method `length' for 7:Integer)</pre></b>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Variable names</h2>
+            <p class="fragment fade-in">These characters are allowed:</p>
+            <ul>
+              <li class="fragment fade-in">lower-case letters (<pre class="pre-inline">a - z</pre>)</li>
+              <li class="fragment fade-in">digits (<pre class="pre-inline">0 - 9</pre>)</li>
+              <li class="fragment fade-in">underscore (<pre class="pre-inline">_</pre>)</li>
+            </ul>
+            <div class="fragment fade-in">Variable names <b>can't</b> contain spaces (use <pre class="pre-inline">_</pre> instead)</div>
+            <p class="fragment fade-in">Variable names <b>can't</b> start with a digit</p>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Variable names</h2>
+            <p class="fragment fade-in">Which of these are good variable names?</p>
+            <pre class="fragment fade-in">
+<span class="fragment highlight-red">mynewvariable</span>
+<span class="fragment highlight-green">user_name</span>
+<span class="fragment highlight-green">date_of_birth</span>
+<span class="fragment highlight-red">5_things</span>
+<span class="fragment highlight-red">AnotherVariableName</span>
+<span class="fragment highlight-green">list_of_favourite_drinks</span></pre>
+          </section>
+        </section>
+        
+        <!-- Last slide the question for questions ;P And also, links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/variables.html">Ruby For Beginners: Variables</a></small>
+          </p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
