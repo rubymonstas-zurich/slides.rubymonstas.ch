@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Topic</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Topic
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Numbers</h2>
+          <p class="fragment fade-in">
+            Programming languages often have more than one <b>number type</b>
+          </p>
+          <p class="fragment fade-in">
+            Ruby distinguishes:
+            <ul class="fragment fade-in">
+              <li>Integers (whole numbers)</li>
+              <li>Floats (floating point numbers, decimal numbers)</li>
+            </ul>
+          </p>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>Integers</h2>
+          <p>
+            Example integers:
+            <pre class="pre-inline">-1353</pre>, <pre class="pre-inline">-8</pre>, <pre class="pre-inline">0</pre>, <pre class="pre-inline">4</pre>, <pre class="pre-inline">78</pre>
+          </p>
+          <p class="fragment fade-in">
+            Often used for counting things
+          </p>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>Floats</h2>
+          <p>
+            Example floats:
+            <pre class="pre-inline">-514.3556</pre>, <pre class="pre-inline">-7.0</pre>, <pre class="pre-inline">0.0</pre>, <pre class="pre-inline">9.1567</pre>, <pre class="pre-inline">16789.4212357</pre>
+          </p>
+          <p class="fragment fade-in">
+            Often used for calculations
+          </p>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>Integer calculations</h2>
+          <p>
+            Try these in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">7 + 5</code></pre>
+          <pre class="fragment fade-in">=> 12</pre>
+          <pre class="fragment fade-in"><code class="hljs ruby">12 - 17</code></pre>
+          <pre class="fragment fade-in">=> -5</pre>
+          <pre class="fragment fade-in"><code class="hljs ruby">5 * 9</code></pre>
+          <pre class="fragment fade-in">=> 45</pre>
+          <pre class="fragment fade-in"><code class="hljs ruby">1 / 2</code></pre>
+          <pre class="fragment fade-in">=> 0</pre>
+          <p class="fragment fade-in">
+            <b>Wait a second, what?!</b>
+          </p>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>Integer division</h2>
+          <p>
+            When dividing two integers, Ruby <b>rounds</b> the result <b>down</b> to the next integer!
+          </p>
+          <p class="fragment fade-in">
+            The logic: If you put integers in, you want integers out, no matter what!
+          </p>
+          <p class="fragment fade-in">
+            Try these in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">1.0 / 2</code></pre>
+          <pre class="fragment fade-in">=> 0.5</pre>
+          <pre class="fragment fade-in"><code class="hljs ruby">1 / 2.0</code></pre>
+          <pre class="fragment fade-in">=> 0.5</pre>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/built_in_classes/numbers.html">Ruby For Beginners: Numbers</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

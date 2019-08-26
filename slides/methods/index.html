@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Topic</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Topic
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Methods</h2>
+          <p>
+            Methods have 2 main uses:
+          </p>
+          <ol>
+            <li class="fragment fade-in"><b>Asking</b> an object a question</li>
+            <li class="fragment fade-in"><b>Changing</b> an object in some way</li>
+          </ol>
+          <p class="fragment fade-in">
+            Today, we're only looking at the <b>asking</b> part
+          </p>
+          
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>String methods</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"I love Ruby".length</code></pre>
+          <pre class="fragment fade-in">=> 11</pre>
+          <p class="fragment fade-in">
+            <b>Note</b>: Length includes spaces!
+          </p>
+          <p class="fragment fade-in">
+            <b>Note</b>: Return value is an <b>Integer</b>!
+          </p>
+          <div class="fragment fade-in">
+            <b>Note</b>: Syntax is <pre class="pre-inline">object.method</pre>
+          </div>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>String methods</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"I love Ruby".reverse</code></pre>
+          <pre class="fragment fade-in">=> "ybuR evol I"</pre>
+          <p class="fragment fade-in">
+            <b>Note</b>: Return value is another <b>String</b>!
+          </p>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>String methods</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"Ruby".upcase</code></pre>
+          <pre class="fragment fade-in">=> "RUBY"</pre>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>String methods</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"Ruby".downcase</code></pre>
+          <pre class="fragment fade-in">=> "ruby"</pre>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>Integer methods</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">1.odd?</code></pre>
+          <pre class="fragment fade-in">=> true</pre>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Integer methods</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">-5.even?</code></pre>
+          <pre class="fragment fade-in">=> false</pre>
+          <aside class="notes">
+          </aside>
+          <div class="fragment fade-in">
+            <b>Note</b>: Methods that end in <pre class="pre-inline">?</pre> return either <pre class="pre-inline">true</pre> or <pre class="pre-inline">false</pre>. They are yes/no questions!
+          </div>
+        </section>
+
+        <section>
+          <h2>Method arguments</h2>
+          <p>
+            Some methods require additional information
+          </p>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"I love Ruby".include?("Ruby")</code></pre>
+          <pre class="fragment fade-in">=> true</pre>
+          <pre class="fragment fade-in"><code class="hljs ruby">"I love Ruby".include?("Rails")</code></pre>
+          <pre class="fragment fade-in">=> false</pre>
+          <div class="fragment fade-in">
+            <b>Note</b>: What does <pre class="pre-inline">"I love Ruby".include?</pre> do?
+          </div>
+          <div class="fragment fade-in">
+            <b>Note</b>: To work correctly, <pre class="pre-inline">include?</pre> requires extra information
+          </div>
+          <div class="fragment fade-in">
+            <b>Note</b>: Syntax is <pre class="pre-inline">object.method(argument)</pre>
+          </div>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <h2>Methods are chainable!</h2>
+          <p>
+            Try this in IRB!
+          </p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"I love Ruby".length.odd?</code></pre>
+          <pre class="fragment fade-in">=> true</pre>
+          <div class="fragment fade-in">
+            <b>Note</b>: We have <b>"chained"</b> the methods <pre class="pre-inline">length</pre> and <pre class="pre-inline">odd?</pre>
+          </div>
+          <div class="fragment fade-in">
+            <b>Note</b>: Ruby first executes <pre class="pre-inline">"I love Ruby".length</pre>, which returns the integer <pre class="pre-inline">11</pre> and then it executes the method <pre class="pre-inline">odd?</pre> on that which returns the result <pre class="pre-inline">true</pre>
+          </div>
+          <aside class="notes">
+          </aside>  
+        </section>
+
+        <section>
+          <section>
+            <h2>Documentation</h2>
+            <p class="fragment fade-in">
+              You don't have to know all of these method names by heart!
+            </p>
+            <p class="fragment fade-in">
+              Googling helps! For example, google for "ruby doc string reverse"
+            </p>
+            <p class="fragment fade-in">
+              One of the results will be: <a href="http://ruby-doc.org/core/String.html">http://ruby-doc.org/core/String.html</a>. This is the official Ruby documentation. Use <kbd>Ctrl + F</kbd> to find things on the website.
+            </p>
+            <p class="fragment fade-in">
+              Another good source is <a href="https://stackoverflow.com/">Stackoverflow</a>
+            </p>
+            <aside class="notes">
+            </aside>  
+          </section>
+
+          <section>
+            <img src="images/ruby-doc-1.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-doc-2.png" style="max-height: 500px">
+          </section>
+          <section>
+            <img src="images/ruby-doc-3.png" style="max-height: 500px">
+          </section>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/your_tools/irb.html">Ruby For Beginners: Interactive Ruby</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
