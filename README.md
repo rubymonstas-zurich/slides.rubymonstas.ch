@@ -12,6 +12,16 @@ If you want to work on the slides, follow these steps to set it up on your machi
 4. Install the dependencies: `npm install`
 5. Start the development server: `npm start`. This will open http://localhost:8000 in your browser and you can navigate to the slides you want to edit there.
 
+### Generate a new slide set
+
+Use `rake new [slide_name]` to create a new slide set. This will create the needed directory and an initial `index.html` file in `./slides/[slide_name]`, for example:
+
+```shell
+rake new bananas
+```
+
+... which will create `./slides/bananas/index.html` that you can start editing.
+
 ## PDF generation
 
 You can generate PDFs from the HTML slides locally by running decktape, like this:
