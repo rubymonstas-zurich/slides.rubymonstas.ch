@@ -56,6 +56,10 @@ b {
   color: $rubymonstasRed;
 }
 
+i {
+  font-style: italic;
+}
+
 .coaches {
   font-size: 0.8em;
 }
@@ -147,6 +151,10 @@ kbd {
   border-radius: .5rem;
   padding: .2rem .4rem;
   font-size: 0.9em;
+}
+
+.list-none {
+  list-style-type: none !important;
 }
 
 // Theme template ------------------------------

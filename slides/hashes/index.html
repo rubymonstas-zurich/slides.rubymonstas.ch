@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Hashes</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Hashes
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section id="#definition">
+          <h2>Definition</h2>
+          <div class="flex-container">
+            <div class="flex-column">
+              <div>
+                <img class="no-border" src="images/dictionary_examples.png">
+              </div>
+            </div>
+            <div class="flex-column">
+              <ul>
+                <li class="fragment fade-in">
+                  A <b>Hash</b> is another type of <b>collection</b> (like <code>Array</code>)
+                </li>
+                <li class="fragment fade-in">
+                  It consists of <b>keys</b> and <b>values</b>
+                </li>
+                <li class="fragment fade-in">
+                  It is sometimes referred as a <b>Dictionary</b>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+
+          <h2>Creating Hashes</h2>
+          <p>To create a Hash, we use curly braces <b>{}</b>
+<pre><code class="hljs ruby">hash = {}
+# => {}
+</code></pre>
+
+        </section>
+
+        <section>
+          <h2>Rules</h2>
+          <p>Hashes <b>always</b> have pairs of <b>keys</b> and <b>values</b></p>
+<pre><code class="hljs ruby">hash = { key: "value", another_key: "another value" }
+# => {:key=>"value", :another_key=>"another value"}
+</code></pre>
+
+          <div class="fragment fade-in">
+            <ul>
+              <li>A <b>key</b> can only exist <b>once</b></li>
+              <li><b>Keys</b> are <i>usually</i> symbols (we learn about it later!)</li>
+              <li><b>Values</b> can exist multiple times</li>
+              <li>Pairs are separated by comma <b>,</b></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>By the way...</h2>
+          <pre><code class="hljs ruby">hash = { key: "value", another_key: "another value" }</code></pre>
+          <p>can also be written like this</p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">hash = { :key => "value", :another_key => "another value" }</code></pre>
+          </div>
+          <div class="fragment fade-in">
+            <p>
+              It's just a different way to write it, <br />
+              whereas <code>key: "value"</code> is more common
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>An example</h2>
+<pre><code class="hljs ruby">movie = {
+  name: "The Matrix",
+  released: 1999,
+  imdb_rating: 8.7
+}
+#  => {:name=>"The Matrix", :released=>1999, :imdb_rating=>8.7}
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Reading from hashes</h2>
+          <p>We can use the <b>key</b> in [square brackets] to read a <b>value</b></p>
+
+<pre><code class="hljs ruby">hash[:key]
+# => "value"
+</code></pre>
+
+          <div class="fragment fade-in">
+            <p>Reading from <b>movie</b></p>
+<pre><code class="hljs ruby">movie[:name]
+# => "The Matrix"
+
+movie[:released]
+# => 1999
+</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Updating values</h2>
+          <p>We can assign a <b>new value</b> to a <b>key</b></p>
+
+<pre><code class="hljs ruby">hash[:key] = "new value"
+# => "new value"
+</code></pre>
+
+          <div class="fragment fade-in">
+            <p>Updating a value for <b>movie</b></p>
+<pre><code class="hljs ruby">movie[:imdb_rating] = 9.3
+# => 9.3
+
+movie
+# => {:name=>"The Matrix", :released=>1999, :imdb_rating=>9.3}
+</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Adding new key/value pairs</h2>
+          <p>The same way we update values,<br />we can <b>add</b> new <b>key/value</b> pairs</p>
+
+<pre><code class="hljs ruby">hash[:new_key] = "yet another new value"
+# => "yet another new value"
+</code></pre>
+
+          <div class="fragment fade-in">
+            <p>Adding a key/value pair to <b>movie</b></p>
+<pre><code class="hljs ruby">movie[:tomatometer] = "88%"
+# => "88%"
+
+movie
+# => {:name=>"The Matrix", :released=>1999, :imdb_rating=>9.3,
+#     :tomatometer=>"88%"}
+</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Deleting key/value pairs</h2>
+          <p>We use the method <b><code>.delete(:key)</code></b> to delete a pair</p>
+
+<pre><code class="hljs ruby">hash.delete(:new_key)
+# => "yet another new value"
+</code></pre>
+
+          <div class="fragment fade-in">
+            <p>Removing a key/value pair from <b>movie</b></p>
+<pre><code class="hljs ruby">movie.delete(:tomatometer)
+# => "88%"
+
+movie
+# => {:name=>"The Matrix", :released=>1999, :imdb_rating=>9.3}
+</code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <h2>Summary</h2>
+<pre><code class="hljs ruby"># creating new hash
+movie = { name: "WALL·E", released: 2008, imdb_rating: 4.8 }
+
+# updating values
+movie[:imdb_rating] = 8.4
+
+# adding new key/value pairs
+movie[:tomatometer] = "88%"
+
+# deleting key/value pairs
+movie.delete(:tomatometer)
+
+movie
+# => {:name=>"WALL·E", :released=>2008, :imdb_rating=>4.8}
+</code></pre>
+        </section>
+
+        <section id="#definition">
+          <h2>When to use hashes</h2>
+          <p>We mainly use Hashes for two purposes</p>
+
+          <div class="flex-container fragment fade-in">
+            <div class="flex-column">When there are multiple variables that logically <b>belong to each other</b></div>
+            <div class="flex-column">
+<pre><code class="hljs ruby">person = {
+  name: 'Harry',
+  age: 14,
+  hair_color: 'Black'
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="flex-container fragment fade-in">
+            <div class="flex-column">As a <b>lookup structure</b>, aka dictionary</div>
+            <div class="flex-column">
+<pre><code class="hljs ruby">airports = {
+  CDG: 'Paris',
+  JFK: 'New York',
+  YYZ: 'Toronto'
+}</code></pre>
+            </div>
+          </div>
+
+
+        </section>
+
+        <section>
+          <h2>Additional methods</h2>
+          <p>There are some useful methods for hashes</p>
+          <ul>
+            <li class="fragment fade-in"><code>.keys</code></li>
+            <li class="fragment fade-in"><code>.values</code></li>
+            <li class="fragment fade-in"><code>.key?(:key)</code></li>
+            <li class="fragment fade-in"><code>.has_value?(:value)</code></li></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Additional methods examples</h2>
+<pre><code class="hljs ruby">movie = { name: "Fargo", released: 1996, imdb_rating: 8.1 }
+
+movie.keys              # => [:name, :released, :imdb_rating]
+movie.values            # => ["Fargo", 1996, 8.1]
+
+movie.key?(:name)       # => true
+movie.key?(:director)   # => false
+
+movie.has_value?(8.1)   # => true
+movie.has_value?(2019)  # => false
+</code></pre>
+        </section>
+
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <ul class="list-none">
+            <li><small><a href="http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html">Ruby For Beginners: Hashes</a></small></li>
+            <li><small><a href="https://ruby-doc.org/core/Hash.html">Ruby Documentation Hash</a></small></li>
+          </ul>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
