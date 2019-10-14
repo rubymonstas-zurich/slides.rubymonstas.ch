@@ -56,6 +56,10 @@ b {
   color: $rubymonstasRed;
 }
 
+.coaches {
+  font-size: 0.8em;
+}
+
 .flex-container{
   display: flex;
 }
@@ -72,9 +76,28 @@ b {
   flex: 0 0 200px;
 }
 
+// Images
+img.coach {
+  height: 130px;
+  border-radius: 100px;
+}
+
 img.no-border {
   border: none !important;
   box-shadow: none !important;
+}
+
+// CSS grid
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto-fit;
+}
+
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto-fit;
 }
 
 pre.pre-inline {
