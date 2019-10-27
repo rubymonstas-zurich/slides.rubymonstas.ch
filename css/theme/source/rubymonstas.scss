@@ -88,18 +88,22 @@ img.no-border {
 }
 
 // CSS grid
+
+// Grid for four coaches
 .grid-container-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto-fit;
 }
-// 
-// .grid-container-3 {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr;
-//   grid-template-rows: auto-fit;
-// }
 
+// Grid for six coaches
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto-fit;
+}
+
+// Grid for five coaches
 .grid-container-3-2 {
     display: grid;
     grid-template-columns: repeat(3, auto-fit);

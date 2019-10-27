@@ -42,6 +42,11 @@ img.no-border {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto-fit; }
 
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto-fit; }
+
 .grid-container-3-2 {
   display: grid;
   grid-template-columns: repeat(3, auto-fit);
