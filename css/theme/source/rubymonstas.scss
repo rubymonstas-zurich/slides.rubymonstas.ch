@@ -56,6 +56,10 @@ b {
   color: $rubymonstasRed;
 }
 
+.coaches {
+  font-size: 0.8em;
+}
+
 .flex-container{
   display: flex;
 }
@@ -72,9 +76,62 @@ b {
   flex: 0 0 200px;
 }
 
+// Images
+img.coach {
+  height: 130px;
+  border-radius: 100px;
+}
+
 img.no-border {
   border: none !important;
   box-shadow: none !important;
+}
+
+// CSS grid
+
+// Grid for four coaches
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto-fit;
+}
+
+// Grid for six coaches
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto-fit;
+}
+
+// Grid for five coaches
+.grid-container-3-2 {
+    display: grid;
+    grid-template-columns: repeat(3, auto-fit);
+    grid-template-rows: auto-fit;
+}
+
+.coach1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.coach2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.coach3 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+}
+
+.coach4 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.coach5 {
+  grid-column-start: 4;
+  grid-column-end: 6;
 }
 
 pre.pre-inline {
