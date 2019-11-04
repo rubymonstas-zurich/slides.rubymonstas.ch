@@ -91,6 +91,12 @@ kbd {
 .list-none {
   list-style-type: none !important; }
 
+.text-red {
+  color: #dc402b; }
+
+.text-blue {
+  color: #2a76dd; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

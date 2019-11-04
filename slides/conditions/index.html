@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Conditions</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>Conditions</p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Conditions</h2>
+          <div class="flex-container">
+            <div class="flex-column">
+              <p>We use conditions to <b class="text-blue">change the behaviour</b> depending on one or multiple <b>inputs</b></p>
+            </div>
+            <div class="flex-column">
+              <img class="no-border" src="images/oneway-oranother.jpg" style="max-width: 100%; max-height: 50%;">
+            </div>
+          </div>
+          <ul>
+            <li class="fragment fade-in">If <b>it rains</b>, <b class="text-blue">take an umbrella with you</b></li>
+            <li class="fragment fade-in">If <b>you're hungry</b>, <b class="text-blue">eat an apple</b></li>
+            <li class="fragment fade-in">If <b>the payment was successful</b>, <b class="text-blue">send a mail</b></li>
+          </ul>
+
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h2>true or false</h2>
+          <p>Before we can use <b>if</b>, we need a to have something that is either <b>true</b> or <b>false</b></p>
+
+          <div class="flex-container">
+            <div class="flex-column fragment fade-in">
+              <pre><code class="hljs ruby">3 > 2</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <pre><code>true</code></pre>
+            </div>
+          </div>
+
+          <div class="flex-container">
+            <div class="flex-column fragment fade-in">
+              <pre><code class="hljs ruby">"dog" == "dog"</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <pre><code>true</code></pre>
+            </div>
+          </div>
+
+           <div class="flex-container">
+            <div class="flex-column fragment fade-in">
+              <pre><code class="hljs ruby">2 > 2</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <pre><code>false</code></pre>
+            </div>
+          </div>
+
+          <div class="flex-container">
+            <div class="flex-column fragment fade-in">
+              <pre><code class="hljs ruby">"dog" == "cat"</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <pre><code>false</code></pre>
+            </div>
+          </div>
+
+          <div class="flex-container">
+            <div class="flex-column fragment fade-in">
+              <pre><code class="hljs ruby">"Ruby".include?("Rails")</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <pre><code>false</code></pre>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <h2>Example "if"</h2>
+          <p>This is how we use a condition in its simplest form:</p>
+
+<pre class="fragment fade-in"><code class="hljs ruby">weather = "rain"
+
+if weather == "rain"
+  puts "It rains. Take an umbrella with you."
+end
+
+puts "Have a nice day!"
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Example "if-else"</h2>
+          <p>This is how we explicitly define the <b>else</b> case:</p>
+
+<pre class="fragment fade-in"><code class="hljs ruby">weather = "sunny"
+
+if weather == "rain"
+  puts "It rains. Take an umbrella with you."
+else
+  puts "It does not rain. You can leave the umbrella at home."
+end
+
+puts "Have a nice day!"
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Example "if-elsif-else"</h2>
+          <p>This is how we add more conditions using <b>elsif</b>:</p>
+
+<pre class="fragment fade-in"><code class="hljs ruby">weather = "sunny"
+
+if weather == "rain"
+  puts "It rains. Take an umbrella with you."
+elsif weather == "sunny"
+  puts "It's sunny. Awesome!"
+else
+  puts "It's not raining nor is it sunny."
+end
+
+puts "Have a nice day!"
+</code></pre>
+        </section>
+
+        <section>
+          <section>
+            <h2>Common mistakes</h2>
+            <ul>
+              <li class="fragment fade-in">Confusion btw assignment (<b>=</b>) and comparison (<b>==</b>)</li>
+              <li class="fragment fade-in">Not providing the <b>end</b> key word</li>
+              <li class="fragment fade-in"><b>elsif</b> (not <b>elseif</b> or <b>else if</b>)</li>
+              <li class="fragment fade-in">Not using indentation for visual orientation</li>
+            </ul>
+            <small class="fragment fade-in">(each case is described below)</small>
+            <aside class="notes"></aside>
+          </section>
+
+          <section>
+            <h3>Assignment (=) vs Comparison (==)</h3>
+
+<pre><code class="hljs ruby"># bad
+if weather = "rain"
+  puts "It rains."
+else
+  puts "It does not rain" # This is never executed
+end
+</code></pre>
+
+<pre class="fragment fade-in"><code class="hljs ruby"># good
+if weather == "rain"
+  puts "It rains."
+else
+  puts "It does not rain"
+end
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Forgetting the end keyword</h3>
+
+<pre><code class="hljs ruby"># bad
+if weather == "rain"
+  puts "It rains."
+
+puts "Have a nice day!"
+</code></pre>
+
+<pre class="fragment fade-in"><code class="hljs ruby"># good
+if weather == "rain"
+  puts "It rains."
+end
+
+puts "Have a nice day!"
+</code></pre>
+          </section>
+
+          <section>
+            <h3>elsif</h3>
+
+<pre><code class="hljs ruby"># bad
+if weather == "rain"
+  puts "It rains."
+elseif weather == "sunny"
+  puts "It's sunny!"
+end
+</code></pre>
+
+<pre class="fragment fade-in"><code class="hljs ruby"># good
+if weather == "rain"
+  puts "It rains."
+elsif weather == "sunny"
+  puts "It's sunny!"
+end
+</code></pre>
+          </section>
+
+          <section>
+            <h3>indentation is our friend</h3>
+
+<pre><code class="hljs ruby"># bad
+if weather == "rain"
+puts "It rains."
+elsif weather == "sunny"
+puts "It's sunny!"
+else
+puts "Neither rain nor sun"
+end
+</code></pre>
+
+<pre class="fragment fade-in"><code class="hljs ruby"># good
+if weather == "rain"
+  puts "It rains."
+elsif weather == "sunny"
+  puts "It's sunny!"
+else
+  puts "No rain, no sun"
+end
+</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h2>If-Then-Else Summary</h2>
+          <div>
+<pre class="fragment fade-in"><code class="hljs ruby">if condition1
+  # this part is executed if condition1 was true
+elsif condition2
+  # this part is executed if condition1 was false,
+  # but condition2 was true
+  # there can be as many elsif's as needed
+else
+  # this part is executed if condition1 AND
+  # condition2 were false
+end
+</code></pre>
+          </div>
+          <div>
+            <ul>
+              <li class="fragment fade-in">There is always one <b>if</b> and one <b>end</b></li>
+              <li class="fragment fade-in">Optionally there are as many <b>elsif</b> as required</li>
+              <li class="fragment fade-in">Optionally there is one <b>else</b></li>
+            </ul>
+          </div>
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/conditionals.html">Ruby For Beginners: Conditionals</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+
+        <section>
+          <h2>Sources</h2>
+          <h3>Images</h3>
+          <ul>
+            <li><small><a href="https://www.needpix.com/photo/download/1838979/choice-decision-alternative-strategy-opportunity-choose-choices-decide-free-pictures">https://www.needpix.com/photo/download/1838979/choice-decision-alternative-strategy-opportunity-choose-choices-decide-free-pictures</a></small></li>
+          </ul>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
