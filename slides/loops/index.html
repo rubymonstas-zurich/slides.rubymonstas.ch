@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Loops</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>Loops</p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+
+        <section>
+          <h2>What is a loop</h2>
+          <p>A loop <b>repeats</b> code until we tell it to stop</p>
+
+          <div class="fragment fade-in">
+            <img src="images/loop.gif" alt="A chain being assembled in perfectly looped gif"/>
+            <p>
+              <small><a href="http://gph.is/1vnWBtS">http://gph.is/1vnWBtS</a></small>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2>A simple loop</h2>
+          <p>We can declare a loop with <b>loop do</b> ... <b>end</b></b>
+<pre class="fragment fade-in"><code class="hljs ruby">counter = 0
+
+loop do
+  puts "#{counter} seconds since the loop started"
+  sleep(1) # waits for 1 second
+  counter = counter + 1
+end
+</code></pre>
+
+<pre class="fragment fade-in">0 seconds since the loop started
+1 seconds since the loop started
+2 seconds since the loop started
+3 seconds since the loop started
+...</pre>
+
+          <p class="fragment fade-in">Problem: This runs <b>forever</b></p>
+        </section>
+
+        <section>
+          <h2>Stopping the loop</h2>
+          <p>We use the keyword <b>break</b> to stop a loop</p>
+<pre class="fragment fade-in"><code class="hljs ruby">counter = 0
+
+loop do
+  puts "#{counter} seconds since the loop started"
+  sleep(1)
+  counter = counter + 1
+
+  if counter == 2
+    break # "breaks" the loop
+  end
+end
+
+puts "Now we're here..."
+</code></pre>
+
+<pre class="fragment fade-in">0 seconds since the loop started
+1 seconds since the loop started
+Now we're here...
+</pre>
+        </section>
+
+        <section>
+          <h2>Main rule</h2>
+          <p class="fragment fade-in">Every loop should have a <b>break</b>!</p>
+          <p class="fragment fade-in"><small>...else we have an infinite loop!</small></p>
+        </section>
+
+        <section>
+          <h2>Summary</h2>
+<pre class="fragment fade-in"><code class="hljs ruby">loop do
+  # the lines between "loop do" and "end"
+  # get repeated until we
+  # break it
+
+  if condition
+    break
+  end         # this "end" belongs to the if-statement
+end           # this "end" belongs to loop do
+</code></pre>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://launchschool.com/books/ruby/read/loops_iterators">Loops and Iterators</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
