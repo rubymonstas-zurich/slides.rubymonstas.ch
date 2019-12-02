@@ -3,7 +3,8 @@ node_js:
 - 12
 script:
 - npm start &
-- sleep 2
+- echo "Waiting max 30 seconds to start the server"
+- timeout 30 bash -c -- "until $(curl --output /dev/null --silent --head --fail http://localhost:8000); do printf '.'; sleep 1; done"
 - ./generate-pdfs.sh
 deploy:
   provider: releases
