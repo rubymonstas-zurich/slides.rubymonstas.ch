@@ -3,7 +3,6 @@ node_js:
 - 12
 script:
 - npm start &
-- sleep 2
 - ./generate-pdfs.sh
 deploy:
   provider: releases
