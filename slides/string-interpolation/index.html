@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - String Interpolation</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                String Interpolation
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Motivation</h2>
+            Consider this code:
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Output: " + (2 * number.to_i).to_s + " Bye!"</code></pre>
+            
+            Let's run it!
+
+            <pre class="fragment fade-in">$ ruby gets.rb
+Hi! Please enter a number:
+<b>43</b>
+Output: 86 Bye!</pre>
+          </section>
+
+          <section>
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Output: " + (2 * number.to_i).to_s + " Bye!"</code></pre>
+
+            What's uncool about this code?
+
+            <ul class="fragment fade-in">
+              <li>Typing <pre class="pre-inline">"</pre> and <pre class="pre-inline">+</pre> is tedious</li>
+              <li><pre class="pre-inline">to_s</pre> seems redundant. Can't Ruby figure this out for us?</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>String Interpolation</h2>
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Output: " + (2 * number.to_i).to_s + " Bye!"</code></pre>
+            
+            <p class="fragment fade-in">
+              Let's rewrite the code using <b>String Interpolation</b>:
+            </p>
+
+            <pre class="fragment fade-in"><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Output: #{2 * number.to_i} Bye!"</code></pre>
+            
+            <p class="fragment fade-in">
+              Another example:
+            </p>
+
+            <pre class="fragment fade-in "><code class="hljs ruby">puts "Hi! What's your name?"
+name = gets.chomp
+puts "Hi, #{name}!"</code></pre>
+          </section>
+
+          <section>
+            <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
+number = gets
+puts "Output: #{2 * number.to_i} Bye!"</code></pre>
+
+            <div class="fragment fade-in"><b>Note</b>: We had 3 strings connected with <pre class="pre-inline">+</pre>, now we only have one string!</div>
+            <div class="fragment fade-in"><b>Note</b>: Syntax is <pre class="pre-inline">"... #{expression} ..."</pre></div>
+            <div class="fragment fade-in"><b>Note</b>: The result of <pre class="pre-inline">expression</pre> is automatically converted to a string!</div>
+            <div class="fragment fade-in"><b>Note</b>: String interpolation only works with double quoted strings (<pre class="pre-inline">"</pre>, not <pre class="pre-inline">'</pre>)</div>
+          </section>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html">Ruby For Beginners: String Interpolation</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
