@@ -64,7 +64,99 @@
           </section>
 
           <section>
-            TODO: Explain terminal: cd, ls, tab completion, arrow keys (history)
+            <h2>Command line</h2>
+            <img class="no-border" src="images/terminal.png" style="max-height: 500px">
+          </section>
+
+          <section>
+            <h2>Command line</h2>
+            <p>
+              Is always in a <b>working directory</b>
+            </p>
+            <p class="fragment fade-in">
+              You can do most things you can do in a graphical interface
+            </p>
+            <p class="fragment fade-in">
+              You can do a lot of things <b>quicker</b> than with a graphical interface (once you’ve practiced a bit)
+            </p>
+            <p class="fragment fade-in">
+              Command followed by arguments (separated by spaces)
+            </p>
+            <p class="fragment fade-in">
+              Cryptic commands might seem scary at first
+            </p>
+          </section>
+
+          <section>
+            <h2>Basic command line commands</h2>
+            <p>
+              <pre class="pre-inline">pwd</pre> stands print working directory
+            </p>
+            <p class="fragment fade-in">
+              <pre class="pre-inline">cd</pre> stands for change directory
+            </p>
+            <p class="fragment fade-in">
+              <pre class="pre-inline">ls</pre> stands for list the files and folders in directory
+            </p>
+          </section>
+
+          <section>
+            <h2>Working directory</h2>
+            <p>
+              ...is the folder where you currently are
+            </p>
+            <p><pre class="pre-inline">pwd</pre> prints out your working directory, <pre class="pre-inline">ls</pre> lists
+              all files and folders</p>
+            <img class="no-border" src="images/terminal-pwd.png" style="max-width: 35%">
+            <img class="no-border" src="images/finder1.png" style="max-width: 50%">
+          </section>
+
+          <section>
+            <p><pre class="pre-inline">cd</pre>changes the directory and <pre class="pre-inline">ls</pre> lists all files
+              and folders</p>
+            <img class="no-border" src="images/terminal-2.png" style="max-width: 35%">
+            <img class="no-border" src="images/finder2.png" style="max-width: 50%">
+          </section>
+
+          <section>
+            <p><pre class="pre-inline">cd rubymonstas/se2</pre> changes the directory directly to se2</p>
+            <img class="no-border" src="images/terminal-3.png" style="max-width: 35%">
+            <img class="no-border" src="images/finder3.png" style="max-width: 50%">
+          </section>
+
+          <section>
+            <h2>How to use cd command</h2>
+            <p>
+             <pre class="pre-inline">cd YOUR-FOLDER</pre> changes your working directory to the selected folder
+            </p>
+            <p class="fragment fade-in">
+             <pre class="pre-inline">cd YOUR-FOLDER/ANOTHER-FOLDER</pre> changes your working directory to the selected folder
+            </p>
+            <p class="fragment fade-in">
+             <pre class="pre-inline">cd ..</pre> takes you one level up
+            </p>
+            <p class="fragment fade-in">
+             <pre class="pre-inline">cd ../..</pre> takes you two levels up
+            </p>
+          </section>
+
+          <section>
+            <h2>Command line history and autocompletion</h2>
+            <p>
+              You can access the <b>history</b> of previous commands you entered with <kbd>↑</kbd>
+            </p>
+            <p class="fragment fade-in">
+              Go back and forth with <kbd>↑</kbd> and <kbd>↓</kbd>
+            </p>
+            <p class="fragment fade-in">
+              You can autocomplete the name of the file with <kbd>Tab</kbd>
+            </p>
+            <p class="fragment fade-in">
+              Try it now!
+            </p>
+            <aside class="notes">
+              I'm a note
+            </aside>
           </section>
 
           <section>
@@ -78,7 +170,7 @@
           </section>
 
           <section>
-            <h2>Hello world, again! (cont.)</h2>
+            <h2>Hello world, again! </h2>
             <ol start="5">
               <li class="fragment fade-in">Open the terminal ("Powershell" or "Terminal")</li>
               <li class="fragment fade-in">Change to the directory using the <pre class="pre-inline">cd</pre> command (use <kbd>Tab</kbd> for autocompletion of directory names)</li>
@@ -101,6 +193,22 @@
             <p class="fragment fade-in">Repeat!</p>
           </section>
         </section>
+
+        <section>
+          <section>
+            <h2>IRB and command line are two different worlds</h2>
+            <p class="fragment fade-in">IRB lives in the terminal but you use ruby language</p>
+            <p class="fragment fade-in">You can have multiple terminals open: one with irb and one with the command line.</p>
+            <img class="no-border fragment fade-in" src="images/irb.png" style="max-height: 300px">
+          </section>
+
+          <section>
+            <h2>Entering and exiting IRB</h2>
+            <p>You enter IRB by typing <pre class="pre-inline">irb</pre></p>
+            <p>You exit IRB by typing <pre class="pre-inline">quit</pre> or <pre class="pre-inline">exit</pre>
+            or pressing <kbd>Ctrl + D</kbd></p>
+        </section>
+      </section>
 
         <!-- Links to the relevant chapters in Ruby For Beginners -->
         <section>
