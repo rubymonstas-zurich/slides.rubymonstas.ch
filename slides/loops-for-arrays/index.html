@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Loops for Arrays - Ruby Monstas</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Loops for Arrays
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Why loops?</h2>
+          <p>Assume we have an array with names, and we want to greet every name.</p>
+          <pre><code class="hljs ruby">friends = ['Alice', 'Betty', 'Chris']</code></pre>
+          <p>How could we do that?</p>
+        </section>
+
+        <section>
+          <h2>Why loops? Cont. I</h2>
+          <p>We could do this:</p>
+          <pre><code class="hljs ruby">puts "Hi #{friends[0]}"    # Hi Alice
+puts "Hi #{friends[1]}"    # Hi Betty
+puts "Hi #{friends[2]}"    # Hi Chris
+</code></pre>
+          <div class="fragment fade-in">
+            🤔 This is suboptimal.<br />
+            If we have 100 friends, we don't want to write <code class="hljs ruby">puts "Hi #{...}"</code> so many times.
+          </div>
+        </section>
+
+        <section>
+          <h2>Why loops? Cont. II</h2>
+          <p>
+            Let's look at the code.<br />
+            Only one thing changes in each line:
+          </p>
+          <pre><code class="hljs ruby">puts "Hi #{friends[0]}"
+puts "Hi #{friends[1]}"
+puts "Hi #{friends[2]}"
+</code></pre>
+          <p class="fragment fade-in">
+            We could use a <code>counter</code> and increase the number before we greet the next person.
+          </p>
+        </section>
+
+        <section>
+          <h2>Why loops? Cont. III</h2>
+<pre><code class="hljs ruby">counter = 0
+puts "Hi #{friends[counter]}" # counter is 0
+counter = counter + 1
+puts "Hi #{friends[counter]}" # counter is 1
+counter = counter + 1
+puts "Hi #{friends[counter]}" # counter is 2
+counter = counter + 1
+</code></pre>
+          <p class="fragment fade-in">
+            🤦‍♀️ We made it worse.<br/>
+            For every additional friend,<br/>
+            we have to repeat <b>even two lines</b>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Breaking news!</h2>
+          <p class="fragment fade-in">We did <b>not</b> make it worse!</p>
+          <div class="fragment fade-in">
+            <p>
+              Except the first line, everything repeats:<br/>
+              That's an <i>opportunity</i>!
+            </p>
+            <pre><code class="hljs ruby">counter = 0
+puts "Hi #{friends[counter]}"     # Instruction 1
+counter = counter + 1             # Instruction 2
+puts "Hi #{friends[counter]}"     # Instruction 1
+counter = counter + 1             # Instruction 2
+puts "Hi #{friends[counter]}"     # Instruction 1
+counter = counter + 1             # Instruction 2
+</code></pre>
+          </div>
+        </section>
+
+
+        <section>
+          <h2>Loops to the rescue</h2>
+          <p>The shown pattern enables us to use a <b>loop</b>.</p>
+          <p class="fragment fade-in">And it's super simple:</p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">counter = 0
+
+loop do
+  puts "Hi #{friends[counter]}"     # Instruction 1
+  counter = counter + 1             # Instruction 2
+end
+</code></pre>
+          </div>
+          <p class="fragment fade-in">🤨 ...something's wrong though!</p>
+        </section>
+
+        <section>
+          <h2>Have a break, have a ...</h2>
+          <p>The example before would run <b>forever</b>.</p>
+          <p class="fragment fade-in">We need to stop it after <b>3</b> iterations.</p>
+          <div class="fragment fade-in">
+            <p>Easy. Let's check the <code>counter</code>'s value in each iteration</p>
+
+            <pre><code class="hljs ruby">counter = 0
+
+loop do
+  if counter < 3              # 0, 1 and 2 pass. 3 doesn't.
+    puts "Hi #{friends[counter]}"
+    counter = counter + 1
+  else
+    break                     # this exits the loops
+  end
+end
+</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>One more thing</h2>
+          <p>The abort condition <code>if counter < 3</code> needs improvment.</p>
+          <p class="fragment fade-in"><code>3</code> should be a <b>dynamic</b> value: The number of elements in the <code>friends</code> array!</p>
+          <p class="fragment fade-in">We can replace it with <code>friends.count</code> .</p>
+        </section>
+
+        <section>
+          <h2>Solved: Looping through an array</h2>
+          <pre><code class="hljs ruby">friends = ['Alice', 'Betty', 'Chris']
+
+counter = 0
+
+loop do
+  if counter < friends.count
+    puts "Hi #{friends[counter]}"
+    counter = counter + 1
+  else
+    break
+  end
+end
+</code></pre>
+        </section>
+
+        <section>
+          <h2>Theory: Check ☑️</h2>
+          <p>This is how we could iterate through an array, but...</p>
+          <p class="fragment fade-in">
+            ...Ruby offers an alternative way to do the same,<br/>
+            please welcome:
+          </p>
+          <div class="fragment fade-in">
+            <code class="hljs ruby">.each</code>
+          </div>
+        </section>
+
+        <section>
+          <h2><code>.each</code></h2>
+          <p>
+            This does the same as <code>loop</code> with a <code>counter</code>,<br />
+            but it hides everything in the background.
+          </p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">friends = ['Alice', 'Betty', 'Chris']
+
+friends.each do |friend_name|
+  puts "Hi #{friend_name}"
+end
+</pre></code>
+          </div>
+        </section>
+
+        <section>
+          <h2><code>.each</code> Cont. II</h2>
+          <p class="fragment fade-in">It's a <code>loop</code> .</p>
+          <p class="fragment fade-in">There's no (visible) <code>counter</code> .</p>
+          <p class="fragment fade-in">There's no (visible) abortion criterea.</p>
+          <p class="fragment fade-in">
+            The <b>variable</b> between the vertical bars <code>||</code> automatically holds the value
+          </p>
+          <div>
+            <pre><code class="hljs ruby">friends = ['Alice', 'Betty', 'Chris']
+
+friends.each do |friend_name|
+  puts "Hi #{friend_name}"
+end
+</pre></code>
+          </div>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
