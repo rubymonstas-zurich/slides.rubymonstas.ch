@@ -222,6 +222,41 @@ end
           </div>
         </section>
 
+        <section>
+          <h2>Another example</h2>
+          <p>You can use <code>.each</code> on an array of numbers too.</p>
+          <p>Note: We define the variable name between <code>||</code>. In the example we name it <code><b>i</b></code> .</p>
+          <div>
+            <pre><code class="hljs ruby">numbers = [3, 6, 9]
+
+numbers.each do |i|
+  squared = i * i
+  puts "#{i} * #{i} is #{squared}"
+end
+
+# 3 * 3 is 9
+# 6 * 6 is 36
+# 9 * 9 is 81</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Last example</h2>
+          <p>Here we name the variable <code><b>thing</b></code>, we could have named it anything else.</p>
+          <div>
+            <pre><code class="hljs ruby">animals = ['Horse', 'Penguin', 'Squirrel']
+
+animals.each do |thing|
+  puts "'#{thing}' reversed is '#{thing.reverse}'"
+end
+
+# 'Horse' reversed is 'esroH'
+# 'Penguin' reversed is 'niugneP'
+# 'Squirrel' reversed is 'lerriuqS'
+</code></pre>
+          </div>
+        </section>
+
         <!-- Last slide is the question for questions ;P -->
         <section>
           <p>What <b>questions</b> do you have?</p>
