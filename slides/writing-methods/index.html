@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Writing methods - RM</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Writing methods
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section id="intro">
+          <h2>Intro</h2>
+          <p>We already learned how to use methods:</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"Popocatépetl".length                # => 12
+"Eyjafjallajökull".include?("kull")  # => true
+"Vesuvius".reverse                   # => "suivuseV"</code></pre>
+          <p class="fragment fade-in">Let's learn how to write our own, shall we?</p>
+        </section>
+
+        <section id="why-methods">
+          <h2>Why methods?</h2>
+          <p>Let's take a look at this example</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">my_word = "Sky"
+puts "The word #{my_word} has #{my_word.length} letters"
+
+my_word = "Ocean"
+puts "The word #{my_word} has #{my_word.length} letters"
+
+my_word = "Forest"
+puts "The word #{my_word} has #{my_word.length} letters"
+
+# The word sky has 3 letters
+# The word ocean has 5 letters
+# The word forest has 6 letters</code></pre>
+        </section>
+
+        <section id="why-methods-cont-i">
+          <h2>Why?</h2>
+          <p>If we want to adjust something in that sentence, we have to change it in three places.</p>
+          <p class="fragment fade-in">We want to make code fragments <b>reusable</b>, so we don't have to repeat ourselves.</p>
+        </section>
+
+        <section id="defining-method">
+          <h2>Writing a method</h2>
+          <p>This is how we write a method.</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">def print_word_statistics(my_word)
+  puts "The word #{my_word} has #{my_word.length} letters"
+end</code></pre>
+
+          <div class="fragment fade-in">
+            <p>And that's how we <b>call</b> ☎️ (execute) it:</p>
+            <pre><code class="hljs ruby">print_word_statistics("Sky")
+print_word_statistics("Ocean")
+print_word_statistics("Forest")
+
+# The word Sky has 3 letters
+# The word Ocean has 5 letters
+# The word Forest has 6 letters</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Anatomy of a method</h2>
+          <img src="images/anatomy_of_a_method.png" style="max-height: 400px" />
+        </section>
+
+        <section id="">
+          <h3>Anatomy: Method name</h3>
+          <ul>
+            <li>Same rules as for variable names</li>
+            <li class="fragment fade-in">May end with <b><code>?</code></b> or <b><code>!</code></b> (we'll learn about it later)</li>
+          </ul>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">def download_file
+  # code
+end
+
+def payment_successful?
+  # code
+end
+
+def send_email!
+  # code
+end</code></pre>
+          </div>
+        </section>
+
+        <section id="input-arguments">
+          <h3>Anatomy: Input arguments</h3>
+          <ul>
+            <li>A method can have 0 or more arguments.</li>
+            <li class="fragment fade-in">Names follow same rules as variables.</li>
+            <li class="fragment fade-in">Arguments are available in the method.</li>
+          </ul>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">def say_something # 0 arguments
+  puts "Something"
+end
+
+def say_hi(name) # 1 argument
+  puts "Hi #{name}!"
+end
+
+def greet_two(name_a, name_b) # 2 arguments
+  puts "Hello #{name_a} and #{name_b}!"
+end
+</code></pre>
+          </div>
+        </section>
+
+        <section id="method-body">
+          <h3>Anatomy: Method body</h3>
+          <ul>
+            <li>Only variables that are defined as input arguments are available.</li>
+            <li class="fragment fade-in">Variables outside the the method cannot be used (yet), we'll learn about it later.</li>
+          </ul>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">person = "David"
+
+def greet_person
+  puts "Good day #{person}."
+end
+
+greet_person
+
+# /tmp/script.rb:4:in `greet_person': undefined local variable
+# or method `person' for main:Object (NameError)
+</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Anatomy: Return values</h3>
+          <ul>
+            <li>A method always has a <b>return value</b>.</li>
+            <li class="fragment fade-in">It's the <b>result</b> of the last instruction in the method.</li>
+            <li class="fragment fade-in">We can fetch and store it in a variable.</li>
+          </ul>
+          <pre class="fragment fade-in"><code class="hljs ruby">def miles_to_kilometers(miles)
+  multiplier = 1.609
+  kilometers = miles * multiplier
+  kilometers # this is the return value
+end
+
+result = miles_to_kilometers(26)
+
+puts "26 miles are #{result} kilometers"
+
+# 26 miles are 41.834 kilometers</code></pre>
+        </section>
+
+        <section id="defining-vs-calling">
+          <h2>Defining / Calling</h2>
+          <p><b>Defining</b> a method doesn't do anything when Ruby sees that piece of code.</p>
+          <p>Ruby executes it once we <b>call</b> ☎️ it.</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">def say_hello(person)       # This is just the definition
+  puts "Hello #{person}!"
+end
+
+say_hello("Betty")  # Calls the method with argument "Betty"
+say_hello("Pierre") # Calls the method with argument "Pierre"
+
+# Hello Betty!
+# Hello Pierre!</code></pre>
+        </section>
+
+        <section id="wheres-the-dot">
+          <h2>Where's the dot?</h2>
+          <p>At the beginning we claimed we learn about writing methods.</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">"Popocatépetl".length</code></pre>
+          <div class="fragment fade-in">
+            <p>...all we learned is...</p>
+            <pre><code class="hljs ruby">do_something(argument)</code></pre>
+          </div>
+          <p class="fragment fade-in">These dot-methods are methods on <code><b>Objects</b></code>. Hang on, we'll learn about it later 🤷‍♀️.</p>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/writing_methods.html">Ruby For Beginners: Writing methods</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
