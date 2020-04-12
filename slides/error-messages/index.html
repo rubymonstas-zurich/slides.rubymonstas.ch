@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Error Messages - RM</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Error Messages
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>2 types of errors</h2>
+
+          <ul>
+            <li><b>Syntax</b> errors</li>
+            <li><b>Runtime</b> errors</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Analogy: Recipe</h2>
+          <div class="flex-container">
+            <div class="flex-column">
+              <div class="fragment fade-in">
+                <p>Understanding a recipe</p>
+                <p>(Syntax)</p>
+              </div>
+
+            </div>
+            <div class="flex-column">
+              <div class="fragment fade-in">
+                <p>Cooking the recipe</p>
+                <p>(Runtime)</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Syntax errors</h2>
+          <ul>
+            <li>Occurs <b>before</b> actually executing the code.</li>
+            <li>Code doesn't adhere to the <b>syntax rules</b> of Ruby.</li>
+            <li><b>Syntax highlighting</b> can help avoid these errors.</li>
+          </ul>
+          <!-- We intentionally use the wrong syntax highlighting! -->
+          <pre><code class="hljs json">def break_words(stuff)
+  words = stuff.split(' ')
+  return words
+ed</code></pre>
+
+        <pre style="white-space: break-spaces;">break_words.rb:4: syntax error, unexpected end-of-input, expecting `end'</pre>
+        </section>
+
+        <section>
+          <h3>Syntax errors: Another Example</h3>
+
+          <pre><code class="hljs json">[1, 2, 3].each
+  puts integer
+end</code></pre>
+
+          <pre style="white-space: break-spaces;">each.rb:3: syntax error, unexpected `end', expecting end-of-input</pre>
+        </section>
+
+
+        <section>
+          <h2>Runtime errors</h2>
+          <ul>
+            <li>Occurs during <b>execution</b> of the code.</li>
+            <li>Includes a backtrace/stacktrace.</li>
+            <li>Logic, naming, unexpected input, ... </li>
+          </ul>
+          <pre><code class="hljs ruby">food = "Hot Dogs"
+puts "I like #{fod}"</code></pre>
+          <pre style="white-space: break-spaces;">Traceback (most recent call last):
+hotdog.rb:2:in `&lt;main&gt;': undefined local variable or method `fod' for main:Object (NameError)
+Did you mean?  food
+               for</pre>
+        </section>
+
+        <section>
+          <h3>Runtime stacktraces</h3>
+          <p>They tell us exactly where Ruby has been <b>before</b> something went wrong.</p>
+          <div class="fragment fade-in">
+            <p>Like Hansel and Gretel's breadcrumbs to find their way out of the forest.</p>
+            <img src="images/haensel_and_gretel.jpg" class="no-border" />
+            <p style="font-size: 0.8rem;">Image: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/H%C3%A4nsel_und_Gretel.jpg/512px-H%C3%A4nsel_und_Gretel.jpg</p>
+          </div>
+
+        </section>
+
+        <section>
+          <h3>Runtime errors: Another Example</h3>
+          <div style="font-size: 2.2rem;">
+            <pre><code class="hljs shell" style="white-space: break-spaces;">$ ruby stack_trace_abbreviated.rb
+Welcome to the to the todo list
+Please enter your command:
+quit
+Goodbye!
+Traceback (most recent call last):
+  4: from stack_trace_abbreviated.rb:18:in `&lt;main&gt;'
+  3: from stack_trace_abbreviated.rb:18:in `loop'
+  2: from stack_trace_abbreviated.rb:21:in `block in &lt;main&gt;'
+  1: from stack_trace_abbreviated.rb:8:in `execute_command'
+stack_trace_abbreviated.rb:3:in `execute_quit_command': undefined local variable or method `ext' for main:Object (NameError)
+Did you mean?  exit
+               next</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <img src="images/stack_trace_abbreviated.png" class="no-border" height="450"/>
+          <pre><code class="hljs shell" style="white-space: break-spaces;">  4: from stack_trace_abbreviated.rb:18:in `&lt;main&gt;'
+  3: from stack_trace_abbreviated.rb:18:in `loop'
+  2: from stack_trace_abbreviated.rb:21:in `block in &lt;main&gt;'
+  1: from stack_trace_abbreviated.rb:8:in `execute_command'
+stack_trace_abbreviated.rb:3:in `execute_quit_command': undefined local variable or method `ext' for main:Object (NameError)</code></pre>
+        </section>
+
+        <section>
+          <h2>Action!</h2>
+          <p>Let's do the <b>interactive error message exercise</b>.</p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
