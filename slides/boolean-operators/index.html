@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Boolean Operators - RM</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Boolean Operators
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Coverage</h2>
+          <ul>
+            <li>"not"-Operator <code>!</code></li>
+            <li>"and"-Operator <code>&&</code></li>
+            <li>"or"-Operator <code>||</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>"not"-Operator <code>!</code></h2>
+          <p>We use <code>!</code> to negate/switch a boolean value</p>
+          <pre><code class="hljs ruby">!true     # false
+!false    # true</code></pre>
+        </section>
+
+        <section>
+          <h2>"not" Example</h2>
+          <pre><code class="hljs ruby">payment_received = false
+
+if !payment_received
+  send_payment_reminder_email
+end</code></pre>
+        </section>
+
+        <section>
+          <h2>"and"-Operator <code>&&</code></h2>
+          <p>We use <code>&&</code> to combine two or more boolean values with the "and" rule (aka <i>conjuction</i>)</p>
+          <pre><code class="hljs ruby">true && true      # true
+true && false     # false
+false && true     # false
+false && false    # false</code></pre>
+          <p style="font-size: 1rem;">(See also <a href="https://en.wikipedia.org/wiki/Logical_conjunction" rel="noopener" target="blank">https://en.wikipedia.org/wiki/Logical_conjunction</a>)</p>
+        </section>
+
+        <section>
+          <h2>"and" Example</h2>
+          <pre><code class="hljs ruby">weather = "sunny"
+temperature = 27 # celsius
+
+if weather == "sunny" && temperature > 20
+  puts "You may wear sandals! 👡"
+end</code></pre>
+        </section>
+
+        <section>
+          <h2>"and" with more than 2</h2>
+          <p>We can combine as many booleans as we want.</p>
+          <pre><code class="hljs ruby">if condition_1 && condition_2 && condition_3 # ...
+  puts "This happens only if all conditions were true"
+end</code></pre>
+          <p class="fragment fade-in">Remember: Only if <b>all</b> booleans are <b><code>true</code></b>, the final result is <b><code>true</code></b>.</p>
+        </section>
+
+        <section>
+          <h2>"or"-Operator <code>||</code></h2>
+          <p>We use <code>||</code> to combine two boolean values with the "or" rule (aka <i>disjunction</i>)</p>
+          <pre><code class="hljs ruby">true || true      # true
+true || false     # true
+false || true     # true
+false || false    # false</code></pre>
+          <p style="font-size: 1rem;">(See also <a href="https://en.wikipedia.org/wiki/Logical_disjunction" rel="noopener" target="blank">https://en.wikipedia.org/wiki/Logical_disjunction</a>)</p>
+        </section>
+
+        <section>
+          <h2>"or" Example</h2>
+          <pre><code class="hljs ruby">hour_of_day = 15     # valid: 0 - 23
+
+if hour_of_day < 6 || hour_of_day > 22
+  puts "You really should go to sleep! 🛏️"
+else
+  puts "Enjoy your day! 🌞"
+end</code></pre>
+        </section>
+
+        <section>
+          <h2>"or" with more than 2</h2>
+          <p>Again, we can combine as many booleans as we want.</p>
+          <pre><code class="hljs ruby">if condition_1 || condition_2 || condition_3 # ...
+  puts "This happens only if 1 or more conditions were true"
+end</code></pre>
+          <p class="fragment fade-in">Remember: If <b>at least one</b> boolean is <b><code>true</code></b>, the final result is <b><code>true</code></b>.</p>
+        </section>
+
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/operators/logical.html">Ruby For Beginners: Logical Operators</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
