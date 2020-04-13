@@ -94,7 +94,7 @@
 
 			// Add the current slide number to the URL hash so that reloading the
 			// page/copying the URL will return you to the same slide
-			hash: false,
+      hash: true,
 
 			// Push each slide change to the browser history.  Implies `hash: true`
 			history: false,
