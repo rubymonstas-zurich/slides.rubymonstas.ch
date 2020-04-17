@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-timeout=10
+timeout=20
 counter=0
 server_address="http://localhost:8000"
 server_ready="NO"
