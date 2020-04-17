@@ -79,7 +79,7 @@
             <li><b>Syntax highlighting</b> can help avoid these errors.</li>
           </ul>
           <!-- We intentionally use the wrong syntax highlighting! -->
-          <pre><code class="hljs json">def break_words(stuff)
+          <pre><code class="hljs json" data-line-numbers="">def break_words(stuff)
   words = stuff.split(' ')
   return words
 ed</code></pre>
@@ -90,7 +90,7 @@ ed</code></pre>
         <section>
           <h3>Syntax errors: Another Example</h3>
 
-          <pre><code class="hljs json">[1, 2, 3].each
+          <pre><code class="hljs json" data-line-numbers="">[1, 2, 3].each
   puts integer
 end</code></pre>
 
@@ -105,7 +105,7 @@ end</code></pre>
             <li>Includes a backtrace/stacktrace.</li>
             <li>Logic, naming, unexpected input, ... </li>
           </ul>
-          <pre><code class="hljs ruby">food = "Hot Dogs"
+          <pre><code class="hljs ruby" data-line-numbers="">food = "Hot Dogs"
 puts "I like #{fod}"</code></pre>
           <pre style="white-space: break-spaces;">Traceback (most recent call last):
 hotdog.rb:2:in `&lt;main&gt;': undefined local variable or method `fod' for main:Object (NameError)
@@ -125,7 +125,7 @@ Did you mean?  food
         </section>
 
         <section>
-          <h3>Runtime errors: Another Example</h3>
+          <h3>Stack trace: Example</h3>
           <div style="font-size: 2.2rem;">
             <pre><code class="hljs shell" style="white-space: break-spaces;">$ ruby stack_trace_abbreviated.rb
 Welcome to the to the todo list
@@ -144,12 +144,38 @@ Did you mean?  exit
         </section>
 
         <section>
-          <img src="images/stack_trace_abbreviated.png" class="no-border" height="450"/>
+          <div style="font-size: 1.7rem;" class="fragment fade-in">
+            <pre><code class="hljs ruby" data-line-numbers="3,8,18,21">def execute_quit_command
+  puts "Goodbye!"
+  ext
+end
+
+def execute_command(command, todos)
+  if command == "quit"
+    execute_quit_command
+  elsif command == "list"
+    # ...
+  end
+end
+
+puts "Welcome to the to the todo list"
+
+todos = ["Buy milk", "Workout"]
+
+loop do
+  puts "Please enter your command:"
+  command = gets.chomp
+  execute_command(command, todos)
+end</code></pre>
+
+          </div>
+          <div style="font-size: 1.7rem;">
           <pre><code class="hljs shell" style="white-space: break-spaces;">  4: from stack_trace_abbreviated.rb:18:in `&lt;main&gt;'
   3: from stack_trace_abbreviated.rb:18:in `loop'
   2: from stack_trace_abbreviated.rb:21:in `block in &lt;main&gt;'
   1: from stack_trace_abbreviated.rb:8:in `execute_command'
 stack_trace_abbreviated.rb:3:in `execute_quit_command': undefined local variable or method `ext' for main:Object (NameError)</code></pre>
+          </div>
         </section>
 
         <section>
