@@ -43,6 +43,65 @@
           </aside>
         </section>
 
+        <!-- Example slide with list of fade-in fragments -->
+        <section>
+          <h2>List with fragments which fade-in</h2>
+          <ol>
+            <li class="fragment fade-in">I'm the <b>first</b> item</li>
+            <li class="fragment fade-in">I'm the <b>second</b> item</li>
+            <li class="fragment fade-in">I'm the <b>third</b> item</li>
+            <li class="fragment fade-in">I'm the <b>fourth</b> item</li>
+            <li class="fragment fade-in">I'm the <b>fifth</b> item</li>
+          </ol>
+        </section>
+
+        <!-- Example of embeded code -->
+        <section>
+          <h2>Code and terminal output</h2>
+          <pre class="fragment fade-in"><code class="hljs ruby">
+counter = 0
+
+loop do
+  puts "#{counter} seconds since the loop started"
+  sleep(1) # waits for 1 second
+  counter = counter + 1
+end
+          </code></pre>
+
+          <p>Output in terminal or irb</b>
+          <pre class="fragment fade-in">0 seconds since the loop started
+1 seconds since the loop started
+2 seconds since the loop started
+3 seconds since the loop started
+          </pre>
+
+        </section>
+
+        <!-- Example of code with line number and highlighted line -->
+        <section>
+          <h2>Code with line numbers</h2>
+          <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>
+counter = 0
+
+loop do
+  puts "#{counter} seconds since the loop started"
+  sleep(1) # waits for 1 second
+  counter = counter + 1
+end
+          </code></pre>
+
+          <p>Highlighted lines</p>
+          <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers="5, 7">
+counter = 0
+
+loop do
+puts "#{counter} seconds since the loop started"
+sleep(1) # waits for 1 second
+counter = counter + 1
+end
+          </code></pre>
+        </section>
+
         <!-- Links to the relevant chapters in Ruby For Beginners -->
         <section>
           <h2>Additional Resources</h2>
