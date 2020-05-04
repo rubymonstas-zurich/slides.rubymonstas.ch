@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Ranges - RM</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Ranges
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Ranges</h2>
+          <p>
+            Ruby allows us to <b>build</b> ranges and then <b>loop</b> through their items.
+          </p>
+        </section>
+
+        <section>
+          <h2>Building a range</h2>
+          <p>Ranges normally have a <b>start</b> and an <b>end</b>.</p>
+          <p>Example: from <b>e</b> to <b>q</b></p>
+          <img src="./images/range_e_to_q.png" class="no-border"/>
+          <pre><code class="hljs ruby">Range.new("e", "q")
+# or
+("e".."q")</code></pre>
+        </section>
+
+        <section>
+          <h2>Methods on Ranges</h2>
+          <p>There are multiple useful methods on ranges:</p>
+          <ul>
+            <li><code>.begin</code></li>
+            <li><code>.end</code></li>
+            <li><code>.count</code></li>
+            <li><code>.cover?(value)</code></li>
+            <li><code>.to_a</code></li>
+            <li><code>.each</code></li>
+          </ul>
+          <p class="fragment fade-in" style="font-size: 0.6em;">For a full list of methods visit the <a href="https://ruby-doc.org/core/Range.html">official Ruby Documentation</a>.</p>
+        </section>
+
+        <section>
+          <h2>Methods on Ranges: Examples</h2>
+          <p>(Try these in IRB)</p>
+          <pre><code class="hljs ruby">(23..42).begin          # => 23
+("f".."t").end          # => "t"
+(20..30).count          # => 11
+("B".."S").cover?("J")  # => true
+("abc".."abe").to_a     # => ["abc", "abd", "abe"]</code></pre>
+        </section>
+
+        <section>
+          <h2><code>.each</code></h2>
+          <p>Using the method <code>.each</code> we can iterate through the items</p>
+          <pre><code class="hljs ruby">morning_hours = (8..12)
+
+morning_hours.each do |item|
+  puts "#{item} is a morning hour"
+end</code></pre>
+
+          <div class="fragment fade-in">
+            <p>Result</p>
+
+            <pre>8 is a morning hour
+9 is a morning hour
+10 is a morning hour
+11 is a morning hour
+12 is a morning hour</pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Exclude the last</h2>
+          <p>If we want to <b>exclude</b> the last item within the range, we can do so by using <b>three dots</b>:</p>
+
+          <pre><code class="hljs ruby">("x"..."z").to_a # => ["x", "y"]</code></pre>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-doc.org/core/Range.html">https://ruby-doc.org/core/Range.html</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
