@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Symbols - RM</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Symbols
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Symbols</h2>
+
+          <p>Symbols are <i>like</i> Strings, but different.</p>
+          <div class="fragment fade-in">
+            <p>Symbols always begin with a colon <b><code>:</code></b></p>
+            <pre><code class="hljs ruby">:coffee
+:giraffe
+:Tokyo</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Wait, what? 😳</h2>
+          <p class="fragment fade-in">OK... Symbols are like <i>stupid</i> Strings. <sup style="font-size: 0.9rem;">[citation needed]</sup></p>
+          <div class="fragment fade-in">
+            <p>A Symbol can't do some things that a String can:</p>
+            <pre><code class="hljs ruby">movie = "Ghostbusters"
+movie.reverse         # => "sretsubtsohG"
+movie.include?("bus") # => true</code></pre>
+          </div>
+          <div class="fragment fade-in">
+            <p>vs</p>
+            <pre><code class="hljs ruby">movie = :Ghostbusters
+movie.reverse         # => NoMethodError
+movie.include?("bus") # => NoMethodError</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>But, why do they exist? 👩‍🎓</h2>
+          <p>Under the hood of Ruby, Symbols have <i>some</i> advantages over Strings.</p>
+          <p class="fragment fade-in">Those advantages are <b>not</b> significant at this stage of learning the language.</p>
+          <p class="fragment fade-in">If you're interested in details consider reading this:<br />
+            <a href="https://ruby-for-beginners.rubymonstas.org/built_in_classes/symbols.html" style="font-size: 0.7em;">https://ruby-for-beginners.rubymonstas.org/built_in_classes/symbols.html</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Where to use Symbols</h2>
+          <p>We love using Symbols as <b>keys</b> in <b>Hashes</b></p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">movie = { :name => "Ghostbusters" }  # very good 👍</code></pre>
+            <p>is better than</p>
+            <pre><code class="hljs ruby">movie = { "name" => "Ghostbusters" } # less good 👎</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="font-size: 3.5rem;">Using Symbols as keys in Hashes</h2>
+          <p>In Hashes, Ruby allows us to put the colon <b><code>:</code></b> at the end of a key and omit the <b><code>=></code></b></p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">movie = { :name => "Ghostbusters" }  # very good 👍</code></pre>
+            <p>can be written as</p>
+            <pre><code class="hljs ruby">movie = { name: "Ghostbusters" }     # amazing 👍👍👍</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="font-size: 3.5rem;">Using Symbols as keys in Hashes</h2>
+          <p>Use Symbols to access the values again:</p>
+          <pre><code class="hljs ruby">movie = { name: "The Grand Budapest Hotel" }
+
+movie["name"]   # => nil
+movie[:name]    # => "The Grand Budapest Hotel"</code></pre>
+        </section>
+
+
+        <section>
+          <h2>Summary / Recommendation</h2>
+
+          <div class="fragment fade-in">
+            <p><b>Don't use</b> symbols as values in variables (yet!)</p>
+            <pre><code class="hljs ruby">first_name = :Eileen  # Nay 👎
+first_name = "Eileen" # Yay 👍</code></pre>
+          </div>
+
+          <div class="fragment fade-in">
+            <p><b>Do use</b> symbols as keys in Hashes</p>
+            <pre><code class="hljs ruby">person = { "first_name" => "Eileen" } # Nay 👎
+person = { first_name: "Eileen" }     # Yay 👍</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/built_in_classes/symbols.html">Ruby For Beginners: Symbols</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
