@@ -132,9 +132,24 @@ end</code></pre>
           <pre class="fragment fade-in">I wanna visit Rome!
 I wanna visit Oslo!
 I wanna visit Vienna!</pre>
-          <div>
-            <p>This is the most basic enumeration/loop.</p>
-            <p>We usually do not use the return value of <b><code>.each</code></b>.</p>
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>May contain anything</td>
+                  <td>The input Array</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="fragment fade-in" style="color: #aaaaaa; margin-top: 2rem;">We do not use the return value since the it is the input Array itself.</p>
           </div>
         </section>
 
@@ -146,7 +161,23 @@ uppercased_foods = foods.map do |fruit|
 end</code></pre>
           <pre class="fragment fade-in">> uppercased_foods
  => ["CHERRY", "KIWI", "ORANGE"]</pre>
-          <p>Each element is <b>processed</b> and the results are returned in a <b>new</b> Array.</p>
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Instructions how to <b>modify</b> the elements</td>
+                  <td>A <b>new Array</b> containing the <b>modified elements</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section>
@@ -158,7 +189,25 @@ movie = movies.find do |title|
 end</code></pre>
           <pre class="fragment fade-in">> movie
  => "Wonder Woman"</pre>
-          <p>The return value is the <b>first</b> element where the boolean expression is <b><code>true</code></b>.</p>
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A <b>boolean expression</b></td>
+                  <td>
+                    The <b>first</b> element where the boolean expression is <b><code>true</code></b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section>
@@ -171,7 +220,50 @@ end</code></pre>
 
           <pre class="fragment fade-in">> b_artists
 => ["Beatles", "Bob Marley"]</pre>
-           <p>The return value contains a <b>new</b> Array with <b>all</b> elements where the boolean expression is <b><code>true</code></b>.</p>
+
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A <b>boolean expression</b></td>
+                  <td>
+                    <b>All</b> elements where the boolean expression is <b><code>true</code></b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>Summary</h2>
+          <div style="font-size: 2.1rem">
+            <p>Enumerables are <b>methods</b> that...</p>
+            <ul>
+              <li>process a list</li>
+              <li>take a <b>block</b> as an argument</li>
+            </ul>
+
+            <p class="fragment fade-in">A <b>block</b> starts with <b><code>do</code></b> and ends with <b><code>end</code></b>.</p>
+
+            <div class="fragment fade-in">
+              <p>Depending on the method...</p>
+              <ul>
+                <li class="fragment fade-in">there is a <b>block argument</b>: <b><code>|variable|</code></b></li>
+                <li class="fragment fade-in">the <b>block body</b> does different things</li>
+                <li class="fragment fade-in">thus the <b>return value</b> differs too
+              </ul>
+            </div>
+
+            <p class="fragment fade-in">...the documentation tells us how to use an enumerable.</p>
+          </div>
         </section>
 
         <!-- Links to the relevant chapters in Ruby For Beginners -->
