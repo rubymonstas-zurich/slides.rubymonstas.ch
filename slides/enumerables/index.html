@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Enumerables - RM</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>Enumerables</p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Intro</h2>
+          <p>
+            Enumerables are certain methods that <b>process a list</b>,<br/>
+            particularly <b>Arrays</b> <code>[]</code>.
+          </p>
+          <p class="fragment fade-in">These <b>methods</b> are special as they take a <b>block</b> as an argument.</p>
+        </section>
+
+        <section>
+          <h2>Excursion on Blocks</h2>
+          <p>For the moment it is <b>not</b> imperative to know what blocks <i>really</i> are.<p>
+          <img src="./images/minecraft_stone_block.png" class="no-border" style="height: 200px;"/>
+          <p class="fragment fade-in">We're going to focus <b>how they look like</b>, because they follow a specific "syntax pattern".</p>
+        </section>
+
+        <section>
+          <h2>Simple Block</h2>
+          <pre><code class="hljs ruby">3.times do
+  puts "Olé"
+end
+</code></pre>
+          <div style="font-size: 2rem;">
+            <p class="fragment fade-in">Here we have a method called <b><code>.times</code></b> which takes a <b>block</b> as an argument.</p>
+            <p class="fragment fade-in">A <b>block</b> always starts with the keyword <b><code>do</code></b> and requires (!) an <b><code>end</code></b>.</p>
+            <p class="fragment fade-in">The area between <b><code>do</code></b> and <b><code>end</code></b> we call the <b>block body</b>.</p>
+            <p class="fragment fade-in">And that's <i>basically</i> how a block <b>looks</b> like! 💡<br/></p>
+            <div class="fragment fade-in">
+              <pre>Olé
+Olé
+Olé</pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Block with arguments</h2>
+          <p style="font-size: 2rem;">Depending on the method we define a <b>block argument</b> between two verticle bars <b><code>|variable|</code></b>:</p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">3.times do |x|
+  puts "The counter is currently at #{x}"
+end</code></pre>
+            <pre>The counter is currently at 0
+The counter is currently at 1
+The counter is currently at 2</pre>
+          </div>
+          <p class="fragment fade-in" style="font-size: 2rem;">That argument is available in the <b>block body</b> and automatically contains a value (we'll learn about it later). 💅</p>
+        </section>
+
+        <section>
+          <h2>Same same</h2>
+          <p>Ruby has a second way to write blocks.</p>
+          <div class="fragment fade-in">
+            <pre><code class="hljs ruby">3.times { |x| puts "The counter is currently at #{x}" }
+
+# is the same as
+
+3.times do |x|
+  puts "The counter is currently at #{x}"
+end</code></pre>
+          </div>
+          <p class="fragment fade-in">We suggest to use the <b>do-end</b> style as you're just beginning your Ruby journey.</p>
+        </section>
+
+        <section>
+          <h2>Back to enumerables</h2>
+          <div style="font-size: 2rem;">
+            <p class="fragment fade-in">
+              Ruby provides nifty <b>enumerable methods</b><br />
+              that can be used on any kind of <b>lists</b>.
+            </p>
+            <div class="fragment fade-in">
+              <p>In the following slides we're going to take a look at these:</p>
+              <ul>
+                <li><b><code>.each</code></b></li>
+                <li><b><code>.map</code></b></li>
+                <li><b><code>.find</code></b> or <b><code>.detect</code></b></li>
+                <li><b><code>.find_all</code></b> or <b><code>.select</code></b></li>
+              </ul>
+              <p style="font-size: 1.3rem;">For a complete list see <a href="https://ruby-doc.org/core/Enumerable.html">Ruby's Documentation</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>.each</h2>
+          <pre><code class="hljs ruby" data-line-numbers>cities = ["Rome", "Oslo", "Vienna"]
+cities.each do |city|
+  puts "I wanna visit #{city}!"
+end</code></pre>
+          <pre class="fragment fade-in">I wanna visit Rome!
+I wanna visit Oslo!
+I wanna visit Vienna!</pre>
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>May contain anything</td>
+                  <td>The input Array</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="fragment fade-in" style="color: #aaaaaa; margin-top: 2rem;">We do not use the return value since the it is the input Array itself.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>.map</h2>
+          <pre><code class="hljs ruby" data-line-numbers>foods = ["Cherry", "Kiwi", "Orange"]
+uppercased_foods = foods.map do |fruit|
+  fruit.upcase
+end</code></pre>
+          <pre class="fragment fade-in">> uppercased_foods
+ => ["CHERRY", "KIWI", "ORANGE"]</pre>
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Instructions how to <b>modify</b> the elements</td>
+                  <td>A <b>new Array</b> containing the <b>modified elements</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>.find / .detect</h2>
+          <pre><code class="hljs ruby" data-line-numbers>movies = ["Superman", "Wonder Woman", "Pretty Woman"]
+
+movie = movies.find do |title|
+  title.include?("Woman")
+end</code></pre>
+          <pre class="fragment fade-in">> movie
+ => "Wonder Woman"</pre>
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A <b>boolean expression</b></td>
+                  <td>
+                    The <b>first</b> element where the boolean expression is <b><code>true</code></b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>.find_all / .select</h2>
+          <pre><code class="hljs ruby" data-line-numbers>artists = ["Beatles", "Madonna", "Bob Marley"]
+
+b_artists = artists.find_all do |artist|
+  artist.start_with?("B")
+end</code></pre>
+
+          <pre class="fragment fade-in">> b_artists
+=> ["Beatles", "Bob Marley"]</pre>
+
+
+          <div style="font-size: 2rem;">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Block body</th>
+                  <th style="width: 50%;">Return value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A <b>boolean expression</b></td>
+                  <td>
+                    <b>All</b> elements where the boolean expression is <b><code>true</code></b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>Summary</h2>
+          <div style="font-size: 2.1rem">
+            <p>Enumerables are <b>methods</b> that...</p>
+            <ul>
+              <li>process a list</li>
+              <li>take a <b>block</b> as an argument</li>
+            </ul>
+
+            <p class="fragment fade-in">A <b>block</b> starts with <b><code>do</code></b> and ends with <b><code>end</code></b>.</p>
+
+            <div class="fragment fade-in">
+              <p>Depending on the method...</p>
+              <ul>
+                <li class="fragment fade-in">there is a <b>block argument</b>: <b><code>|variable|</code></b></li>
+                <li class="fragment fade-in">the <b>block body</b> does different things</li>
+                <li class="fragment fade-in">thus the <b>return value</b> differs too
+              </ul>
+            </div>
+
+            <p class="fragment fade-in">...the documentation tells us how to use an enumerable.</p>
+          </div>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/blocks.html">Ruby For Beginners: Blocks</a></small>
+            <small><a href="https://ruby-doc.org/core/Enumerable.html">Enumerable in Ruby Documentation</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
