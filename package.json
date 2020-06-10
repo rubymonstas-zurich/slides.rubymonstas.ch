@@ -42,6 +42,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "decktape": "^2.11.0"
+    "decktape": "^3.0.0"
   }
 }
