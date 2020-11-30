@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Ruby Standard Library</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                The Ruby Standard Library
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+            <p>You can write your presenter notes here</p>
+            <p>You start the presenter mode by pressing <kbd>S</kbd>.</p>
+            <p>By pressing <kbd>O</kbd> you'll see the slides overview.</p>
+          </aside>
+        </section>
+
+
+        <section>
+          <h2>The Ruby Distribution</h2>
+          <ul class="list-none list-reset">
+            <li class="border-4 border-red-500 p-4">
+              <ul class="list-none list-reset">
+                <li class="border-4 border-red-500 my-4 p-4 bg-yellow-500">
+                  <b>Ruby Standard Library</b>
+                  <div class="text-2xl">More advanced Classes/Features</div>
+                </li>
+                <li class="border-4 border-red-500 my-4 p-4">
+                  <b>Ruby Core</b>
+                  <div class="text-2xl">Strings, Symbols, Array, Hashes, ...</div>
+                </li>
+                <li class="border-4 border-red-500 my-4 p-4">
+                  <b>Ruby Language</b>
+                  <div class="text-2xl">Syntax</div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Contents / Purpose</h2>
+          <ul class="list-reset">
+            <li class="fragment fade-in">More complex features than Ruby Core</li>
+            <li class="fragment fade-in"><i>"Batteries included"</i></li>
+            <li class="fragment fade-in">Sometimes a bit dated, but very solid</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Examples</h2>
+          <ul class="list-reset">
+            <li class="fragment fade-in my-4">
+              <b>Networking</b>
+              <div class="text-2xl">Web, E-Mail, Sockets, ...</div>
+            </li>
+            <li class="fragment fade-in my-4">
+              <b>Advanced Math</b>
+              <div class="text-2xl">Prime number generator, Matrices, Complex numbers, ...</div>
+            </li>
+            <li class="fragment fade-in my-4">
+              <b>Date format libraries</b>
+              <div class="text-2xl">JSON, XML, YAML, RSS, ...</div>
+            </li>
+            <li class="fragment fade-in my-4">
+              <b>Many, many more</b>
+              <div class="text-2xl">
+                Date/Time, Simple Databases, Cryptography, Advanced Data Structures, <br/>
+                Debugging, Profiling, Introspection, ...</div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+
+          <ul class="list-reset">
+            <li><a href="https://ruby-doc.org/core/">Ruby Core Documentation</a></li>
+            <li><a href="https://ruby-doc.org/stdlib/">Ruby Standard Library Documentation</a></li>
+          </ul>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
