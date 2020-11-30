@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Formatting your code</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Formatting your code
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+            <p>You can write your presenter notes here</p>
+            <p>You start the presenter mode by pressing <kbd>S</kbd>.</p>
+            <p>By pressing <kbd>O</kbd> you'll see the slides overview.</p>
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Motivation</h2>
+
+            <p class="fragment fade-in">
+              Code formatting is important. It will help you to read and understand your code better. 
+            </p>
+            <p class="fragment fade-in">
+              Your brain is a <b>pattern recognition</b> machine. If you properly format your code you
+              train your brain to subconciously recognise patterns of correct vs. incorrect code.
+            </p>
+            <p class="fragment fade-in">
+              Thus it will also help you find <b>bugs</b>!
+            </p>
+          </section>
+          
+          <section>
+            <p>
+              Compare these 2 pieces of code:
+            </p>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>  def widths (     row
+)
+ row.map do | cell| cell.width
+end
+     end</code></pre>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>def widths(row)
+  row.map do |cell|
+    cell.width
+  end
+end
+            </code></pre>
+            <p class="fragment fade-in">
+              Which is easier to read and understand?
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Indentation</h2>
+            
+            <p class="fragment fade-in">Proper indentation is the most important aspect of formatting your code</p>
+            <p class="fragment fade-in">If you follow the following <b>2 rules</b>, your code will be properly indented.</p>
+            <p class="fragment fade-in">Don't worry: After a while these rules will be obvious and you will intuitively follow them.</p>
+          </section>
+
+          <section>
+            <h3>Rule 1</h3>
+            <p class="fragment fade-in">Whenever you have one of these <b>keywords</b>, then the lines following it are indented <b>one level deeper</b>:</p>
+
+            <div class="fragment fade-in">
+              <pre class="pre-inline">if</pre>
+              <pre class="pre-inline">elsif</pre>
+              <pre class="pre-inline">else</pre>
+              <pre class="pre-inline">do</pre>
+              <pre class="pre-inline">def</pre>
+            </div>
+
+            <div class="fragment fade-in">
+              <p>The same applies for these keywords which we haven't encountered yet:</p>
+              <pre class="pre-inline">unless</pre>
+              <pre class="pre-inline">while</pre>
+              <pre class="pre-inline">until</pre>
+              <pre class="pre-inline">case</pre>
+              <pre class="pre-inline">class</pre>
+              <pre class="pre-inline">module</pre>
+              <pre class="pre-inline">begin</pre>
+              <pre class="pre-inline">rescue</pre>
+              <pre class="pre-inline">ensure</pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Rule 2</h3>
+            <p class="fragment fade-in">Whenever you have one of these <b>keywords</b>, then that line is indented <b>one level less deep</b>:</p>
+
+            <div class="fragment fade-in">
+              <pre class="pre-inline">elsif</pre>
+              <pre class="pre-inline">else</pre>
+              <pre class="pre-inline">end</pre>
+            </div>
+
+            <div class="fragment fade-in">
+              <p>The same applies for these keywords which we haven't encountered yet:</p>
+              <pre class="pre-inline">when</pre>
+              <pre class="pre-inline">rescue</pre>
+              <pre class="pre-inline">ensure</pre>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Example</h2>
+
+            <p>Let's properly indent this code, line by line:</p>
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+row.map do |cell|
+cell.width
+end
+end
+            </code></pre>
+          </section>
+          
+          <section>
+            <p>For line 1, we don't need to do anything. It's stays indented 0 levels (top level):</p>  
+
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+row.map do |cell|
+cell.width
+end
+end
+            </code></pre>
+          </section>
+
+          <section>
+            <div>But, for line 1, <b>Rule 1</b> applies, because it contains a <pre class="pre-inline">def</pre>. So we need to indent the following lines by +1 level (one level deeper):</div>  
+
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+  row.map do |cell|
+  cell.width
+  end
+  end
+            </code></pre>
+          </section>
+
+          <section>
+            <div>On line 2 we have a <pre class="pre-inline">do</pre>, so <b>Rule 1</b> applies again: we indent the following lines by +1 level (one level deeper):</div>  
+
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+  row.map do |cell|
+    cell.width
+    end
+    end
+            </code></pre>
+          </section>
+
+          <section>
+            <div>On line 3 there is no keyword. So neither of the rules apply and we leave it as is:</div>  
+
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+  row.map do |cell|
+    cell.width
+    end
+    end
+            </code></pre>
+          </section>
+
+          <section>
+            <div>Line 4 has an <pre class="pre-inline">end</pre>. Here we need to use <b>Rule 2</b>, which says that it gets indented one level less deep (-1 level) than the previous line:</div>  
+
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+  row.map do |cell|
+    cell.width
+  end
+    end
+            </code></pre>
+          </section>
+
+          <section>
+            <div>On line 5 the same rule applies again: We indent it one level less deep (-1 level) than the previous line:</div>  
+
+            <pre><code class="hljs ruby" data-line-numbers>def widths(row)
+  row.map do |cell|
+    cell.width
+  end
+end
+            </code></pre>
+
+            <p>And we're done!</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Interactive exercise</h2>
+
+          <p>Let's exercise the rules together with another example:</p>
+
+          <pre class="fragment fade-in"><code class="hljs ruby">def judge_weather(weather)
+if weather == "sunny"
+puts "The weather is great!"
+3.times do
+puts "Yes!"
+end
+elsif weather == "rainy"
+puts "Better stay inside..."
+end
+end</code></pre>
+        </section>
+
+        <section>
+          <section>
+            <h2>Pattern recognition</h2>
+
+            <p class="fragment fade-in">If done correctly, indentation lets you see immediately which lines of code belong together and which don't:</p>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>def judge_weather(weather)
+  if weather == "sunny"
+    puts "The weather is great!"
+    3.times do
+      puts "Yes!"
+    end
+  elsif weather == "rainy"
+    puts "Better stay inside..."
+  end
+end
+            </code></pre>
+
+            <div class="fragment fade-in">Here you can see easily that lines 3-6 are executed only if the <pre class="pre-inline">weather</pre> is "sunny".</div>
+          </section>
+
+          <section>
+            <div class="fragment fade-in">It's not uncommon to have many nested levels. Sometimes this results in a lot of <pre class="pre-inline">end</pre>s at the bottom of your file:</p>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>def ...
+  if ...
+    do
+      if ...
+        if ...
+          ...
+        end
+      end
+    end
+  end
+end
+            </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Hints</h2>
+
+            <p class="fragment fade-in">
+              Never skip indentation levels from one line to the other:
+            </p>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>array.each do |element|
+    if element.start_with?("A")
+      puts element
+    end
+end
+            </code></pre>
+
+            <p class="fragment fade-in">
+              This is bad: Lines 2-4 are indented by 2 levels instead of 1!
+            </p>
+          </section>
+
+          <section>
+            <p class="fragment fade-in">
+              Let your editor help you. It automatically increases and decreases indentation levels when you
+              use a keyword.
+            </p>
+
+            <p class="fragment fade-in">
+              Try it now! Type the following in your editor:
+            </p>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>def my_method
+            </code></pre>
+
+            <p class="fragment fade-in">
+              And hit the enter key. Your cursor will automatically be indented by one level on the next line.
+            </p>
+          </section>
+
+          <section>
+            <div class="fragment fade-in">
+              Now type <pre class="pre-inline">end</pre>. Your editor will automatically unindent that line for you:
+            </div>
+
+            <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>def my_method
+end
+            </code></pre>
+
+            <img class="fragment fade-in" src="images/auto-indent.gif">
+          </section>
+
+          <section>
+            <p>
+              Use <kbd>Tab</kbd> and <kbd>Shift + Tab</kbd> to indent and unindent lines respectively.
+            </p>
+
+            <p class="fragment fade-in">
+              This also works with multiple lines at once. Try it now!
+            </p>
+          </section>
+
+          <section>
+            <div>
+              Make this a habit: Whenever you type a keyword that needs an <pre class="pre-inline">end</pre>, immediately type that on the next line. This way you never have too many or too few <pre class="pre-inline">end</pre>s!
+            </div>
+          </section>
+
+          <section>
+            <p>
+              If you use indentation correctly, your editor allows you to expand and collapse code sections. Try clicking the little triangle that appears next to the line numbers!
+            </p>
+
+            <img src="images/expand-collapse.gif">
+          </section>
+        </section>
+
+        <section>
+          <h2>Further information</h2>
+
+          <p>The "official" Ruby style guide has more information on code formatting as well as which Ruby features to use or not use:</p>
+
+          <a href="https://rubystyle.guide/">rubystyle.guide</a>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/learning_to_program/formatting_code.html">Ruby For Beginners: Formatting your code</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
