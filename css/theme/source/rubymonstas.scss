@@ -154,11 +154,6 @@ kbd {
   font-size: 0.9em;
 }
 
-
-.list-none {
-  list-style-type: none !important;
-}
-
 .text-red {
   color: #dc402b;
 }
@@ -167,6 +162,135 @@ kbd {
   color: #2a76dd;
 }
 
+.list-none {
+  list-style-type: none !important;
+}
+
+.list-reset {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+// ----- tailwind-inspired ------
+
+// font sizes
+
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
+.text-7xl { font-size: 4.5rem; line-height: 1; }
+.text-8xl { font-size: 6rem; line-height: 1; }
+.text-9xl { font-size: 8rem; line-height: 1; }
+
+// font colors
+
+.text-white { color: #fff; }
+.text-gray-500 { color: rgb(107, 114, 128); }
+.text-red-500 { color: rgb(239, 68, 68); }
+.text-yellow-500 { color: rgb(253, 211, 77); }
+.text-green-500 { color: rgb(16, 185, 129); }
+.text-blue-500 { color: rgb(59, 130, 246); }
+.text-indigo-500 { color: rgb(99, 102, 241); }
+.text-purple-500 { color: rgb(139, 92, 246); }
+.text-pink-500 { color: rgb(236, 72, 153); }
+
+// background colors
+
+.bg-gray-500 { background-color: rgb(107, 114, 128); }
+.bg-red-500 { background-color: rgb(239, 68, 68); }
+.bg-yellow-500 { background-color: rgb(253, 211, 77); }
+.bg-green-500 { background-color: rgb(16, 185, 129); }
+.bg-blue-500 { background-color: rgb(59, 130, 246); }
+.bg-indigo-500 { background-color: rgb(99, 102, 241); }
+.bg-purple-500 { background-color: rgb(139, 92, 246); }
+.bg-pink-500 { background-color: rgb(236, 72, 153); }
+
+// border
+
+.border-0 { border-style: solid; border-width: 0px; }
+.border { border-style: solid; border-width: 1px; }
+.border-3 { border-style: solid; border-width: 3px; }
+.border-2 { border-style: solid; border-width: 2px; }
+.border-4 { border-style: solid; border-width: 4px; }
+.border-8 { border-style: solid; border-width: 8px; }
+
+// border colors
+
+.border-gray-500 { border-color: rgb(107, 114, 128); }
+.border-red-500 { border-color: rgb(239, 68, 68); }
+.border-yellow-500 { border-color: rgb(253, 211, 77); }
+.border-green-500 { border-color: rgb(16, 185, 129); }
+.border-blue-500 { border-color: rgb(59, 130, 246); }
+.border-indigo-500 { border-color: rgb(99, 102, 241); }
+.border-purple-500 { border-color: rgb(139, 92, 246); }
+.border-pink-500 { border-color: rgb(236, 72, 153); }
+
+// margins
+
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 0.75rem; }
+.m-4 { margin: 1rem; }
+.m-8 { margin: 2rem; }
+
+// margins y-axis
+
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-1 { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.my-3 { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+.my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-8 { margin-top: 2rem; margin-bottom: 2rem; }
+
+// margins x-axis
+
+.mx-0 { margin-left: 0; margin-right: 0; }
+.mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
+.mx-2 { margin-left: 0.5rem; margin-right: 0.5rem; }
+.mx-3 { margin-left: 0.75rem; margin-right: 0.75rem; }
+.mx-4 { margin-left: 1rem; margin-right: 1rem; }
+.mx-8 { margin-left: 2rem; margin-right: 2rem; }
+
+// paddings
+
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-8 { padding: 2rem; }
+
+// paddings y-axis
+
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+
+// paddings x-axis
+
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-1 { padding-left: 0.25rem; padding-right: 0.25rem; }
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+
+
+
