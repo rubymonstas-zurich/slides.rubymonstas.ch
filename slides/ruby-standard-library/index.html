@@ -79,7 +79,35 @@
         </section>
 
         <section>
-          <h2>Examples</h2>
+          <h2>Example - SecureRandom</h2>
+          <div class="my-8">
+            <pre><code class="hljs ruby">require 'securerandom'
+
+SecureRandom.alphanumeric(15)       # => FvUMIA00NVLijK0
+SecureRandom.random_number(1..1000) # => 795
+SecureRandom.hex(10)                # => 664bd09321b3ae235fb3</code></pre>
+          </div>
+          <a href="https://ruby-doc.org/stdlib/libdoc/securerandom/rdoc/SecureRandom.html" class="text-lg">https://ruby-doc.org/stdlib/libdoc/securerandom/rdoc/SecureRandom.html</a>
+        </section>
+
+        <section>
+          <h2>Example - Time</h2>
+          <div class="my-8">
+            <pre><code class="hljs ruby">require 'time'
+
+firework_start = Time.parse("2020-12-31 23:59:59")
+firework_end = Time.parse("2021-01-01 00:09:59")
+
+seconds = firework_end - firework_start # => 600.0
+
+firework_start.strftime("%A") # => Thursday
+firework_end.strftime("%A")   # => Friday</code></pre>
+          </div>
+          <a href="https://ruby-doc.org/stdlib/libdoc/time/rdoc/Time.html" class="text-lg">https://ruby-doc.org/stdlib/libdoc/time/rdoc/Time.html</a>
+        </section>
+
+        <section>
+          <h2>More libraries</h2>
           <ul class="list-reset">
             <li class="fragment fade-in my-4">
               <b>Networking</b>
@@ -91,7 +119,7 @@
             </li>
             <li class="fragment fade-in my-4">
               <b>Data format libraries</b>
-              <div class="text-2xl">JSON, XML, YAML, RSS, ...</div>
+              <div class="text-2xl">CSV, JSON, XML, YAML, RSS, ...</div>
             </li>
             <li class="fragment fade-in my-4">
               <b>Many, many more</b>
