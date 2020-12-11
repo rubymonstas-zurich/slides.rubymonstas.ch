@@ -115,7 +115,7 @@
           <h2>Example "if"</h2>
           <p>This is how we use a condition in its simplest form:</p>
 
-<pre class="fragment fade-in"><code class="hljs ruby">weather = "rain"
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>weather = "rain"
 
 if weather == "rain"
   puts "It rains. Take an umbrella with you."
@@ -129,7 +129,7 @@ puts "Have a nice day!"
           <h2>Example "if-else"</h2>
           <p>This is how we explicitly define the <b>else</b> case:</p>
 
-<pre class="fragment fade-in"><code class="hljs ruby">weather = "sunny"
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>weather = "sunny"
 
 if weather == "rain"
   puts "It rains. Take an umbrella with you."
@@ -145,7 +145,7 @@ puts "Have a nice day!"
           <h2>Example "if-elsif-else"</h2>
           <p>This is how we add more conditions using <b>elsif</b>:</p>
 
-<pre class="fragment fade-in"><code class="hljs ruby">weather = "sunny"
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>weather = "sunny"
 
 if weather == "rain"
   puts "It rains. Take an umbrella with you."
@@ -175,7 +175,7 @@ puts "Have a nice day!"
           <section>
             <h3>Assignment (=) vs Comparison (==)</h3>
 
-<pre><code class="hljs ruby"># bad
+<pre><code class="hljs ruby" data-line-numbers># bad
 if weather = "rain"
   puts "It rains."
 else
@@ -183,7 +183,7 @@ else
 end
 </code></pre>
 
-<pre class="fragment fade-in"><code class="hljs ruby"># good
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers># good
 if weather == "rain"
   puts "It rains."
 else
@@ -195,14 +195,14 @@ end
           <section>
             <h3>Forgetting the end keyword</h3>
 
-<pre><code class="hljs ruby"># bad
+<pre><code class="hljs ruby" data-line-numbers># bad
 if weather == "rain"
   puts "It rains."
 
 puts "Have a nice day!"
 </code></pre>
 
-<pre class="fragment fade-in"><code class="hljs ruby"># good
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers># good
 if weather == "rain"
   puts "It rains."
 end
@@ -214,7 +214,7 @@ puts "Have a nice day!"
           <section>
             <h3>elsif</h3>
 
-<pre><code class="hljs ruby"># bad
+<pre><code class="hljs ruby" data-line-numbers># bad
 if weather == "rain"
   puts "It rains."
 elseif weather == "sunny"
@@ -222,7 +222,7 @@ elseif weather == "sunny"
 end
 </code></pre>
 
-<pre class="fragment fade-in"><code class="hljs ruby"># good
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers># good
 if weather == "rain"
   puts "It rains."
 elsif weather == "sunny"
@@ -234,7 +234,7 @@ end
           <section>
             <h3>indentation is our friend</h3>
 
-<pre><code class="hljs ruby"># bad
+<pre><code class="hljs ruby" data-line-numbers># bad
 if weather == "rain"
 puts "It rains."
 elsif weather == "sunny"
@@ -244,7 +244,7 @@ puts "Neither rain nor sun"
 end
 </code></pre>
 
-<pre class="fragment fade-in"><code class="hljs ruby"># good
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers># good
 if weather == "rain"
   puts "It rains."
 elsif weather == "sunny"
@@ -259,7 +259,7 @@ end
         <section>
           <h2>If-Then-Else Summary</h2>
           <div>
-<pre class="fragment fade-in"><code class="hljs ruby">if condition1
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>if condition1
   # this part is executed if condition1 was true
 elsif condition2
   # this part is executed if condition1 was false,
