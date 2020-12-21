@@ -81,7 +81,7 @@
             <h2>gets</h2>
             <p>Save this code in a file called <pre class="pre-inline">gets.rb</pre>:</p>
             <pre><code class="hljs ruby">puts "Hi! What's your name?"
-name = gets
+name = gets.chomp
 puts "Aha! Your name is: " + name</code></pre>
             <aside class="notes">
             </aside>
@@ -94,7 +94,6 @@ puts "Aha! Your name is: " + name</code></pre>
 Hi! What's your name?
 <b>Ferdinand</b>
 Aha! Your name is: Ferdinand
-
 </pre>
             <aside class="notes">
             </aside>
@@ -103,34 +102,25 @@ Aha! Your name is: Ferdinand
           <section>
             <h2>gets</h2>
             <pre><code class="hljs ruby">puts "Hi! What's your name?"
-name = gets
+name = gets.chomp
 puts "Aha! Your name is: " + name</code></pre>
             <div class="fragment fade-in">As soon as <pre class="pre-inline">gets</pre> is executed, the Ruby program stops</div>
             <p class="fragment fade-in">It only continues when the user types <kbd>Enter</kbd></p>
-            <div class="fragment fade-in"><b>All</b> the characters the user entered, are stored in the variable <pre class="pre-inline">name</pre> as a <b>string</b></div>
+            <div class="fragment fade-in">The characters the user entered are stored in the variable <pre class="pre-inline">name</pre> as a <b>string</b></div>
             <aside class="notes">
             </aside>
           </section>
 
           <section>
             <h2>gets</h2>
-            <pre><code class="hljs ruby">puts "Hi! What's your name?"
-name = gets
-puts "Aha! Your name is: " + name</code></pre>
-          <div class="fragment fade-in"><b>Note</b>: This means, that the string includes the newline character which results from typing <kbd>Enter</kbd></div>
-            <div class="fragment fade-in">Therefore, in the example, the resulting string is <pre class="pre-inline">"Ferdinand\n"</pre></div>
-          </section>
-
-          <section>
-            <h2>gets</h2>
             <div>Change <pre class="pre-inline">gets.rb</pre> like this:</div>
             <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
-number = gets
+number = gets.chomp
 puts "Here's double that number: " + (2 * number)
 </code></pre>
             <p>And run the code!</p>
             <b><pre class="fragment fade-in">gets.rb:3:in `*': String can't be coerced into Integer (TypeError)</pre></b>
-            <div class="fragment fade-in"><pre class="pre-inline">number</pre> contains a string, because <pre class="pre-inline">gets</pre> <b>always</b> returns a string!</div>
+            <div class="fragment fade-in"><pre class="pre-inline">number</pre> contains a string, because <pre class="pre-inline">gets.chomp</pre> <b>always</b> returns a string!</div>
             <aside class="notes">
             </aside>
           </section>
@@ -139,7 +129,7 @@ puts "Here's double that number: " + (2 * number)
             <h2>gets</h2>
             <div>We can fix it by using <pre class="pre-inline">to_i</pre> to convert from string to integer:</div>
             <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
-number = gets
+number = gets.chomp
 puts "Here's double that number: " + (2 * number.to_i)
 </code></pre>
             <p>Run the code!</p>
@@ -153,7 +143,7 @@ puts "Here's double that number: " + (2 * number.to_i)
             <h2>gets</h2>
             <div>We can fix it by using <pre class="pre-inline">to_s</pre> to convert from integer to string:</div>
             <pre><code class="hljs ruby">puts "Hi! Please enter a number:"
-number = gets
+number = gets.chomp
 puts "Here's double that number: " + (2 * number.to_i).to_s
 </code></pre>
             <p>Run the code!</p>
