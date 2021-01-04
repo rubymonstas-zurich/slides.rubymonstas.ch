@@ -23,6 +23,11 @@ i {
 .flex-container {
   display: flex; }
 
+.flex-container-vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
 .text-align-left {
   text-align: left; }
 
@@ -384,6 +389,9 @@ kbd {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem; }
+
+.reveal blockquote {
+  width: 90%; }
 
 /*********************************************
  * GLOBAL STYLES
