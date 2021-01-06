@@ -177,6 +177,13 @@ kbd {
   padding: 0 !important;
 }
 
+.reveal {
+  blockquote {
+    width: 90%;
+    font-size: 30px;
+    margin: 10px auto;
+  }
+}
 
 // ----- tailwind-inspired ------
 
@@ -293,12 +300,6 @@ kbd {
 .px-4 { padding-left: 1rem; padding-right: 1rem; }
 .px-8 { padding-left: 2rem; padding-right: 2rem; }
 
-
-.reveal {
-  blockquote {
-    width: 90%;
-  }
-}
 
 // Theme template ------------------------------
 @import "../template/theme";

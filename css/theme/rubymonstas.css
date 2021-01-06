@@ -107,6 +107,11 @@ kbd {
   margin: 0 !important;
   padding: 0 !important; }
 
+.reveal blockquote {
+  width: 90%;
+  font-size: 30px;
+  margin: 10px auto; }
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem; }
@@ -389,9 +394,6 @@ kbd {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem; }
-
-.reveal blockquote {
-  width: 90%; }
 
 /*********************************************
  * GLOBAL STYLES

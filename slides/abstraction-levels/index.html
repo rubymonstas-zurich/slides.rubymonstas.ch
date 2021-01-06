@@ -45,45 +45,42 @@
 
         <section>
           <h2>Abstraction</h2>
-          <div class="flex-container">
-            <div class="flex-column">
-              <blockquote class="blockquote">
-                "The psychological profiling [of a programmer] is mostly the ability to shift levels of abstraction, from low level to high level. To see something in the small and to see something in the large." 
-                <br> 
-                <small><em>Donald Knuth - Computer Scientist Extraordinaire</em></small>
-              </blockquote>
-            </div>
-            <div class="flex-column-200px flex-container-vertical-center">
-              <img src="images/KnuthAtOpenContentAlliance.jpg">
-            </div>
+          <img src="images/KnuthAtOpenContentAlliance.jpg" height="150px">
+          <blockquote>
+            "The psychological profiling [of a programmer] is mostly the ability to shift levels of abstraction, from low level to high level. To see something in the small and to see something in the large."<br />
+            <em class="text-xl text-gray-500">Donald Knuth - Computer Scientist Extraordinaire</em>
+          </blockquote>
+          <div class="text-lg">
+            (Source: <a href="https://en.wikiquote.org/wiki/Donald_Knuth">Wikiquote</a>)
           </div>
-          <small>
-            <a href="https://en.wikiquote.org/wiki/Donald_Knuth">Source: Wikiquote - Donald Knuth</a>
-          </small>
         </section>
 
         <section>
           <section>
             <h2>Values</h2>
-            <p>
+            <p class="fragment fade-in">
               Before variables, we were only dealing with <b>concrete</b> values, such as:
             </p>
-            <pre><code class="hljs ruby">7
+            <div class="fragment fade-in">
+              <pre><code class="hljs ruby">7
 "Hello"
 3.1415926</code></pre>
+            </div>
           </section>
 
           <section>
             <h2>Variables</h2>
-            <p>
+            <p class="fragment fade-in">
               With <b>variables</b> we've reached the first level of abstraction.
             </p>
-            <p>
+            <p class="fragment fade-in">
               Instead of using concrete values, we can now use <b>placeholders</b> that stand in for those values:
             </p>
-            <pre><code class="hljs ruby">number_of_continents = 7
+            <div class="fragment fade-in">
+              <pre><code class="hljs ruby">number_of_continents = 7
 greeting = "Hello"
 pi = 3.1415926</code></pre>
+            </div>
             </ul>
           </section>
         </section>
@@ -91,35 +88,39 @@ pi = 3.1415926</code></pre>
         <section>
           <section>
             <h2>Abstraction</h2>
-            <p>
+            <p class="fragment fade-in">
               Thus, abstraction allows us to step away from concrete things towards broader concepts.
             </p>
-            <p>
+            <p class="fragment fade-in">
               It also allows us to give things names (such as the variable names here).
             </p>
-            <p>
+            <p class="fragment fade-in">
               This gives us the tools to express more complex things.
             </p>
           </section>
 
           <section>
             <h2>Abstraction</h2>
-            <p>
+            <p class="fragment fade-in">
               Abstraction is about reusing code and showing intent:
             </p>
-            <pre><code class="hljs ruby">puts [342.75, 108.20, 241.00, 632.15, 499.55].sum</code></pre>
-            <p>
+            <div class="fragment fade-in">
+              <pre><code class="hljs ruby">puts [342.75, 108.20, 241.00, 632.15, 499.55].sum</code></pre>
+            </div>
+            <p class="fragment fade-in">
               vs.
             </p>
-            <pre><code class="hljs ruby">monthly_expenses = [342.75, 108.20, 241.00, 632.15, 499.55]
+            <div class="fragment fade-in">
+              <pre><code class="hljs ruby">monthly_expenses = [342.75, 108.20, 241.00, 632.15, 499.55]
 puts monthly_expenses.sum</code></pre>
+            </div>
           </section>
         </section>
 
         <section>
           <h2>Levels of Abstraction</h2>
-          <p>In this course we will learn about 3 levels of abstraction:</p>
-          <table>
+          <p class="fragment fade-in">In this course we will learn about 3 levels of abstraction:</p>
+          <table class="fragment fade-in">
             <thead>
               <tr><th>#</th><th>Concept</th><th>Deals with...</th></tr>
             </thead>
