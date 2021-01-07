@@ -23,6 +23,11 @@ i {
 .flex-container {
   display: flex; }
 
+.flex-container-vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
 .text-align-left {
   text-align: left; }
 
@@ -101,6 +106,11 @@ kbd {
 .list-reset {
   margin: 0 !important;
   padding: 0 !important; }
+
+.reveal blockquote {
+  width: 90%;
+  font-size: 30px;
+  margin: 10px auto; }
 
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
