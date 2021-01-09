@@ -1,0 +1,435 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Ruby Monstas - Introduction to JSON</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Introduction to JSON
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>JSON</h2>
+          <div>
+            <img src="images/json_logo.svg" alt="JSON logo" class="no-border" style="height: 40vh;"/>
+          </div>
+          <p>
+            <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation
+          </p>
+        </section>
+
+        <section>
+          <h2>What is it?</h2>
+          <p>JSON is</p>
+          <ul>
+            <li class="fragment">a lightweight data-interchange format.</li>
+            <li class="fragment">easy for humans to read and write.</li>
+            <li class="fragment">easy for machines to parse and generate.</li>
+          </ul>
+
+          <p class="fragment text-xl">
+            Source <a href="https://www.json.org/">https://www.json.org/</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Why JSON?</h2>
+          <div class="text-4xl">
+            <p>
+              JSON is a text format that is completely <b>programming language independent</b> but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others.
+            </p>
+            <p>
+              These properties make JSON an ideal data-interchange language.
+            </p>
+          </div>
+          <p class="text-xl">
+            Source <a href="https://www.json.org/">https://www.json.org/</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Example</h2>
+
+            <p>This is an example of a <b>JSON object</b></p>
+
+<pre><code class="hljs json">{
+  "name": "Matt Damon",
+  "bornInYear": 1970,
+  "academyAwards": null,
+  "appearsIn": ["Ocean's 11", "Invictus", "The Martian"]
+}
+</code></pre>
+        </section>
+
+        <section>
+          <h2>JSON object / Ruby Hash</h2>
+          <p>
+            At first glance, a <b>JSON object</b> looks very similar to a <b>Ruby Hash</b>, but there are some major differences:
+          </p>
+          <ul>
+            <li class="fragment">JSON is <b>just a text document</b>.</li>
+            <li class="fragment">Keys are enclosed by <b>"double quotes"</b>.</li>
+            <li class="fragment">Keys are written in <b>camelCase</b>.</li>
+            <li class="fragment">Empty values are described as <pre class="pre-inline hljs json">null</pre></li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h3>JSON is just a text document.</h3>
+
+          <p class="fragment">
+            It's very crucial to understand, that <b>JSON is just a text document</b>.
+          </p>
+
+          <p class="fragment">
+            With JSON itself we <b>cannot do anything programmatically</b>.
+          </p>
+
+          <p class="fragment">
+            So, even if the syntax looks similar to a Ruby Hash, they're actually different.
+          </p>
+
+          <p class="fragment text-3xl">
+            Anyway, following slides describe some syntactic differences between a JSON object and a Ruby Hash.
+          </p>
+        </section>
+
+        <section>
+          <h3>Keys are enclosed by "double quotes".</h3>
+
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-center text-xl text-gray-500">
+                  JSON<br />
+                  <img src="images/json_logo.svg" alt="JSON logo" height="50px" class="no-border"/>
+                </th>
+                <th class="text-center text-xl text-gray-500">
+                  Ruby<br />
+                  <img src="images/ruby_logo.svg" alt="Ruby logo" height="50px" class="no-border" />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <pre><code class="hljs json">{ "city": "Sydney" }</code></pre>
+                </td>
+                <td>
+                  <pre><code class="hljs ruby">{ city: "Sydney" }</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="fragment my-4">
+            <div>
+              <b>Keys</b> in <b>JSON objects</b> are enclosed by <b>"double quotes"</b>.
+            </div>
+            <div>
+              <b>Keys</b> in <b>Ruby Hashes</b> don't need quotes.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Keys are written in camelCase.</h3>
+
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-center text-xl text-gray-500">
+                  JSON<br />
+                  <img src="images/json_logo.svg" alt="JSON logo" height="50px" class="no-border"/>
+                </th>
+                <th class="text-center text-xl text-gray-500">
+                  Ruby<br />
+                  <img src="images/ruby_logo.svg" alt="Ruby logo" height="50px" class="no-border" />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <pre><code class="hljs json text-lg">{ "dateOfBirth": "1970-10-08" }</code></pre>
+                </td>
+                <td>
+                  <pre><code class="hljs ruby text-lg">{ date_of_birth: "1970-10-08" }</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="fragment my-4">
+            <div>
+              <b>Keys</b> in <b>JSON objects</b> are written in <b>camelCase</b>.
+            </div>
+            <div>
+              <b>Keys</b> in <b>Ruby Hashes</b> are written in <b>snake_case</b>.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3><pre class="pre-inline">null</pre> <span class="text-2xl">vs</span> <pre class="pre-inline">nil</pre></h3>
+
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-center text-xl text-gray-500">
+                  JSON<br />
+                  <img src="images/json_logo.svg" alt="JSON logo" height="50px" class="no-border"/>
+                </th>
+                <th class="text-center text-xl text-gray-500">
+                  Ruby<br />
+                  <img src="images/ruby_logo.svg" alt="Ruby logo" height="50px" class="no-border" />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <pre><code class="hljs json">{ "academyAwards": null }</code></pre>
+                </td>
+                <td>
+                  <pre><code class="hljs ruby">{ academy_awards: nil }</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="fragment my-4">
+            The placeholder value for "nothing" is <pre class="pre-inline hljs">null</pre> in JSON and <pre class="pre-inline hljs">nil</pre> in Ruby.
+          </div>
+        </section>
+
+        <section>
+          <h3>JSON is built on two basic structures</h3>
+
+          <ul>
+            <li class="my-4 fragment">A collection of name/value pairs.</li>
+            <li class="fragment">An ordered list of values.</li>
+          </ul>
+
+          <div class="fragment">
+            <p>
+              Using these two structures we can describe any kind of data.
+            </p>
+            <p class="text-xl">
+              Source <a href="https://www.json.org/">https://www.json.org/</a>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3>A collection of name/value pairs.</h3>
+
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-center text-xl text-gray-500">
+                  JSON<br />
+                  <img src="images/json_logo.svg" alt="JSON logo" height="50px" class="no-border"/>
+                </th>
+                <th class="text-center text-xl text-gray-500">
+                  Ruby<br />
+                  <img src="images/ruby_logo.svg" alt="Ruby logo" height="50px" class="no-border" />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+<pre><code class="hljs json">{
+  "animal": "Elephant",
+  "weightInKg": 703.5,
+  "lovesMusic": true,
+  "injuries": null,
+  "caretakers": [
+    "Judy", "Tom"
+  ],
+  "location": {
+    "sector": "East",
+    "enclosure": "7A"
+  }
+}</code></pre>
+                </td>
+                <td>
+<pre><code class="hljs ruby">{
+  animal: "Elephant",
+  weight_in_kg: 703.5,
+  lovesMusic: true,
+  injuries: nil,
+  caretakers: [
+    "Judy", "Tom"
+  ],
+  location: {
+    sector: "East",
+    enclosure: "7A"
+  }
+}</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="fragment text-3xl">
+            Note that <b>values</b> can be <b>Arrays</b> (see <pre class="pre-inline">caretakers</pre>) or <b>Objects</b> (see <pre class="pre-inline">location</pre>) again.
+          </div>
+        </section>
+
+        <section>
+          <h3>An ordered list of values.</h3>
+
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-center text-xl text-gray-500">
+                  JSON<br />
+                  <img src="images/json_logo.svg" alt="JSON logo" height="50px" class="no-border"/>
+                </th>
+                <th class="text-center text-xl text-gray-500">
+                  Ruby<br />
+                  <img src="images/ruby_logo.svg" alt="Ruby logo" height="50px" class="no-border" />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <pre><code class="hljs json">["red", "blue", "green"]</code></pre>
+                  <pre><code class="hljs json">[1, 1, 2, 3, 5, 8]</code></pre>
+                  <pre><code class="hljs json">[false, true, null]</code></pre>
+                </td>
+                <td>
+                  <pre><code class="hljs ruby">["red", "blue", "green"]</code></pre>
+                  <pre><code class="hljs ruby">[1, 1, 2, 3, 5, 8]</code></pre>
+                  <pre><code class="hljs ruby">[false, true, nil]</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="my-8 text-gray-500">...</div>
+        </section>
+
+        <section>
+          <h3>An ordered list of values.</h3>
+
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="text-center text-xl text-gray-500">
+                  JSON<br />
+                  <img src="images/json_logo.svg" alt="JSON logo" height="50px" class="no-border"/>
+                </th>
+                <th class="text-center text-xl text-gray-500">
+                  Ruby<br />
+                  <img src="images/ruby_logo.svg" alt="Ruby logo" height="50px" class="no-border" />
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+<pre><code class="hljs json">[
+  ["GER", "SUI"]
+  ["ARG", "BRA"],
+  ["POR", "ESP"],
+]</code></pre>
+<pre><code class="hljs json">[
+  { "name": "Greta" },
+  { "name": "Jacinda" },
+  { "name": "Angela" },
+]
+</code></pre>
+                </td>
+                <td>
+ <pre><code class="hljs ruby">[
+  ["GER", "SUI"]
+  ["ARG", "BRA"],
+  ["POR", "ESP"],
+]</code></pre>
+<pre><code class="hljs ruby">[
+  { name: "Greta" },
+  { name: "Jacinda" },
+  { name: "Angela" },
+]</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="my-8 text-3xl">
+            For Arrays there's no difference between JSON and Ruby.<br />
+            Again, we can also nest Arrays and/or Objects within Arrays.
+          </div>
+        </section>
+
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://www.json.org/json-en.html">Official JSON documentation</a></small><br />
+            <small><a href="https://en.wikipedia.org/wiki/JSON">JSON article on Wikipedia</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
