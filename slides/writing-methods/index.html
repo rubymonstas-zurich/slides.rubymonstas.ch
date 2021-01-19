@@ -46,50 +46,52 @@
         <section>
           <section>
           <h2>Levels of Abstraction</h2>
-            <p class="fragment fade-in">In this course we will learn about 3 levels of abstraction:</p>
-            <table class="fragment fade-in">
+            <p class="fragment">In this course we will learn about 3 levels of abstraction:</p>
+            <table class="fragment">
               <thead>
                 <tr><th>#</th><th>Concept</th><th>Deals with...</th></tr>
               </thead>
-              <tr><td>1</td><td>Variables</td><td>Data</td></tr>
-              <tr><td>2</td><td>Methods</td><td>Behaviour</td></tr>
-              <tr><td>3</td><td>Classes</td><td>Data + Behaviour</td></tr>
+              <tbody>
+                <tr><td>1</td><td>Variables</td><td>Data</td></tr>
+                <tr><td>2</td><td>Methods</td><td>Behaviour</td></tr>
+                <tr><td>3</td><td>Classes</td><td>Data + Behaviour</td></tr>
+              </tbody>
             </table>
 
-            <p class="fragment fade-in">Today we're tackling level 2!</p>
+            <p class="fragment">Today we're tackling level 2!</p>
           </section>
 
           <section>
             <h2>Levels of Abstraction</h2>
 
-            <p class="fragment fade-in">With <b>variables</b> we have abstraction for pieces of <b>data</b>.</p>
-            <p class="fragment fade-in">This means we can give a piece of data a <b>name</b> which we can use to refer to it from then on.</p>
+            <p class="fragment">With <b>variables</b> we have abstraction for pieces of <b>data</b>.</p>
+            <p class="fragment">This means we can give a piece of data a <b>name</b> which we can use to refer to it from then on.</p>
 
-            <pre class="fragment fade-in"><code class="hljs ruby">my_name = 'Hansruedi'
+            <pre class="fragment"><code class="hljs ruby">my_name = 'Hansruedi'
 favourite_number = 42</code></pre>
           </section>
 
           <section>
             <h2>Levels of Abstraction</h2>
 
-            <p class="fragment fade-in">Today, looking at <b>methods</b>, we'll get an abstraction for <b>behaviour</b> (code).</p>
-            <p class="fragment fade-in">This means we'll be able to give a <b>name</b> to a piece of code.</p>
+            <p class="fragment">Today, looking at <b>methods</b>, we'll get an abstraction for <b>behaviour</b> (code).</p>
+            <p class="fragment">This means we'll be able to give a <b>name</b> to a piece of code.</p>
           </section>
         </section>
 
         <section id="intro">
           <h2>Intro</h2>
           <p>We already learned how to use methods:</p>
-          <pre class="fragment fade-in"><code class="hljs ruby">"Popocatépetl".length                # => 12
+          <pre class="fragment"><code class="hljs ruby">"Popocatépetl".length                # => 12
 "Eyjafjallajökull".include?("kull")  # => true
 "Vesuvius".reverse                   # => "suivuseV"</code></pre>
-          <p class="fragment fade-in">Let's learn how to write our own, shall we?</p>
+          <p class="fragment">Let's learn how to write our own, shall we?</p>
         </section>
 
         <section id="why-methods">
           <h2>Why methods?</h2>
           <p>Let's take a look at this example</p>
-          <pre class="fragment fade-in"><code class="hljs ruby">my_word = "Sky"
+          <pre class="fragment"><code class="hljs ruby">my_word = "Sky"
 puts "The word #{my_word} has #{my_word.length} letters"
 
 my_word = "Ocean"
@@ -106,17 +108,17 @@ puts "The word #{my_word} has #{my_word.length} letters"
         <section id="why-methods-cont-i">
           <h2>Why?</h2>
           <p>If we want to adjust something in that sentence, we have to change it in three places.</p>
-          <p class="fragment fade-in">We want to make code fragments <b>reusable</b>, so we don't have to repeat ourselves.</p>
+          <p class="fragment">We want to make code fragments <b>reusable</b>, so we don't have to repeat ourselves.</p>
         </section>
 
         <section id="defining-method">
           <h2>Writing a method</h2>
           <p>This is how we write a method.</p>
-          <pre class="fragment fade-in"><code class="hljs ruby">def print_word_statistics(my_word)
+          <pre class="fragment"><code class="hljs ruby">def print_word_statistics(my_word)
   puts "The word #{my_word} has #{my_word.length} letters"
 end</code></pre>
 
-          <div class="fragment fade-in">
+          <div class="fragment">
             <p>And that's how we <b>call</b> ☎️ (execute) it:</p>
             <pre><code class="hljs ruby">print_word_statistics("Sky")
 print_word_statistics("Ocean")
@@ -137,9 +139,9 @@ print_word_statistics("Forest")
           <h3>Anatomy: Method name</h3>
           <ul>
             <li>Same rules as for variable names</li>
-            <li class="fragment fade-in">May end with <b><code>?</code></b> or <b><code>!</code></b> (we'll learn about it later)</li>
+            <li class="fragment">May end with <b><code>?</code></b> or <b><code>!</code></b> (we'll learn about it later)</li>
           </ul>
-          <div class="fragment fade-in">
+          <div class="fragment">
             <pre><code class="hljs ruby">def download_file
   # code
 end
@@ -158,10 +160,10 @@ end</code></pre>
           <h3>Anatomy: Input arguments</h3>
           <ul>
             <li>A method can have 0 or more arguments.</li>
-            <li class="fragment fade-in">Names follow same rules as variables.</li>
-            <li class="fragment fade-in">Arguments are available in the method.</li>
+            <li class="fragment">Names follow same rules as variables.</li>
+            <li class="fragment">Arguments are available in the method.</li>
           </ul>
-          <div class="fragment fade-in">
+          <div class="fragment">
             <pre><code class="hljs ruby">def say_something # 0 arguments
   puts "Something"
 end
@@ -181,9 +183,9 @@ end
           <h3>Anatomy: Method body</h3>
           <ul>
             <li>Only variables that are defined as input arguments are available.</li>
-            <li class="fragment fade-in">Variables outside the the method cannot be used (yet), we'll learn about it later.</li>
+            <li class="fragment">Variables outside the the method cannot be used (yet), we'll learn about it later.</li>
           </ul>
-          <div class="fragment fade-in">
+          <div class="fragment">
             <pre><code class="hljs ruby">person = "David"
 
 def greet_person
@@ -202,10 +204,10 @@ greet_person
           <h3>Anatomy: Return values</h3>
           <ul>
             <li>A method always has a <b>return value</b>.</li>
-            <li class="fragment fade-in">It's the <b>result</b> of the last instruction in the method.</li>
-            <li class="fragment fade-in">We can fetch and store it in a variable.</li>
+            <li class="fragment">It's the <b>result</b> of the last instruction in the method.</li>
+            <li class="fragment">We can fetch and store it in a variable.</li>
           </ul>
-          <pre class="fragment fade-in"><code class="hljs ruby">def miles_to_kilometers(miles)
+          <pre class="fragment"><code class="hljs ruby">def miles_to_kilometers(miles)
   multiplier = 1.609
   kilometers = miles * multiplier
   kilometers # this is the return value
@@ -222,7 +224,7 @@ puts "26 miles are #{result} kilometers"
           <h2>Defining / Calling</h2>
           <p><b>Defining</b> a method doesn't do anything when Ruby sees that piece of code.</p>
           <p>Ruby executes it once we <b>call</b> ☎️ it.</p>
-          <pre class="fragment fade-in"><code class="hljs ruby">def say_hello(person)       # This is just the definition
+          <pre class="fragment"><code class="hljs ruby">def say_hello(person)       # This is just the definition
   puts "Hello #{person}!"
 end
 
@@ -236,12 +238,12 @@ say_hello("Pierre") # Calls the method with argument "Pierre"
         <section id="wheres-the-dot">
           <h2>Where's the dot?</h2>
           <p>At the beginning we claimed we learn about writing methods.</p>
-          <pre class="fragment fade-in"><code class="hljs ruby">"Popocatépetl".length</code></pre>
-          <div class="fragment fade-in">
+          <pre class="fragment"><code class="hljs ruby">"Popocatépetl".length</code></pre>
+          <div class="fragment">
             <p>...all we learned is...</p>
             <pre><code class="hljs ruby">do_something(argument)</code></pre>
           </div>
-          <p class="fragment fade-in">These dot-methods are methods on <code><b>Objects</b></code>. Hang on, we'll learn about it later 🤷‍♀️.</p>
+          <p class="fragment">These dot-methods are methods on <code><b>Objects</b></code>. Hang on, we'll learn about it later 🤷‍♀️.</p>
         </section>
 
         <!-- Links to the relevant chapters in Ruby For Beginners -->
