@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - JSON with Ruby</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                JSON with Ruby
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>JSON with Ruby</h2>
+          <div class="text-4xl">
+            <p class="fragment">
+              JSON is a popular format for<br />
+              <b>exchanging information</b> between systems.<br />
+              🖥️ ↔️ 📄 ↔️ 🖥️
+            </p>
+
+            <p class="fragment">
+              That's mainly because it's <b>easy to read and write</b> for<br />
+              humans 👩‍🦱 and machines 🤖.
+            </p>
+
+            <p class="fragment">
+              Many programming languages <b>have built-in support</b> for <br />
+              reading and writing JSON documents<br />
+              ... so does Ruby.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h3>JSON Standard Library</h3>
+
+          <div class="my-8">
+            Ruby comes with a JSON standard library that helps us working with JSON documents.
+          </div>
+
+          <div>
+            <pre><code class="hljs ruby">require 'json'</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Reading and Writing</h3>
+
+          <div class="my-8">
+            Basically we're only going to need 2 functionalities from that library:
+          </div>
+
+          <ul>
+            <li class="fragment">
+              <pre class="pre-inline hljs">JSON.parse</pre> converts a Ruby-String containing JSON into a Ruby object.
+            </li>
+            <li class="fragment">
+              <pre class="pre-inline hljs">JSON.generate</pre> converts a Ruby object into a Ruby-String containing JSON.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Parse JSON into a Ruby object</h3>
+
+          <div>With <pre class="pre-inline hljs">JSON.parse</pre> we can read a JSON object and convert it into a Hash or Array.</div>
+
+<pre class="my-8"><code class="hljs ruby">require 'json'
+
+movie_as_json = '{
+  "title": "Shrek",
+  "rating": 90,
+  "filmingLocation": null
+}'
+movie = JSON.parse(movie_as_json)
+
+puts movie
+# => {"title"=>"Shrek", "rating"=>90, "filmingLocation"=>nil}
+</code></pre>
+
+          <p class="text-3xl fragment">Note that the key "filmingLocation" has not been changed to snake_case, but that's OK.</p>
+        </section>
+
+        <section>
+          <h3>Generate JSON from a Hash</h3>
+
+          <div>With <pre class="pre-inline hljs">JSON.generate</pre> we can generate a JSON object from any Hash or Array.</div>
+
+<pre class="my-8"><code class="hljs ruby">require 'json'
+
+actress = {
+  name: "Emma Watson",
+  academy_awards: nil
+}
+actress_as_json = JSON.generate(actress)
+
+puts actress_as_json
+# => {"name": "Emma Watson", "academy_awards": null}
+</code></pre>
+
+          <p class="text-3xl fragment">Note that the key "academy_awards" has not been changed to camelCase either.</p>
+        </section>
+
+        <section>
+          <h3>What's the point?</h3>
+
+          <p>Why would we do all of this "generate-parse"-cycle?</p>
+        </section>
+
+        <section>
+          <h3>Data transmission</h3>
+
+          <p>
+            Within our own application it <b>does not</b> make much sense to use JSON.
+          </p>
+
+          <p class="fragment">
+            But if our application wants to "talk" to another application (that may not be built in Ruby), we often use JSON for communication.
+          </p>
+        </section>
+
+        <section>
+          <h3>Communication between applications</h3>
+
+          <div class="text-4xl">
+            <div class="my-8">
+              This is how it could work if we need to interact with another application:
+            </div>
+
+            <ol class="text-center">
+              <li class="fragment my-4">
+                Our application <b>generates</b> a JSON document with our "message" and sends it to the <i>other application</i>.
+              </li>
+
+              <li class="fragment my-4">
+                The <i>other application</i> <b>parses</b> our "message" with their programming language. They process it, <b>generate</b> a response, as JSON, and send that back to us.
+              </li>
+
+              <li class="fragment my-4">
+                Finally we receive and <b>parse</b> their response and continue with our logic...
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section>
+          <h3>That's an API !</h3>
+          <p>
+            That <i>other application</i> we call an
+
+            <div class="my-8 text-left mx-auto inline-block">
+              <b>A</b>pplication<br />
+              <b>P</b>rogramming<br />
+              <b>I</b>nterface
+            </div>
+          </p>
+        </section>
+
+        <section>
+          <h3>Do you know any APIs?</h3>
+
+          <p class="text-3xl">
+            Or do you know any services that you think they could be APIs?
+          </p>
+        </section>
+
+        <section>
+          <h3>
+            There are a <i>gazillion</i> APIs
+          </h3>
+
+          <ul>
+            <li class="fragment">👥 Social <span class="text-gray-500 text-3xl">(Twitter, Facebook, Instagram, ...)</span></li>
+            <li class="fragment">💶 Finance <span class="text-gray-500 text-3xl">(Stock market, Trading, Currency, ...)</span></li>
+            <li class="fragment">🌦 Weather <span class="text-gray-500 text-3xl">(Live weather, Forecasts, ...)</span></li>
+            <li class="fragment">🌍 Geography <span class="text-gray-500 text-3xl">(Maps, Directions, ...)</span></li>
+            <li class="fragment">📽 Lifestyle <span class="text-gray-500 text-3xl">(Books, Movies, Music, ...)</span></li>
+            <li class="fragment">🚌 Transportation <span class="text-gray-500 text-3xl">(Flight Radar, Train Schedules, ...)</span></li>
+            <li class="fragment">Many, <b>many</b> more</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Practical example</h3>
+
+          <div class="text-4xl">
+            <div>Let's build a (fictional) weather app. <span class="text-5xl">🌦</span></div>
+
+            <div class="fragment my-8">
+              For a given <b>location</b> we want to know the <b>temperature</b> and <b>conditions</b> for the next 24 hours.
+            </div>
+
+            <div class="fragment my-8">
+              Our application won't do the forecasting itself. Therefore we use a (fictional) <b>API</b> on a weather-server, which  provides the data we need.
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>What's the weather in... Edinburgh.</h3>
+
+          <p>Let's see how this <i>could</i> work</p>
+
+          <div class="fragment">
+<pre><code class="hljs ruby" data-line-numbers>request = { location: "Edinburgh" }
+
+request_as_json = JSON.generate(request)
+# => "{\"location\":\"Edinburgh\"}"
+
+answer_from_server = WeatherServer.send(request)
+# => "{\"tempC\": 14, \"conditions\": \"Heavy Rain\"}"
+
+forecast = JSON.parse(answer_from_server)
+# => {"tempC"=>14, "conditions"=>"Heavy Rain"}</code></pre>
+          </div>
+
+          <div class="fragment text-3xl my-8">
+            <div>
+              Note that we entirely hide how the class <pre class="pre-inline hljs">WeatherServer</pre> is implemented, since it's not in our focus here.
+            </div>
+
+            <div>
+              How to communicate over a network is covered in another lesson.
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

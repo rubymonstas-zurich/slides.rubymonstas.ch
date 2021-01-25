@@ -187,6 +187,13 @@ kbd {
 
 // ----- tailwind-inspired ------
 
+// text alignment
+
+.text-left { text-align: left; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
 // font families
 
 .font-sans { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
@@ -275,6 +282,7 @@ kbd {
 
 // margins x-axis
 
+.mx-auto { margin-left: auto; margin-right: auto;}
 .mx-0 { margin-left: 0; margin-right: 0; }
 .mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
 .mx-2 { margin-left: 0.5rem; margin-right: 0.5rem; }
@@ -309,6 +317,14 @@ kbd {
 .px-4 { padding-left: 1rem; padding-right: 1rem; }
 .px-8 { padding-left: 2rem; padding-right: 2rem; }
 
+// display
+
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+// width
+
+.w-full { width: 100%; }
 
 // Theme template ------------------------------
 @import "../template/theme";
