@@ -48,7 +48,7 @@ jobs:
         script: |
           const path = require('path');
           const fs = require('fs');
-          const release_id = '${{ needs.create_release.outputs.id }}';
+          const release_id = '${{ steps.create_release.outputs.id }}';
           for (let file of await fs.readdirSync('./')) {
             if (path.extname(file) === '.pdf') {
               console.log('uploadReleaseAsset', file);
