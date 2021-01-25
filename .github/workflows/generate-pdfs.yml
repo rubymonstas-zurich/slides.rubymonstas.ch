@@ -36,15 +36,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ github.sha }}
+        release_name: Release ${{ github.sha }}
         draft: false
         prerelease: false
         
     - name: Upload release assets
       uses: actions/github-script@v3
       with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const path = require('path');
           const fs = require('fs');
