@@ -44,6 +44,22 @@
         </section>
 
         <section>
+          <h2>Levels of Abstraction</h2>
+          <p class="fragment">In the RubyMonstas course we will learn about 3 levels of abstraction:</p>
+          <table class="fragment">
+            <thead>
+              <tr><th>#</th><th>Concept</th><th>Deals with...</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><b>1</b></td><td><b>Variables</b></td><td><b>Data</b></td></tr>
+              <tr><td>2</td><td>Methods</td><td>Behaviour</td></tr>
+              <tr><td>3</td><td>Classes</td><td>Data + Behaviour</td></tr>
+            </tbody>
+          </table>
+          <p class="fragment">This slideset will show the first level of abstraction, variables.</p>
+        </section>
+
+        <section>
           <h2>Abstraction</h2>
           <img class="no-border" src="images/KnuthAtOpenContentAlliance.jpg" height="150px">
           <blockquote>
@@ -58,10 +74,10 @@
         <section>
           <section>
             <h2>Values</h2>
-            <p class="fragment fade-in">
+            <p class="fragment">
               Before variables, we were only dealing with <b>concrete</b> values, such as:
             </p>
-            <div class="fragment fade-in">
+            <div class="fragment">
               <pre><code class="hljs ruby">7
 "Hello"
 3.1415926</code></pre>
@@ -70,13 +86,13 @@
 
           <section>
             <h2>Variables</h2>
-            <p class="fragment fade-in">
+            <p class="fragment">
               With <b>variables</b> we've reached the first level of abstraction.
             </p>
-            <p class="fragment fade-in">
+            <p class="fragment">
               Instead of using concrete values, we can now use <b>placeholders</b> that stand in for those values:
             </p>
-            <div class="fragment fade-in">
+            <div class="fragment">
               <pre><code class="hljs ruby">number_of_continents = 7
 greeting = "Hello"
 pi = 3.1415926</code></pre>
@@ -88,29 +104,29 @@ pi = 3.1415926</code></pre>
         <section>
           <section>
             <h2>Abstraction</h2>
-            <p class="fragment fade-in">
+            <p class="fragment">
               Thus, abstraction allows us to step away from concrete things towards broader concepts.
             </p>
-            <p class="fragment fade-in">
+            <p class="fragment">
               It also allows us to give things names (such as the variable names here).
             </p>
-            <p class="fragment fade-in">
+            <p class="fragment">
               This gives us the tools to express more complex things.
             </p>
           </section>
 
           <section>
             <h2>Abstraction</h2>
-            <p class="fragment fade-in">
+            <p class="fragment">
               Abstraction is about reusing code and showing intent:
             </p>
-            <div class="fragment fade-in">
+            <div class="fragment">
               <pre><code class="hljs ruby">puts [342.75, 108.20, 241.00, 632.15, 499.55].sum</code></pre>
             </div>
-            <p class="fragment fade-in">
+            <p class="fragment">
               vs.
             </p>
-            <div class="fragment fade-in">
+            <div class="fragment">
               <pre><code class="hljs ruby">monthly_expenses = [342.75, 108.20, 241.00, 632.15, 499.55]
 puts monthly_expenses.sum</code></pre>
             </div>
@@ -119,14 +135,15 @@ puts monthly_expenses.sum</code></pre>
 
         <section>
           <h2>Levels of Abstraction</h2>
-          <p class="fragment fade-in">In this course we will learn about 3 levels of abstraction:</p>
-          <table class="fragment fade-in">
+          <table class="fragment">
             <thead>
-              <tr><th>#</th><th>Concept</th><th>Deals with...</th></tr>
+              <tr><th>#</th><th>Concept</th><th>Deals with...</th><th></th></tr>
             </thead>
-            <tr><td>1</td><td>Variables</td><td>Data</td></tr>
-            <tr><td>2</td><td>Methods</td><td>Behaviour</td></tr>
-            <tr><td>3</td><td>Classes</td><td>Data + Behaviour</td></tr>
+            <tbody>
+              <tr><td>1</td><td>Variables</td><td>Data</td><td>✅</td></tr>
+              <tr><td>2</td><td>Methods</td><td>Behaviour</td><td></td></tr>
+              <tr><td>3</td><td>Classes</td><td>Data + Behaviour</td><td></td></tr>
+            </tbody>
           </table>
         </section>
 
