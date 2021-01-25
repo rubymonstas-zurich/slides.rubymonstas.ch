@@ -112,6 +112,18 @@ kbd {
   font-size: 30px;
   margin: 10px auto; }
 
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center !important; }
+
+.text-right {
+  text-align: right; }
+
+.text-justify {
+  text-align: justify; }
+
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
 
@@ -323,6 +335,10 @@ kbd {
   margin-top: 2rem;
   margin-bottom: 2rem; }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto; }
+
 .mx-0 {
   margin-left: 0;
   margin-right: 0; }
@@ -412,6 +428,15 @@ kbd {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem; }
+
+.block {
+  display: block; }
+
+.inline-block {
+  display: inline-block; }
+
+.w-full {
+  width: 100%; }
 
 /*********************************************
  * GLOBAL STYLES
