@@ -32,7 +32,7 @@ You can generate PDFs from the HTML slides locally by running decktape, like thi
 
 Note that the development server has to run too: `npm start`
 
-PDF generation should also happen automagically through [Travis CI](https://travis-ci.org/rubymonstas-zurich/slides.rubymonstas.ch). The generated slides are uploaded as releases to GitHub.
+PDF generation should also happen automagically through [GitHub Actions](https://github.com/rubymonstas-zurich/slides.rubymonstas.ch/actions). The generated slides are uploaded as releases to GitHub.
 
 ## Slide guidelines
 
