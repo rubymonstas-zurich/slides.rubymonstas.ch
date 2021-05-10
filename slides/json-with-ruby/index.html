@@ -234,12 +234,14 @@ puts actress_as_json
           <p>Let's see how this <i>could</i> work</p>
 
           <div class="fragment">
-<pre><code class="hljs ruby" data-line-numbers>request = { location: "Edinburgh" }
+<pre><code class="hljs ruby" data-line-numbers>require 'json'
+
+request = { location: "Edinburgh" }
 
 request_as_json = JSON.generate(request)
 # => "{\"location\":\"Edinburgh\"}"
 
-answer_from_server = WeatherServer.send(request)
+answer_from_server = WeatherServer.send(request_as_json)
 # => "{\"tempC\": 14, \"conditions\": \"Heavy Rain\"}"
 
 forecast = JSON.parse(answer_from_server)
