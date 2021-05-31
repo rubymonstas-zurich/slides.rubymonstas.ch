@@ -31,6 +31,7 @@ jobs:
     - run: ./generate-pdfs.sh
 
     - name: Create Release
+      if: {{ github.ref == 'ref/head/master' }}
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -42,6 +43,7 @@ jobs:
         prerelease: false
         
     - name: Upload release assets
+      if: {{ github.ref == 'ref/head/master' }}
       uses: actions/github-script@v3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
