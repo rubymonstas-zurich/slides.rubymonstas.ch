@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - HTML</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                HTML
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>HTML</h2>
+
+          <p>Stands for <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage</p>
+          <p>😓</p>
+        </section>
+
+        <section>
+          <h2>HyperTexT</h2>
+
+          <q class="text-4xl">Hypertext is text [...] with references to other text that the reader can immediately access.</q>
+
+          <p class="fragment my-4 text-3xl">
+            In the web we call those references <b>"hyperlinks"</b>. 💡
+          </p>
+        </section>
+
+        <section>
+          <h2>Markup Language</h2>
+
+          <p>A system to <b>format</b> and <b>structure</b> text.</p>
+          <div class="fragment">
+            <p class="text-7xl">🤨</p>
+            <p>And now let's discover what THAT means...</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Webpages</h2>
+          <p>Have you ever wondered how webpages are built?</p>
+
+          <img class="no-border" src="images/wikipedia.png">
+        </section>
+
+        <section>
+          <h2>Tags &lt;everywhere&gt;</h2>
+
+          <p>In HTML every content is wrapped in so called "tags".</p>
+
+          <div class="fragment">
+            <pre><code class="hljs html">&lt;p&gt;This should be &lt;u&gt;underlined&lt;/u&gt;&lt;/p&gt;</code></pre>
+
+            <img src="images/tags.png" class="no-border"/>
+          </div>
+        </section>
+
+        <section>
+          <h2>Anatomy of a tag</h2>
+
+          <p>Normally we have an <b>opening tag</b>, some <b>content</b> and a <b>closing tag</b>:</p>
+
+          <div class="fragment">
+            <pre><code class="hljs html">&lt;p&gt;This is a simple paragraph&lt;/p&gt;</code></pre>
+            <ul class="text-3xl my-8">
+              <li><code>&lt;p&gt;</code> is the <b>opening tag</b> for a paragraph</li>
+              <li><code>"This is a simple paragraph"</code> is the <b>content</b></li>
+              <li><code>&lt;/p&gt;</code> is the <b>closing tag</b> for the paragraph</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Nesting</h2>
+
+          <p>Many tags can be nested.</p>
+          <p class="text-lg text-gray-500">We have seen that before!</p>
+
+          <pre><code class=hljs html" data-line-numbers>&lt;p&gt;
+  This should be &lt;b&gt;bold&lt;/b&gt;,
+  and that is
+  &lt;b&gt;&lt;i&gt;bold and italic at the same time!&lt;/i&gt;&lt;/b&gt;
+&lt;/p&gt;</code></pre>
+
+          <div class="fragment">
+            <img src="images/nesting.png" class="no-border" width="65%" />
+          </div>
+
+        </section>
+
+        <section>
+          <h2>HTML tags</h2>
+          <p>HTML has <b>many</b> predefined tags, like the ones we've seen so far</p>
+          <ul>
+            <li><code>&lt;p&gt;</code> for paragraphs</li>
+            <li><code>&lt;b&gt;</code> for bold text</li>
+            <li><code>&lt;i&gt;</code> for italic text</li>
+          </ul>
+          <p class="fragment text-2xl">
+            A complete list of tags can be explored here:<br />
+            <a href="https://www.w3schools.com/Tags/default.asp">https://www.w3schools.com/Tags/default.asp</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Semantics</h2>
+          <p class="fragment">In HTML every tag has its <b>purpose</b> and often gives its content some <b>semantics</b>.</p>
+        </section>
+
+        <section>
+          <h2>Semantics?</h2>
+
+          Example of a book:
+          <div class="grid-container-2 fragment">
+            <div class="text-3xl">
+              <pre><code class="hljs html" data-line-numbers>&lt;h1&gt;Confident Ruby&lt;/h1&gt;
+&lt;h2&gt;Foreword&lt;/h2&gt;
+&lt;h2&gt;Preface&lt;/h2&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;h3&gt;Ruby meets the real world&lt;/h3&gt;
+&lt;h3&gt;Confident code&lt;/h3&gt;
+&lt;h2&gt;Performing work&lt;/h2&gt;</code></pre>
+            </div>
+            <div>
+              <img class="no-border" src="images/semantics.png">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Limitations</h2>
+          <p>In HTML we should only use the tags that are predefined.</p>
+          <p class="fragment">We could create our own tags, but the browser wouldn't know how to interpret and display them correctly.</p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
