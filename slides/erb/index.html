@@ -32,7 +32,7 @@
               <h1>Ruby Monstas</h1>
               <hr>
               <p class='subtitle'>
-                Embedded Ruby
+                Embedded Ruby - ERB
               </p>
             </div>
             <div class="flex-column-200px">
@@ -47,18 +47,45 @@
         </section>
 
         <section>
-          <h2>Templating</h2>
-          <p>
-            We want to use Templating when we create output that contains <b>dynamic</b> content surrounded by <b>static</b> content.
-          </p>
+          <section>
+            <h2>Templating</h2>
+
+            <p>
+              Templates are pre-designed documents, that contain <b>static</b> content and slots for <b>dynamic</b> content.
+            </p>
+          </section>
+
+          <section>
+            <h2>Email template example</h2>
+
+            <pre><code class="hljs text">Hi [USERNAME]
+
+Thank you for registering at [PLATFORM_NAME]!
+Use this token to confirm your email address
+when you sign in for the first time:
+
+[CONFIRMATION_TOKEN]
+
+Have a great day!</code></pre>
+
+            <p class="text-3xl">The parts surrounded by <code>[]</code> are the slots for <b>dynamic</b> content, the rest is <b>static</b> content</p>
+          </section>
         </section>
 
         <section>
-          <h2>Example</h2>
+          <h2>Embedded Ruby</h2>
+
+          <p>
+            In Ruby we can use <b>Embedded Ruby</b>, or <b>ERB</b>, to design such templates.
+          </p>
+        </section>
+        <section>
+          <h2>ERB Example</h2>
 
           <pre><code class="hljs ruby">require "erb"
 name = "Bill"
-ERB.new("Hi <%= name %> 👋").result(binding) # => Hi Bill 👋</code></pre>
+greeting_template = "Hi <%= name %> 👋"
+ERB.new(greeting_template).result(binding) # => Hi Bill 👋</code></pre>
 
           <p>🥵</p>
         </section>
@@ -228,8 +255,8 @@ Today your lucky numbers are:
   * <%= lucky_number %>
 <% end %>
 
-Good luck! 🍀
-</code></pre>
+Good luck! 🍀</code></pre>
+             <p class="text-2xl">(...this looks very similar to the email example at the beginning, remember?)</p>
           </section>
 
           <section>
