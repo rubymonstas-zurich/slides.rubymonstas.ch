@@ -77,20 +77,21 @@ ERB.new("Hi <%= name %> 👋").result(binding) # => Hi Bill 👋</code></pre>
         </section>
 
         <section>
-          <h2>Complexity</h2>
-          <p>
-            <pre><code class="hljs ruby">name = "Bill"
+          <section>
+            <h2>Complexity</h2>
+            <p>
+              <pre><code class="hljs ruby">name = "Bill"
 
-movies = [
-  { name: "Groundhog Day", year: 1993 },
-  { name: "Lost In Translation", year: 2003 },
-  { name: "Moonrise Kingdom", year: 2012 }
-]</code></pre>
-          </p>
+  movies = [
+    { name: "Groundhog Day", year: 1993 },
+    { name: "Lost In Translation", year: 2003 },
+    { name: "Moonrise Kingdom", year: 2012 }
+  ]</code></pre>
+            </p>
 
-          <p>
-            <b class="text-3xl">Target output</b>
-            <pre><code class="hljs text">Hi Bill 👋
+            <p>
+              <b class="text-3xl">Target output</b>
+              <pre><code class="hljs text">Hi Bill 👋
 
 Do you want to watch a movie? Today we have:
 
@@ -99,13 +100,27 @@ Do you want to watch a movie? Today we have:
 * Moonrise Kingdom (2012)
 
 - Your Cheap Video Network</code></pre>
-          </p>
-        </section>
+            </p>
+          </section>
 
-        <section>
-          <h2>Easier with ERB</h2>
+          <section>
+            <h2>...with Interpolation</h2>
 
-          <pre><code class="hljs erb">movies_template = %q{
+            <pre><code class="hljs ruby">output = "Hi #{name} 👋\n"
+
+output << "\nDo you want to watch a movie? Today we have:\n\n"
+
+movies.each do |movie|
+  output << "* #{movie[:name]} (#{movie[:year]})\n"
+end
+
+output << "\n- Your Cheap Video Network\n"</code></pre>
+          </section>
+
+          <section>
+            <h2>...with ERB</h2>
+
+            <pre><code class="hljs erb">movies_template = %q{
 Hi <%= name %>
 
 Do you want to watch a movie? Today we have:
@@ -117,8 +132,9 @@ Do you want to watch a movie? Today we have:
 - Your Cheap Video Network
 }</code></pre>
 
-          <pre><code class="hljs ruby">require "erb"
+            <pre><code class="hljs ruby">require "erb"
 ERB.new(movies_template).result(binding)</code></pre>
+          </section>
         </section>
 
         <section>
@@ -317,7 +333,7 @@ ERB.new(template).result(binding)</code></pre>
         <section>
           <h2>Additional Resources</h2>
           <p>
-            <small><a href="https://http://webapps-for-beginners.rubymonstas.org/erb.html">Webapps For Beginners: Embedded Ruby</a></small>
+            <small><a href="https://webapps-for-beginners.rubymonstas.org/erb.html">Webapps For Beginners: Embedded Ruby</a></small>
           </p>
         </section>
 
