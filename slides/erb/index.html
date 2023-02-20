@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Embedded Ruby</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Embedded Ruby - ERB
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+            <p>You can write your presenter notes here</p>
+            <p>You start the presenter mode by pressing <kbd>S</kbd>.</p>
+            <p>By pressing <kbd>O</kbd> you'll see the slides overview.</p>
+          </aside>
+        </section>
+
+        <section>
+          <section>
+            <h2>Templating</h2>
+
+            <p>
+              Templates are pre-designed documents, that contain <b>static</b> content and slots for <b>dynamic</b> content.
+            </p>
+          </section>
+
+          <section>
+            <h2>Email template example</h2>
+
+            <pre><code class="hljs text">Hi [USERNAME]
+
+Thank you for registering at [PLATFORM_NAME]!
+Use this token to confirm your email address
+when you sign in for the first time:
+
+[CONFIRMATION_TOKEN]
+
+Have a great day!</code></pre>
+
+            <p class="text-3xl">The parts surrounded by <code>[]</code> are the slots for <b>dynamic</b> content, the rest is <b>static</b> content</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Embedded Ruby</h2>
+
+          <p>
+            In Ruby we can use <b>Embedded Ruby</b>, or <b>ERB</b>, to design such templates.
+          </p>
+        </section>
+        <section>
+          <h2>ERB Example</h2>
+
+          <pre><code class="hljs ruby">require "erb"
+name = "Bill"
+greeting_template = "Hi <%= name %> 👋"
+ERB.new(greeting_template).result(binding) # => Hi Bill 👋</code></pre>
+
+          <p>🥵</p>
+        </section>
+
+        <section>
+          <h2>Interpolation?</h2>
+          <p>Why don't we use String interpolation?</p>
+          <pre><code class="hljs ruby">name = "Bill"
+"Hi #{name} 👋"         # => Hi Bill 👋</code></pre>
+
+          <p>💪</p>
+
+          <p class="fragment fade-in">
+            ✋ String interpolation gets messy if we have more complex outputs.
+          </p>
+        </section>
+
+        <section>
+          <section>
+            <h2>Complexity</h2>
+            <p>
+              <pre><code class="hljs ruby">name = "Bill"
+
+movies = [
+  { name: "Groundhog Day", year: 1993 },
+  { name: "Lost In Translation", year: 2003 },
+  { name: "Moonrise Kingdom", year: 2012 }
+]</code></pre>
+            </p>
+
+            <p>
+              <b class="text-3xl">Target output</b>
+              <pre><code class="hljs text">Hi Bill 👋
+
+Do you want to watch a movie? Today we have:
+
+* Groundhog Day (1993)
+* Lost In Translation (2003)
+* Moonrise Kingdom (2012)
+
+- Your Cheap Video Network</code></pre>
+            </p>
+          </section>
+
+          <section>
+            <h2>...with Interpolation</h2>
+
+            <pre><code class="hljs ruby">output = "Hi #{name} 👋\n"
+
+output << "\nDo you want to watch a movie? Today we have:\n\n"
+
+movies.each do |movie|
+  output << "* #{movie[:name]} (#{movie[:year]})\n"
+end
+
+output << "\n- Your Cheap Video Network\n"</code></pre>
+          </section>
+
+          <section>
+            <h2>...with ERB</h2>
+
+            <pre><code class="hljs erb">movies_template = %q{
+Hi <%= name %>
+
+Do you want to watch a movie? Today we have:
+
+<% movies.each do |movie| %>
+* <%= movie[:name] %> (<%= movie[:year] %>)
+<% end %>
+
+- Your Cheap Video Network
+}</code></pre>
+
+            <pre><code class="hljs ruby">require "erb"
+ERB.new(movies_template).result(binding)</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h2>Advantages</h2>
+
+          <ul>
+            <li>Flexibility</li>
+            <li>Separation of Concerns</li>
+            <li>Reusability</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Flexibility</h2>
+
+            <p>
+              We can use <b>conditionals</b>, <b>loops</b>, and <b>other control structures</b> to generate dynamic content
+            </p>
+          </section>
+
+          <section>
+            <h2>Flexibility: Example</h2>
+
+            <pre><code class="hljs erb">church_bell_template = %q{
+<% hour.times do %>
+  DONG 🔔
+<% end %>
+
+<% if (6..12).cover?(hour) %>
+  Good morning <%= name %>
+<% elsif (12..18).cover?(hour) %>
+  Good afternoon <%= name %>
+<% else %>
+  Good day <%= name %>
+<% end %>
+}</code></pre>
+          </section>
+
+          <section>
+            <h2>Flexibility: Example</h2>
+
+            <pre><code class="hljs ruby">require "erb"
+hour = Time.now.hour    # for example 8, at 08:00
+name = "Bill"
+ERB.new(church_bell_template).result(binding)</code></pre>
+          </section>
+
+          <section>
+            <h2>Flexibility: Example</h2>
+
+            <pre><code class="hljs text">  DONG 🔔
+  DONG 🔔
+  DONG 🔔
+  DONG 🔔
+  DONG 🔔
+  DONG 🔔
+  DONG 🔔
+  DONG 🔔
+
+  Good morning Bill</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Separation of Concerns</h2>
+
+            <p>
+              We can separate our code into <b>different files</b>, allowing us to focus on our <b>application logic</b> in one file and our <b>presentation logic</b> in another
+            </p>
+          </section>
+
+          <section>
+            <h3>Application logic</h3>
+
+            <pre><code class="hljs ruby">name = "Bill"
+lucky_numbers = (1..50).to_a.sample(6)
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Presentation logic</h3>
+
+            <p class="text-xl"><code>File: ./lucky_numbers.txt</code></p>
+            <pre><code class="hljs erb">Hi <%= name %> 👋
+
+Today your lucky numbers are:
+
+<% lucky_numbers.sort.each do |lucky_number| %>
+  * <%= lucky_number %>
+<% end %>
+
+Good luck! 🍀</code></pre>
+             <p class="text-2xl">(...this looks very similar to the email example at the beginning, remember?)</p>
+          </section>
+
+          <section>
+            <h3>Rendering</h3>
+
+            <pre><code class="hljs ruby">require "erb"
+template = File.read("./lucky_numbers.txt")
+ERB.new(template).result(binding)</code></pre>
+          </section>
+
+          <section>
+            <h3>Output</h3>
+
+            <pre><code class="hljs text">Hi Bill 👋
+
+Today your lucky numbers are:
+
+  * 10
+  * 12
+  * 23
+  * 33
+  * 39
+  * 45
+
+Good luck! 🍀</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h2>Reusability</h2>
+
+          <p>
+            ERB templates can be reused across different parts of our application.
+          </p>
+        </section>
+
+        <section>
+          <section>
+            <h2>HTML + ERB = ❤️</h2>
+          </section>
+
+
+          <section>
+            <p>Let's create an HTML template</p>
+
+            <p class="text-xl"><code>File ./chores.html</code></p>
+            <pre><code class="hljs html">&lt;h1&gt;Hi <%= username %> 👋&lt;/h1&gt;
+
+&lt;p&gt;Don't forget to do the following chores today:&lt;/p&gt;
+
+&lt;ul&gt;
+  <% chores.each do |chore| %>
+    &lt;li&gt;<%= chore %>&lt;/li&gt;
+  <% end %>
+&lt;/ul&gt;</code></pre>
+            <p class="text-lg">Remember, this is the <b>presentation logic</b></p>
+          </section>
+
+          <section>
+            <p>Application logic</p>
+
+            <pre><code class="hljs ruby">username = "Bill"
+
+chores = [
+  "Call mom ☎️",
+  "Clean the bath 🫧",
+  "Walk the dog 🐕",
+  "Learn Spanish 🇪🇸"
+]</code></pre>
+          </section>
+
+
+          <section>
+            <p>Rendering</p>
+
+            <pre><code class="hljs ruby">require "erb"
+template = File.read("./chores.html")
+ERB.new(template).result(binding)</code></pre>
+          </section>
+
+          <section>
+            <p>HTML Output</p>
+            <pre><code class="hljs html">&lt;h1&gt;Hi Bill 👋&lt;/h1&gt;
+
+&lt;p&gt;Don't forget to do the following chores today:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Call mom ☎️&lt;/li&gt;
+  &lt;li&gt;Clean the bath 🫧&lt;/li&gt;
+  &lt;li&gt;Walk the dog 🐕&lt;/li&gt;
+  &lt;li&gt;Learn Spanish 🇪🇸&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </section>
+
+          <section>
+            <img class="no-border" src="images/chores.html.png" style="max-width: 50%;" />
+          </section>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://webapps-for-beginners.rubymonstas.org/erb.html">Webapps For Beginners: Embedded Ruby</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
