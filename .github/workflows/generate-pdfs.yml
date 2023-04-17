@@ -29,7 +29,6 @@ jobs:
       - run: ./generate-pdfs.sh
 
       - name: Create Release
-        if: ${{ github.ref == 'ref/head/main' }}
         id: create_release
         uses: softprops/action-gh-release@v1
         env:
@@ -41,7 +40,6 @@ jobs:
           prerelease: false
 
       - name: Upload release assets
-        if: ${{ github.ref == 'ref/head/main' }}
         uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
