@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Topic</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Setters (Classes)
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <!-- Example text -->
+        <section>
+          <h2>What we know so far</h2>
+          <p>
+            For now, we could only <i>input</i> data into an object when initializing it.
+          </p>
+        </section>
+
+        <section>
+          <h2>Person class</h2>
+          <div class="flex-container">
+            <div class="flex-column">
+              <pre><code class="hljs ruby" data-line-numbers>class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+  def name
+    @name
+  end
+
+end</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <pre><code class="hljs ruby" data-line-numbers>person = Person.new("Jenny")
+          
+person.name
+# => "Jenny"</code></pre>
+              <p>We can: set the name in the constructor, get the name via name method</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>How would you set a value?</h2>
+        </section>
+
+        <section>
+          <!-- <h2>How would you set a value?</h2> -->
+          <p>We know how to set a variable value:</p>
+          <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>name = "Mary"</code></pre>
+          <p class="fragment fade-in">So how could we set a new name on an object?</p>
+          <pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>person.name = "Mary"</code></pre>
+        </section>
+
+        <section>
+          <p>Let's look at our Person example again:</p>
+          <pre><code class="hljs ruby" data-line-numbers>class Person    
+  def initialize(name)
+    @name = name
+  end
+
+  def name
+    @name
+  end
+end</code></pre>
+        </section>
+
+        <section>
+          <p>and add a setter:</p>
+          <div class="flex-container">
+            <div class="flex-column fragment fade-in">
+              <pre class=""><code class="hljs ruby" data-line-numbers>class Person          
+  def initialize(name)
+    @name = name
+  end
+
+  def name
+    @name
+  end
+
+  def name=(new_name)
+    @name = new_name
+  end
+end</code></pre>
+            </div>
+            <div class="flex-column fragment fade-in">
+              <p>We add a new method that ends with the <b>"="</b> sign.</p>
+              <p>This is the magic so it can be used like a variable assignment.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <p>Technically we would have to call it like this:</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">person.name=("Mary")</code></pre>
+
+          <p class="fragment fade-in">but Ruby allows us to write it like this:</p>
+          <pre class="fragment fade-in"><code class="hljs ruby">person.name = "Mary"</code></pre>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/writing_classes/attribute_writers.html">Ruby For Beginners: Attribute writers</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
