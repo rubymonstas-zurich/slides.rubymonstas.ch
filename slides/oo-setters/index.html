@@ -135,6 +135,32 @@ end</code></pre>
           <pre class="fragment fade-in"><code class="hljs ruby">person.name = "Mary"</code></pre>
         </section>
 
+        <section>
+          <h2>Recipe</h2>
+          <pre class="fragment fade-in"><code class="hljs ruby">class MyClass
+  def my_attribute=(new_value)
+    @my_attribute = new_value
+  end
+end</code></pre>
+        
+          <p class="fragment fade-in">As you can see, the parameter can have any name. The important thing is that we assign the parameter to our instance variable.</p>
+        </section>
+
+        <section>
+          <h2>Full Example</h2>
+          <pre class="fragment fade-in"><code class="hljs ruby">class Person
+  def email
+    @email
+  end
+  
+  def email=(email)
+    @email = email
+  end
+end</code></pre>
+        
+          <p class="fragment fade-in">Usually though, you keep method names and instance variables equal.</p>
+        </section>
+
         <!-- Links to the relevant chapters in Ruby For Beginners -->
         <section>
           <h2>Additional Resources</h2>
