@@ -37,7 +37,7 @@
     "grunt-zip": "~0.20.0",
     "load-grunt-tasks": "^5.1.0",
     "mustache": "^4.2.0",
-    "node-sass": "^8.0.0",
+    "node-sass": "^9.0.0",
     "socket.io": "^4.5.4"
   },
   "license": "MIT",
