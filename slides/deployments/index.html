@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Deployments</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Deployments
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+            <p>You can write your presenter notes here</p>
+            <p>You start the presenter mode by pressing <kbd>S</kbd>.</p>
+            <p>By pressing <kbd>O</kbd> you'll see the slides overview.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>The Status Quo</h2>
+
+          <img class="no-border" src="images/status-quo.drawio.png" style="max-width: 90%">
+        </section>
+
+        <section>
+          <h2>The Goal</h2>
+
+          <img class="no-border" src="images/goal.drawio.png" style="max-width: 90%">
+        </section>
+
+        <section>
+          <h2>The Way There</h2>
+
+          <img class="no-border" src="images/way-there.drawio.png" style="max-width: 90%">
+        </section>
+
+
+        <!-- Example text -->
+        <section>
+          <h2>Any text</h2>
+          <p>
+            Use <b>bold</b> to make the word/s stand out.
+          </p>
+          <p class="fragment fade-in">
+            Write other groundbreaking information.
+          </p>
+          <p class="fragment fade-in">
+            Keep it <b>simple</b> and <b>clear</b>.
+          </p>
+          <p class="fragment fade-in">
+            Have <b>fun</b>!
+          </p>
+        </section>
+
+        <!-- Example slide with list of fade-in fragments -->
+        <section>
+          <h2>List with fade-in fragments</h2>
+          <ol>
+            <li class="fragment fade-in">I'm the <b>first</b> item</li>
+            <li class="fragment fade-in">I'm the <b>second</b> item</li>
+            <li class="fragment fade-in">I'm the <b>third</b> item</li>
+            <li class="fragment fade-in">I'm the <b>fourth</b> item</li>
+            <li class="fragment fade-in">I'm the <b>fifth</b> item</li>
+          </ol>
+        </section>
+
+        <!-- Example of embeded code -->
+        <section>
+          <h2>Code</h2>
+          <pre><code class="hljs ruby">puts "Hi, I'm a code"</code></pre>
+          <p class="fragment fade-in">Numbered lines</p>
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers>counter = 0
+
+loop do
+  puts "#{counter} seconds since the loop started"
+  counter = counter + 1
+end</code></pre>
+
+          <p class="fragment fade-in">Highlighted lines</p>
+<pre class="fragment fade-in"><code class="hljs ruby" data-line-numbers="1, 4">counter = 0
+
+loop do
+puts "#{counter} seconds since the loop started"
+counter = counter + 1
+end</code></pre>
+
+        </section>
+
+        <!-- Example of commands or output -->
+        <section>
+          <h2>Commands and command line output</h2>
+          <p>
+            <pre class="pre-inline">pwd</pre> stands for 'print working directory'
+          </p>
+          <pre class="fragment fade-in">0 seconds since the loop started
+1 seconds since the loop started
+2 seconds since the loop started
+3 seconds since the loop started</pre>
+        </section>
+
+        <!-- Example of keyboard keys -->
+        <section>
+          <h2>Keyboard keys</h2>
+          <p>Press <kbd>Cmd</kbd> + <kbd>Q</kbd></p>
+          <p>Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↓</kbd></p>
+        </section>
+
+        <!-- Nesting the slides, images -->
+        <section>
+          <section>
+            <h2>Images and nesting</h2>
+          </section>
+
+          <section>
+            <h2>Images</h2>
+            <p>Set the image size with width or height</p>
+            <img class="no-border" src="programming-workflow/images/terminal-pwd.png" style="max-width: 35%">
+            <img class="no-border" src="programming-workflow/images/finder1.png" style="max-width: 50%">
+          </section>
+
+          <section>
+            <h2>Svg with max height</h2>
+            <img class="no-border" src="programming-workflow/images/programming-workflow.svg" style="max-height: 500px">
+          </section>
+        </section>
+
+        <!-- Links to the relevant chapters in Ruby For Beginners -->
+        <section>
+          <h2>Additional Resources</h2>
+          <p>
+            <small><a href="https://ruby-for-beginners.rubymonstas.org/your_tools/irb.html">Ruby For Beginners: Interactive Ruby</a></small>
+          </p>
+        </section>
+
+        <!-- Last slide is the question for questions ;P -->
+        <section>
+          <p>What <b>questions</b> do you have?</p>
+        </section>
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
