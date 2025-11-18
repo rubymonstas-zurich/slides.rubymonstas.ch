@@ -20,6 +20,12 @@ i {
 .coaches {
   font-size: 0.8em; }
 
+
+.code-small {
+  font-size: 0.6em; 
+  line-height: 1.5em;
+}
+
 .flex-container {
   display: flex; }
 

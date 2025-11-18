@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>RM - Classes</title>
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/rubymonstas.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/solarized.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title slide with the topic. Don't forget to change the <title> tag too! -->
+        <section>
+          <div class="flex-container">
+            <div class="flex-column text-align-left">
+              <h1>Ruby Monstas</h1>
+              <hr>
+              <p class='subtitle'>
+                Classes & Objects
+              </p>
+            </div>
+            <div class="flex-column-200px">
+              <img class="no-border" src="../images/logo-cropped-small.png">
+            </div>
+          </div>
+          <aside class="notes">
+            <p>You can write your presenter notes here</p>
+            <p>You start the presenter mode by pressing <kbd>S</kbd>.</p>
+            <p>By pressing <kbd>O</kbd> you'll see the slides overview.</p>
+          </aside>
+        </section>
+
+        <!-- Example text -->
+        <section>
+          <h2>Pets</h2>
+          <p>
+            We describe pets by their <b>attributes</b> and <b>behaviors</b>.
+          </p>
+          <p class="fragment fade-in">
+            All cats can be described by their <b>name</b>, <b>color</b>, and <b>age</b>. Those are called their <b>attributes</b>.
+          </p>
+          <p class="fragment fade-in">
+            They can also <b>meow</b>, <b>scratch</b>, and <b>sleep</b>. Those are called their <b>behaviors</b>.
+          </p>
+
+        </section>
+
+        <!-- Example slide with list of fade-in fragments -->
+        <section>
+          <h2>Cats</h2>
+          <ul>
+            <li class="fragment fade-in">This is Ferdinand.</li>
+            <li class="fragment fade-in">He is a a tabby cat. He is 3 years old.</li>
+            <li class="fragment fade-in">He's an individual, but he shares attributes with other cats: all cats have a name, a color and an age.  </li>
+            <img class="fragment fade-in" src="images/ferdinand.jpeg" style="max-height: 300px">
+          </ul>
+        </section>
+
+        <section>
+          <h2>Cats</h2>
+          <ul>
+            <li class="fragment fade-in">This is Milo.</li>
+            <li class="fragment fade-in">He is a a brown and white striped cat. He is 12 years old.</li>
+            <li class="fragment fade-in">Just like Ferdinand, he has a name, a color and an age.  </li>
+            <img class="fragment fade-in" src="images/milo.jpeg" style="max-height: 300px">
+          </ul>
+        </section>
+
+        <section>
+          <h2>Cats are a Class</h2>
+          <ul>
+            <li class="fragment fade-in">Since all cats have the same attributes, like name, color and age, we can define a class for them.</li>
+            <li class="fragment fade-in">A class is a blueprint for creating objects.</li>
+            <li class="fragment fade-in">Cats are a class of objects. Individual cats, like Ferdinand and Milo, are instances of the Cat class.</li>
+          </ul>
+        </section>
+
+        <!-- Example of embeded code -->
+        <section>
+          <h2>Code</h2>
+          <p class="fragment fade-in">Basic class definition</p>
+          <pre><code class="fragment fade-in hljs ruby">
+class Cat
+  # Constructor method
+  def initialize(name, color, age)
+    @name = name      # instance variable for name
+    @color = color    # instance variable for color
+    @age = age        # instance variable for age
+  end
+end
+       
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Creation of Instances</h2>
+          <ul>
+            <li class="fragment fade-in">To create a new instance of a class, we use the <code>new</code> method.</li>
+            <li class="fragment fade-in">Each instance can have its own unique attribute values.</li>
+            <li class="fragment fade-in">For example, we can create two cats with different names, colors, and ages.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>The "initialize" Method</h2>
+          <ul>
+            <li class="fragment fade-in">The <code>initialize</code> method is a special method in Ruby that is called when a new instance of a class is created.</li>
+            <li class="fragment fade-in">It allows us to set initial values for the instance's attributes.</li>
+            <li class="fragment fade-in">For example, when we create a new cat, we can provide its name, color, and age right away.</li>
+            <li class="fragment fade-in">This is called "constructor" in other programming languages.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Initialize Cats</h2>
+          <p class="fragment fade-in">Basic class definition</p>
+          <pre><code class="fragment fade-in hljs ruby code-small">
+class Cat
+  # Constructor method
+  def initialize(name, color, age) # this is the method that is called on new
+    @name = name      # instance variable for name
+    @color = color    # instance variable for color
+    @age = age        # instance variable for age
+  end
+end
+
+ferdinand = Cat.new('Ferdinand', 'tabby', 3)
+milo = Cat.new('Milo', 'black and white striped', 12)
+
+
+          </code></pre>        
+        </section>
+
+        <section>
+          <h2>Getting our Cats to say hi!</h2>
+          <pre><code class="fragment fade-in hljs ruby code-small">class Cat
+  # Constructor method
+  def initialize(name, color, age)
+    @name = name      # instance variable for name
+    @color = color    # instance variable for color
+    @age = age        # instance variable for age
+  end
+  def say_hi
+    puts "Meow! My name is #{@name}, I am a #{@color} cat and I am #{@age} years old."
+  end
+end
+
+ferdinand = Cat.new('Ferdinand', 'tabby', 3)
+ferdinand.say_hi
+          </code></pre>
+        <p class="fragment fade-in">-> "Meow! My name is Ferdinand, I am a tabby cat and I am 3 years old."</p>
+        </section>
+
+        <section>
+          <h2>Asking Questions about our Cats</h2>
+          <pre><code class="fragment fade-in hljs ruby code-small">class Cat
+  # Constructor method
+  def initialize(name, color, age)
+    @name = name      # instance variable for name
+    @color = color    # instance variable for color
+    @age = age        # instance variable for age
+  end
+  def old?
+    if @age > 10
+      true
+    else
+      false
+    end
+  end
+end
+ferdinand = Cat.new('Ferdinand', 'tabby', 3)
+ferdinand.old?
+milo = Cat.new('Milo', 'black and white striped', 12)
+milo.old?
+          </code></pre>
+        <p class="fragment fade-in">-> false / true </p>
+        </section>
+
+
+
+
+        <section>
+          <h2>Local Variables</h2>
+          <ul>
+            <li class="fragment fade-in">Local variables are variables that are defined within a method or block.</li>
+            <li class="fragment fade-in">They are only accessible within that method or block.</li>
+            <li class="fragment fade-in">For example, we can create a local variable to hold a cat's name.</li>
+            <pre><code class="fragment fade-in hljs ruby code-small"> cat_name = "Whiskers"
+puts "The cat's name is #{cat_name}."
+          </code></pre>
+          <p class="fragment fade-in">-> "The cat's name is Whiskers."</p>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Local Variables</h2>
+          <ul>
+            <li class="fragment fade-in">If we try to access a local variable outside of its method or block, we will get an error.</li>
+            <pre><code class="fragment fade-in hljs ruby code-small"> def print_cat_name
+  cat_name = "Whiskers"
+  puts cat_name
+end
+puts cat_name
+          </code></pre>
+          <p class="fragment fade-in">-> "undefined local variable or method `cat_name' for main:Object (NameError)"</p>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Instance Variables</h2>
+          <ul>
+            <li class="fragment fade-in">Instance variables are variables that are defined within a class and are accessible to all instance methods of that class.</li>
+            <li class="fragment fade-in">They are prefixed with an @ symbol.</li>
+            <pre><code class="fragment fade-in hljs ruby code-small"> class Cat
+  def initialize(name)
+    @name = name
+  end
+  def print_name
+    puts "The cat's name is #{@name}."
+  end
+end
+cat = Cat.new("Whiskers")
+cat.print_name
+          </code></pre>
+          <p class="fragment fade-in">-> "The cat's name is Whiskers."</p>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Instance Variables</h2>
+          <ul>
+            <li class="fragment fade-in">Instance variables are useable without definition (default value: nil).  </li>
+            <pre><code class="fragment fade-in hljs ruby code-small"> class MyClass
+    def my_method
+      @my_variable
+    end
+  end
+my_object = MyClass.new
+puts my_object.my_method
+          </code></pre>
+          </ul>
+          <p class="fragment fade-in"> => nil</p>
+
+
+        </section>
+
+              <section>
+          <h2>Instance Variables</h2>
+          <pre><code class="fragment fade-in hljs ruby code-small"> class MyClass
+  def initialize
+    @my_variable = 12
+  end
+  def my_method
+    @my_variable
+  end
+end
+my_object = MyClass.new
+puts my_object.my_method
+          </code></pre>
+          <p class="fragment fade-in"> => 12</p>
+        </section>
+
+
+
+
+
+
+
+        <!-- Example of keyboard keys -->
+        <section>
+          <h2>Questions?</h2>
+        </section>
+
+     </div>
+    </div>
+
+    <script src="../../js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        pdfSeparateFragments: false,
+        dependencies: [
+          { src: '../../plugin/markdown/marked.js' },
+          { src: '../../plugin/markdown/markdown.js' },
+          { src: '../../plugin/notes/notes.js', async: true },
+          { src: '../../plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
